@@ -1,7 +1,7 @@
 site_name: CAN FD 知识库
-site_url: https://<github-username>.github.io/canfd-learning/   # [待施工Agent确认]
+site_url: https://MrHaper.github.io/CANFD_Library/
 site_description: 面向模拟IC设计工程师、嵌入式工程师与学生的 CAN FD 学习资料库
-repo_url: https://github.com/<github-username>/canfd-learning   # [待施工Agent确认]
+repo_url: https://github.com/MrHaper/CANFD_Library
 
 theme:
   name: material
