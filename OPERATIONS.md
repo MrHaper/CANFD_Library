@@ -199,7 +199,7 @@ user_dict.txt                # jieba 自定义词典(中文搜索分词)
 | 1 | tools-community 4 条 source 为空(阻抗/网络分析仪、知乎CSDN、EDAboard、厂商社区),页面已加"获取渠道待补充"提示 | 有可靠 URL 时补上 |
 | 2 | mermaid 依赖 unpkg CDN;CDN 故障/内网部署时图表不渲染(文本仍完整) | 有内网需求时自托管 mermaid.min.js |
 | 3 | 5 条 tools 条目 description 与 JSON 非逐字一致(语义等价,前端展示优先) | 触发 JSON 同步时顺手统一 |
-| 4 | `docs/` 子目录遗留 Task 1 的 8 个 `.gitkeep`(与页面并存,无害) | 清理时统一删除 |
+| 4 | ~~`docs/` 子目录遗留的 10 个 `.gitkeep`~~ **已清理(2026-08-02,commit 31a7d64)** | 已完成 |
 | 5 | 控制台/日志在 Windows GBK 下中文乱码(JSON/文件内容本身 UTF-8 正常);validate_resources.py 已加 `sys.stdout.reconfigure(encoding="utf-8")` 缓解 | 不处理亦可 |
 | 6 | 设计文档记载 standards 16 条,实际 17 条(IEC 62228-3 为建库补充);tools-community 20 vs 实际 23 | 以 `_data/*.json` 为准 |
 | 7 | ISO 11898-2 条目/知识点提及"ISO 官网现有 2026 更新版" | 随 ISO 版本演进定期复核 |
