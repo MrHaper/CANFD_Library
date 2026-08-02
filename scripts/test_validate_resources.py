@@ -62,11 +62,11 @@ def base_item(**overrides):
     return item
 
 
-def run(tmp_path, filename, items, categories=None, repo_root=None):
+def run(tmp_path, filename, items, categories=None, docs_dir=None):
     """写入临时 JSON 并校验,返回 (errors, warnings)。"""
     path = os.path.join(str(tmp_path), filename)
     write_json(path, items)
-    return validate_file(path, filename, repo_root or str(tmp_path),
+    return validate_file(path, filename, docs_dir or str(tmp_path),
                          categories or LOOSE_CATEGORIES)
 
 

@@ -70,14 +70,15 @@ def _category_name(filename):
     return None
 
 
-def _resolve_local_path(repo_root, local_file):
-    """把 local_file(相对仓库根,如 files/standards/x.pdf)解析为绝对路径。
+def _resolve_local_path(docs_dir, local_file):
+    """把 local_file(站点路径,如 files/standards/x.pdf)解析为 docs 目录下的绝对路径。
 
     剥离前导 '/'、'./' 与 '..' 段,防路径逃逸;统一 '/' 分隔跨平台拼接。
+    约定:PDF 存放于 docs/files/<分类>/,构建后站点 URL 为 /files/<分类>/...。
     """
     rel = local_file.strip().replace("\\", "/").lstrip("/")
     parts = [p for p in rel.split("/") if p and p != "." and p != ".."]
-    return os.path.join(repo_root, *parts)
+    return os.path.join(docs_dir, *parts)
 
 
 def _record(severity, filename, title, message):
@@ -85,13 +86,13 @@ def _record(severity, filename, title, message):
             "title": title, "message": message}
 
 
-def validate_file(path, filename, repo_root, categories=None):
+def validate_file(path, filename, docs_dir, categories=None):
     """校验单个 JSON 数据文件。
 
     参数:
         path:        JSON 文件路径
         filename:    数据文件名(仅用于输出,如 standards.json)
-        repo_root:   仓库根目录(local_file 相对此路径解析)
+        docs_dir:    docs 目录(local_file 相对此路径解析,PDF 位于 docs/files/)
         categories:  分类配置覆盖项(主要供测试使用);默认全局 CATEGORIES
 
     返回:
@@ -138,7 +139,7 @@ def validate_file(path, filename, repo_root, categories=None):
         _check_required(item, filename, title, errors, warnings)
         _check_enums(item, filename, title, errors)
         _check_type(item, spec, filename, title, errors)
-        _check_local_file(item, filename, title, repo_root, errors, warnings)
+        _check_local_file(item, filename, title, docs_dir, errors, warnings)
 
     return errors, warnings
 
@@ -225,7 +226,7 @@ def _check_type(item, spec, filename, title, errors):
             f"type 与分类不匹配: 应为 {spec['type']!r},实际 {actual!r}"))
 
 
-def _check_local_file(item, filename, title, repo_root, errors, warnings):
+def _check_local_file(item, filename, title, docs_dir, errors, warnings):
     """local_file 与 download 的一致性。
 
     download=local 且文件缺失/不存在 -> WARNING(PDF 入库属 M2 阶段);
@@ -239,7 +240,7 @@ def _check_local_file(item, filename, title, repo_root, errors, warnings):
             warnings.append(_record("WARNING", filename, title,
                                     "download=local 但 local_file 缺失"))
             return
-        abs_path = _resolve_local_path(repo_root, str(local_file))
+        abs_path = _resolve_local_path(docs_dir, str(local_file))
         if not os.path.isfile(abs_path):
             warnings.append(_record(
                 "WARNING", filename, title,
@@ -267,8 +268,8 @@ def main(argv=None):
         print(f"ERROR: 找不到资源数据目录: {data_dir}")
         return 1
 
-    # 仓库根 = docs 目录的父目录(files/ 与 docs/ 平级)
-    repo_root = os.path.dirname(os.path.abspath(docs_dir))
+    # local_file 相对 docs 目录解析(PDF 存放于 docs/files/<分类>/,站点路径为 /files/<分类>/)
+    docs_dir_abs = os.path.abspath(docs_dir)
 
     errors, warnings = [], []
     file_count = item_count = 0
@@ -277,7 +278,7 @@ def main(argv=None):
         if not filename.endswith(".json"):
             continue
         path = os.path.join(data_dir, filename)
-        file_errors, file_warnings = validate_file(path, filename, repo_root)
+        file_errors, file_warnings = validate_file(path, filename, docs_dir_abs)
 
         try:
             with open(path, "r", encoding="utf-8") as fh:
