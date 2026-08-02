@@ -1,7 +1,7 @@
 ---
 title: 术语表
 description: CAN/CAN FD 协议、物理层、位定时与工具术语的中文释义与中英对照,按字母 A-Z 索引。
-tags: [入门, 协议]
+tags: [术语表]
 ---
 # 术语表
 
