@@ -1,0 +1,337 @@
+[
+  {
+    "title": "TJA1463 CAN SIC 收发器(Sleep)数据手册",
+    "type": "厂商资料",
+    "organization": "NXP",
+    "year": 2025,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 3,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "NXP",
+      "数据手册"
+    ],
+    "source": "https://www.nxp.com/docs/en/data-sheet/TJA1463.pdf",
+    "local_file": "files/vendors/NXP_TJA1463_CAN_SIC_datasheet.pdf"
+  },
+  {
+    "title": "TJA1462 CAN SIC 收发器(Standby)数据手册",
+    "type": "厂商资料",
+    "organization": "NXP",
+    "year": 2025,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "NXP",
+      "数据手册"
+    ],
+    "source": "https://www.nxp.com/docs/en/data-sheet/TJA1462.pdf",
+    "local_file": "files/vendors/NXP_TJA1462_CAN_SIC_datasheet.pdf"
+  },
+  {
+    "title": "TJA1464 CAN SIC(ASIL B)产品页+Fact Sheet",
+    "type": "厂商资料",
+    "organization": "NXP",
+    "year": 2026,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "NXP",
+      "数据手册/产品页"
+    ],
+    "source": "https://www.nxp.com/products/TJA1464",
+    "local_file": "files/vendors/NXP_TJA1464_CAN_SIC_ASILB_factsheet.pdf"
+  },
+  {
+    "title": "UCANS32K1SIC CAN SIC 评估板",
+    "type": "厂商资料",
+    "organization": "NXP",
+    "year": 2024,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "NXP",
+      "参考设计/评估板"
+    ],
+    "source": "https://www.nxp.com/design/design-center/development-boards-and-designs/UCANS32K1SIC"
+  },
+  {
+    "title": "AH1308 Mantis CAN 收发器应用提示",
+    "type": "厂商资料",
+    "organization": "NXP",
+    "year": 2020,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 3,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "NXP",
+      "应用笔记"
+    ],
+    "source": "https://www.nxp.com/docs/en/supporting-information/AH1308_Application_Hints_Mantis.pdf",
+    "local_file": "files/vendors/NXP_AH1308_Mantis_CAN_app_hints.pdf"
+  },
+  {
+    "title": "TJA1044 CAN FD 收发器数据手册",
+    "type": "厂商资料",
+    "organization": "NXP",
+    "year": 2024,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "NXP",
+      "数据手册"
+    ],
+    "source": "https://www.nxp.com/docs/en/data-sheet/TJA1044.pdf",
+    "local_file": "files/vendors/NXP_TJA1044_CAN_FD_datasheet.pdf"
+  },
+  {
+    "title": "TCAN1463-Q1 CAN SIC 收发器(Sleep/INH/WAKE)数据手册",
+    "type": "厂商资料",
+    "organization": "TI",
+    "year": 2022,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 3,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "TI",
+      "数据手册"
+    ],
+    "source": "https://www.ti.com/lit/gpn/TCAN1463-Q1",
+    "local_file": "files/vendors/TI_TCAN1463-Q1_CAN_SIC_datasheet.pdf"
+  },
+  {
+    "title": "TCAN1462-Q1 CAN SIC 收发器(Standby)数据手册",
+    "type": "厂商资料",
+    "organization": "TI",
+    "year": 2024,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "TI",
+      "数据手册"
+    ],
+    "source": "https://www.ti.com/lit/gpn/TCAN1462-Q1",
+    "local_file": "files/vendors/TI_TCAN1462-Q1_CAN_SIC_datasheet.pdf"
+  },
+  {
+    "title": "SLLA581 白皮书:CAN FD 收发器中 SIC 如何释放真正潜力",
+    "type": "厂商资料",
+    "organization": "TI",
+    "year": 2025,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 3,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "TI",
+      "白皮书"
+    ],
+    "source": "https://www.ti.com/lit/pdf/SLLA581",
+    "local_file": "files/vendors/TI_SLLA581_SIC_whitepaper.pdf"
+  },
+  {
+    "title": "SDAA190 应用笔记:CAN / CAN FD / CAN XL 对比",
+    "type": "厂商资料",
+    "organization": "TI",
+    "year": 2026,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "TI",
+      "应用笔记"
+    ],
+    "source": "https://www.ti.com/lit/pdf/SDAA190",
+    "local_file": "files/vendors/TI_SDAA190_CAN_CANFD_CANXL_compare.pdf"
+  },
+  {
+    "title": "SLVAFC1 应用笔记:CAN 总线 ESD 过压保护",
+    "type": "厂商资料",
+    "organization": "TI",
+    "year": 2022,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "TI",
+      "应用笔记"
+    ],
+    "source": "https://www.ti.com/lit/pdf/SLVAFC1",
+    "local_file": "files/vendors/TI_SLVAFC1_CAN_bus_ESD_protection.pdf"
+  },
+  {
+    "title": "TCAN1044-Q1 CAN FD 收发器数据手册",
+    "type": "厂商资料",
+    "organization": "TI",
+    "year": 2025,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "TI",
+      "数据手册"
+    ],
+    "source": "https://www.ti.com/lit/gpn/TCAN1044-Q1",
+    "local_file": "files/vendors/TI_TCAN1044-Q1_CAN_FD_datasheet.pdf"
+  },
+  {
+    "title": "TLE9371V CAN SIC 收发器数据手册",
+    "type": "厂商资料",
+    "organization": "Infineon",
+    "year": 2023,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "Infineon",
+      "数据手册"
+    ],
+    "source": "https://www.alldatasheet.com/datasheet-pdf/pdf/1632707/INFINEON/TLE9371VSJ.html"
+  },
+  {
+    "title": "TLE9255W CAN FD 收发器(Partial Networking)数据手册",
+    "type": "厂商资料",
+    "organization": "Infineon",
+    "year": 2018,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "Infineon",
+      "数据手册"
+    ],
+    "source": "https://www.alldatasheet.com/datasheet-pdf/pdf/1046719/INFINEON/TLE9255W.html"
+  },
+  {
+    "title": "TLE9471 Lite CAN SBC 数据手册",
+    "type": "厂商资料",
+    "organization": "Infineon",
+    "year": 2019,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "Infineon",
+      "数据手册"
+    ],
+    "source": "https://www.alldatasheet.com/datasheet-pdf/pdf/1239068/INFINEON/TLE9471-3ES.html"
+  },
+  {
+    "title": "NCV7357 CAN FD 收发器数据手册",
+    "type": "厂商资料",
+    "organization": "onsemi",
+    "year": "",
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "onsemi",
+      "数据手册"
+    ],
+    "source": "https://www.onsemi.com/download/data-sheet/pdf/ncv7357-d.pdf",
+    "local_file": "files/vendors/onsemi_NCV7357_CAN_FD_datasheet.pdf"
+  },
+  {
+    "title": "ATA6563 CAN FD 收发器数据手册",
+    "type": "厂商资料",
+    "organization": "Microchip",
+    "year": 2021,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "Microchip",
+      "数据手册"
+    ],
+    "source": "https://www.alldatasheet.com/datasheet-pdf/pdf/1357106/MICROCHIP/ATA6563.html"
+  }
+]

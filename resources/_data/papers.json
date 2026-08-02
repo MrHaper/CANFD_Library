@@ -1,0 +1,305 @@
+[
+  {
+    "title": "CAN with Flexible Data-Rate",
+    "type": "论文",
+    "organization": "Robert Bosch",
+    "year": 2012,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文"
+    ],
+    "source": "https://www.can-cia.org/fileadmin/cia/documents/proceedings/2012_hartwich.pdf",
+    "local_file": "files/papers/2012_Hartwich_CAN_with_Flexible_Data-Rate.pdf"
+  },
+  {
+    "title": "CAN signal improvement and designing 5-Mbps networks",
+    "type": "论文",
+    "organization": "NXP",
+    "year": 2020,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 3,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文",
+      "网络"
+    ],
+    "source": "https://www.can-cia.org/fileadmin/cia/documents/proceedings/2020_adamson_engelhard_zhang.pdf",
+    "local_file": "files/papers/2020_Adamson_CAN_signal_improvement_and_5Mbps_networks.pdf"
+  },
+  {
+    "title": "Managing the transition to robust CAN FD",
+    "type": "论文",
+    "organization": "NXP",
+    "year": 2017,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文",
+      "CAN FD"
+    ],
+    "source": "https://www.can-cia.org/fileadmin/cia/documents/proceedings/2017_adamson.pdf",
+    "local_file": "files/papers/2017_Adamson_Managing_the_transition_to_robust_CAN_FD.pdf"
+  },
+  {
+    "title": "Characterizing the physical layer of CAN FD",
+    "type": "论文",
+    "organization": "Keysight",
+    "year": 2020,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文",
+      "CAN FD",
+      "物理层"
+    ],
+    "source": "https://www.can-cia.org/fileadmin/cia/documents/proceedings/2020_hancock.pdf",
+    "local_file": "files/papers/2020_Hancock_Characterizing_the_physical_layer_of_CAN_FD.pdf"
+  },
+  {
+    "title": "Interoperability challenges for CAN FD/PN transceivers",
+    "type": "论文",
+    "organization": "C&S group",
+    "year": 2017,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文",
+      "CAN FD",
+      "收发器"
+    ],
+    "source": "https://www.can-cia.org/fileadmin/cia/documents/proceedings/2017_wosnitza.pdf",
+    "local_file": "files/papers/2017_Wosnitza_Interoperability_CAN_FD_PN_transceivers.pdf"
+  },
+  {
+    "title": "Automated analysis for vehicle communication",
+    "type": "论文",
+    "organization": "Vector",
+    "year": 2017,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文"
+    ],
+    "source": "https://www.can-cia.org/fileadmin/cia/documents/proceedings/2017_donatzer.pdf",
+    "local_file": "files/papers/2017_Donatzer_Automated_analysis_vehicle_communication.pdf"
+  },
+  {
+    "title": "The physical layer in the CAN XL world",
+    "type": "论文",
+    "organization": "Infineon",
+    "year": 2020,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文",
+      "物理层"
+    ],
+    "source": "https://www.can-cia.org/fileadmin/cia/documents/proceedings/2020_hell.pdf",
+    "local_file": "files/papers/2020_Hell_Physical_layer_in_the_CAN_XL_world.pdf"
+  },
+  {
+    "title": "A highly-digitized automotive CAN transceiver in 0.14µm high-voltage SOI CMOS",
+    "type": "论文",
+    "organization": "NXP",
+    "year": 2015,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文",
+      "收发器"
+    ],
+    "source": "https://doi.org/10.1109/emccompo.2015.7358322"
+  },
+  {
+    "title": "Novel ringing suppression circuit to achieve higher data rates in a linear passive star CAN FD",
+    "type": "论文",
+    "organization": "DENSO",
+    "year": 2014,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文",
+      "CAN FD",
+      "振铃抑制"
+    ],
+    "source": "https://doi.org/10.1109/emceurope.2014.6930940"
+  },
+  {
+    "title": "Controller Area Network (CAN) Bus Transceiver with Authentication Support",
+    "type": "论文",
+    "organization": "SMU",
+    "year": 2022,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文",
+      "收发器",
+      "网络",
+      "安全"
+    ],
+    "source": "https://doi.org/10.1109/iscas48785.2022.9937839"
+  },
+  {
+    "title": "Realization of CAN FD Shielding in High Speed CAN Transceiver for Partial Networking",
+    "type": "论文",
+    "organization": "IEEE",
+    "year": 2021,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文",
+      "CAN FD",
+      "收发器",
+      "网络"
+    ],
+    "source": "https://doi.org/10.1109/isne48910.2021.9493645"
+  },
+  {
+    "title": "Electromagnetic Noise Evaluation of Transceiver IC and Communication Modules in CAN-FD Communication",
+    "type": "论文",
+    "organization": "九州工业大学",
+    "year": 2022,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文",
+      "CAN FD",
+      "收发器",
+      "EMC"
+    ],
+    "source": "https://doi.org/10.1109/icsj55786.2022.10034693"
+  },
+  {
+    "title": "Immunity Evaluation Method of Transceiver ICs for In-Vehicle CAN-FD",
+    "type": "论文",
+    "organization": "SOKEN/丰田/名古屋工大",
+    "year": 2024,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文",
+      "CAN FD",
+      "收发器"
+    ],
+    "source": "https://doi.org/10.23919/emcjapan/apemcokinaw58965.2024.10585203"
+  },
+  {
+    "title": "Sensitivity analysis of passive CAN bus components to investigate signal integrity of CAN network physical layer",
+    "type": "论文",
+    "organization": "KAI / Fraunhofer IIS / Infineon",
+    "year": 2008,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文",
+      "物理层",
+      "信号完整性",
+      "网络"
+    ],
+    "source": "https://doi.org/10.1109/bmas.2008.4751240"
+  },
+  {
+    "title": "Virtual Development for In-Vehicle Network Topology – A Case Study of CAN FD Physical Layer",
+    "type": "论文",
+    "organization": "DENSO",
+    "year": 2017,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "学术论文",
+      "CAN FD",
+      "网络"
+    ],
+    "source": "https://doi.org/10.4271/2017-01-0023"
+  }
+]

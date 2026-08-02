@@ -1,0 +1,253 @@
+[
+  {
+    "title": "CAN bus edge timing control for dominant-to-recessive transitions（CAN 总线显性→隐性边沿时序控制）",
+    "type": "专利",
+    "organization": "Texas Instruments",
+    "year": 2017,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "专利",
+      "SIC",
+      "隐性抵消 (recessive nulling)"
+    ],
+    "source": "https://patents.google.com/patent/US9606948B2/zh",
+    "local_file": "files/patents/US9606948B2.pdf"
+  },
+  {
+    "title": "Bus transceiver with ring suppression（带振铃抑制的总线收发器）",
+    "type": "专利",
+    "organization": "Texas Instruments",
+    "year": 2022,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "专利",
+      "SIC",
+      "瞬态触发振铃抑制"
+    ],
+    "source": "https://patents.google.com/patent/US11310072B2/zh",
+    "local_file": "files/patents/US11310072B2.pdf"
+  },
+  {
+    "title": "Method, system and apparatus for suppressing controller area network bus ringing（抑制 CAN 总线振铃的方法、系统与装置）",
+    "type": "专利",
+    "organization": "Microchip Technology",
+    "year": 2022,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "专利",
+      "SIC",
+      "阻抗匹配 + 斜率控制"
+    ],
+    "source": "https://patents.google.com/patent/US11539548B2/zh",
+    "local_file": "files/patents/US11539548B2.pdf"
+  },
+  {
+    "title": "Controller area network (CAN) transceiver and method for operating a CAN transceiver（CAN 收发器及操作方法）",
+    "type": "专利",
+    "organization": "NXP",
+    "year": 2016,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 3,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "专利",
+      "CAN FD 收发器架构",
+      "流量检测"
+    ],
+    "source": "https://patents.google.com/patent/US9471528B2/zh",
+    "local_file": "files/patents/US9471528B2.pdf"
+  },
+  {
+    "title": "Feedforward ringing suppression circuit（前馈振铃抑制电路）",
+    "type": "专利",
+    "organization": "NXP",
+    "year": 2018,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "专利",
+      "振铃抑制",
+      "开关终端"
+    ],
+    "source": "https://patents.google.com/patent/US10020841B2/zh",
+    "local_file": "files/patents/US10020841B2.pdf"
+  },
+  {
+    "title": "Differential bus receiver with four-quadrant input circuit（四象限输入电路的差分总线接收器）",
+    "type": "专利",
+    "organization": "Infineon Technologies",
+    "year": 2018,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "专利",
+      "接收器",
+      "共模补偿"
+    ],
+    "source": "https://patents.google.com/patent/US10042807B2/zh",
+    "local_file": "files/patents/US10042807B2.pdf"
+  },
+  {
+    "title": "Controller area network transceiver having capacitive balancing circuit for improved receiver common-mode rejection（改善接收器共模抑制的电容平衡 CAN 收发器）",
+    "type": "专利",
+    "organization": "Texas Instruments",
+    "year": 2006,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "专利",
+      "接收器共模抑制"
+    ],
+    "source": "https://patents.google.com/patent/US7113759B2/zh",
+    "local_file": "files/patents/US7113759B2.pdf"
+  },
+  {
+    "title": "CAN bus driver with accelerated state transitions（加速状态转换的 CAN 总线驱动器）",
+    "type": "专利",
+    "organization": "Elmos Semiconductor",
+    "year": 2021,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "专利",
+      "驱动器输出级",
+      "加速隐性过渡"
+    ],
+    "source": "https://patents.google.com/patent/US11048657B2/zh",
+    "local_file": "files/patents/US11048657B2.pdf"
+  },
+  {
+    "title": "User station for a bus system and method for improving the transmission quality in a bus system（改善总线系统传输质量的用户站）",
+    "type": "专利",
+    "organization": "Robert Bosch",
+    "year": 2018,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "专利",
+      "位对称性",
+      "发送信号整形"
+    ],
+    "source": "https://patents.google.com/patent/US10084617B2/zh",
+    "local_file": "files/patents/US10084617B2.pdf"
+  },
+  {
+    "title": "Controller area network transceiver（CAN 收发器）",
+    "type": "专利",
+    "organization": "NXP",
+    "year": 2023,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "专利",
+      "接收器阈值",
+      "CAN FD·XL 兼容判别"
+    ],
+    "source": "https://patents.google.com/patent/US11588662B1/zh",
+    "local_file": "files/patents/US11588662B1.pdf"
+  },
+  {
+    "title": "Oscillation reduction unit for a bus system and method for reducing an oscillation tendency when transitioning between different bit states（总线系统振荡抑制单元及方法）",
+    "type": "专利",
+    "organization": "Robert Bosch",
+    "year": 2021,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "专利",
+      "SIC",
+      "振荡(振铃)抑制"
+    ],
+    "source": "https://patents.google.com/patent/US11068429B2/zh",
+    "local_file": "files/patents/US11068429B2.pdf"
+  },
+  {
+    "title": "Systems and methods for reducing electromagnetic emissions from a controller area network transceiver（降低 CAN 收发器电磁辐射的系统与方法）",
+    "type": "专利",
+    "organization": "Texas Instruments",
+    "year": 2007,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "专利",
+      "EMC",
+      "共模发射抑制"
+    ],
+    "source": "https://patents.google.com/patent/US7183793B2/zh",
+    "local_file": "files/patents/US7183793B2.pdf"
+  }
+]

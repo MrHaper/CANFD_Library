@@ -1,0 +1,206 @@
+[
+  {
+    "title": "Secure Controller Area Network (CAN) Transceiver With Embedded Authentication Support",
+    "type": "期刊",
+    "organization": "美国南卫理公会大学 SMU,电气与计算机工程系 / 计算机科学系",
+    "year": 2025,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "期刊论文",
+      "收发器",
+      "网络",
+      "安全"
+    ],
+    "source": "https://doi.org/10.1109/TCSI.2025.3538844"
+  },
+  {
+    "title": "Controller Area Network (CAN) Bus Transceiver with Authentication Support and Enhanced Rail Converters",
+    "type": "期刊",
+    "organization": "美国南卫理公会大学 SMU",
+    "year": 2024,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "期刊论文",
+      "收发器",
+      "网络",
+      "安全"
+    ],
+    "source": "https://doi.org/10.3390/chips3040018",
+    "local_file": "files/journals/J2024_MDPI_Chips_CAN_transceiver_auth_enhanced_rail.pdf"
+  },
+  {
+    "title": "Design and analysis of a low voltage overshoot CAN transceiver interface circuit",
+    "type": "期刊",
+    "organization": "西安电子科技大学微电子学院",
+    "year": 2025,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 3,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "期刊论文",
+      "收发器",
+      "信号完整性"
+    ],
+    "source": "https://doi.org/10.1587/elex.22.20240720",
+    "local_file": "files/journals/J2025_IEICE_low_voltage_overshoot_CAN_interface.pdf"
+  },
+  {
+    "title": "Design of the Circuits for a CMOS CAN Transceiver Chip with Slew Rate Control",
+    "type": "期刊",
+    "organization": "吉林大学",
+    "year": 2012,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "期刊论文",
+      "收发器"
+    ],
+    "source": "https://doi.org/10.4028/www.scientific.net/AMR.433-440.1895"
+  },
+  {
+    "title": "System-Level ESD Protection for Automotive Electronics by Co-Design of TVS and CAN Transceiver Chips",
+    "type": "期刊",
+    "organization": "IEEE",
+    "year": 2017,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "期刊论文",
+      "收发器"
+    ],
+    "source": "https://doi.org/10.1109/TDMR.2017.2737943"
+  },
+  {
+    "title": "Immunity of CAN, CAN FD and Automotive Ethernet 100/1000BASE-T1 to Crosstalk From Power Electronic Systems",
+    "type": "期刊",
+    "organization": "德国多特蒙德工业大学,On-board Systems Lab",
+    "year": 2022,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 3,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "期刊论文",
+      "CAN FD"
+    ],
+    "source": "https://doi.org/10.1109/TEMC.2022.3206334"
+  },
+  {
+    "title": "Controller Area Network With Flexible Data Rate (CAN FD) Eye Diagram Prediction",
+    "type": "期刊",
+    "organization": "密苏里科技大学 EMC 实验室",
+    "year": 2024,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 3,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "期刊论文",
+      "CAN FD",
+      "信号完整性",
+      "网络"
+    ],
+    "source": "https://doi.org/10.1109/TEMC.2024.3350054"
+  },
+  {
+    "title": "A Quantitative Performance Study on CAN and CAN FD Vehicular Networks",
+    "type": "期刊",
+    "organization": "IEEE",
+    "year": 2018,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "期刊论文",
+      "CAN FD",
+      "网络"
+    ],
+    "source": "https://doi.org/10.1109/TIE.2017.2762638"
+  },
+  {
+    "title": "In-Vehicle Network Average Response Time Analysis for CAN-FD and Automotive Ethernet",
+    "type": "期刊",
+    "organization": "现代汽车集团、延世大学",
+    "year": 2023,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "期刊论文",
+      "CAN FD",
+      "网络"
+    ],
+    "source": "https://doi.org/10.1109/TVT.2023.3236593"
+  },
+  {
+    "title": "Intrusion detection system for automotive Controller Area Network (CAN) bus system: a review",
+    "type": "期刊",
+    "organization": "Springer",
+    "year": 2019,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "期刊论文",
+      "网络",
+      "安全",
+      "综述"
+    ],
+    "source": "https://doi.org/10.1186/s13638-019-1484-3",
+    "local_file": "files/journals/J2019_EURASIP_CAN_intrusion_detection_review.pdf"
+  }
+]
