@@ -1,6 +1,6 @@
 ---
 title: Bosch CAN FD Specification v1.0(全文查阅)
-description: Bosch CAN FD 协议规范 v1.0(2012)全文站内查阅版,含帧格式、位定时与 TDC 原始定义
+description: "Bosch CAN FD 协议规范 v1.0(2012)全文站内查阅版,含帧格式、位定时与 TDC 原始定义"
 tags: [专家, 协议, 标准全文]
 status: verified
 source: https://web.archive.org/web/20151211125301/http://www.bosch-semiconductors.de/media/ubk_semiconductors/pdf_1/canliteratur/can_fd_spec.pdf
