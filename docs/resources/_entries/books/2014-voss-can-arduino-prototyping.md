@@ -19,7 +19,7 @@ source: https://openlibrary.org/isbn/9781938581168
 - **作者**:Wilfried Voss(注:该书真实作者为 Wilfried Voss;任务背景中误传的 K. Tindell 系 CAN FD 协议专家(Bosch),并未出版该书)
 - **出版社**:Copperhill Media(2014)
 - **ISBN**:978-1-938581-16-8
-- **获取渠道**:Copperhill 官网(copperhilltech.com)/ Amazon;Open Library 可查证书目
+- **获取渠道**:Copperhill 官网(copperhilltech.com)/ Amazon;Open Library 可查证
 
 内容简介:以 Arduino 平台讲解 CAN 节点原型开发的书,涵盖 CAN 协议基础、控制器(如 MCP2515)、收发器(MCP2551/TJA1050)、位速率计算与收发示例代码。
 

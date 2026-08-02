@@ -10,7 +10,7 @@ download: none
 priority: 1
 audience: [模拟IC]
 tags: [教材, 英文]
-source: https://openlibrary.org/isbn/9780929292783
+source: https://openlibrary.org/isbn/9780929392783
 ---
 
 ## 是什么
@@ -19,7 +19,7 @@ CAN/CANopen 系统设计专著(2003 初版;Copperhill Media 2008 再版)。
 - **作者**:Olaf Pfeiffer、Andrew Ayre、Christian Keydel
 - **出版社**:Annabooks / RTC Books(2003);Copperhill Media(2008 再版)
 - **ISBN**:978-0-929392-78-3
-- **获取渠道**:Copperhill 官网 / Amazon;Open Library 可查证书目
+- **获取渠道**:Copperhill 官网 / Amazon;Open Library 可查证
 
 内容简介:CAN/CANopen 系统设计专著,讲解 CAN 基础、位定时与同步、网络布线/终端/接地,以及 CANopen 对象字典、PDO/SDO、网络管理等完整应用层内容。
 

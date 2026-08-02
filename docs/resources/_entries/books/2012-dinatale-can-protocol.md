@@ -19,7 +19,7 @@ source: https://openlibrary.org/isbn/9781461403142
 - **作者**:Marco Di Natale、Haibo Zeng、Paolo Giusto、Arkadeb Ghosal
 - **出版社**:Springer(2012-01)
 - **ISBN**:978-1-4614-0314-2(精装)/ 978-1-4614-0315-9(eBook)
-- **获取渠道**:Springer Link 电子版(付费订阅或购买);Amazon 有售;Open Library 可查证书目
+- **获取渠道**:Springer Link 电子版(付费订阅或购买);Amazon 有售;Open Library 可查证
 
 内容简介:由学术界与业界合著的 CAN 协议权威解析,形式化地阐述报文仲裁、错误处理、位定时与再同步、实时性调度与 Worst-Case 分析,并提供工具与案例。
 

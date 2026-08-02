@@ -19,7 +19,7 @@ source: https://openlibrary.org/isbn/9780976511601
 - **作者**:Wilfried Voss
 - **出版社**:Copperhill Technologies(2005 初版;第 2 版 2008-09,据 CiA 书目列表)
 - **ISBN**:978-0-9765116-0-1(Open Library 记录,对应初版)
-- **获取渠道**:Copperhill 官网 / Amazon;Open Library 可查证书目
+- **获取渠道**:Copperhill 官网 / Amazon;Open Library 可查证
 - **注**:第 2 版年份以 CiA 书目列表(2008-09)为准,ISBN 为 Open Library 所录初版号,购买时请以书商页为准。
 
 内容简介:用通俗语言讲解 CAN 协议全貌(帧格式、仲裁、错误处理、位时序)的入门专著,配大量图例,读者门槛低。
