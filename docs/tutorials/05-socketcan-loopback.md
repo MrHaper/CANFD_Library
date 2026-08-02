@@ -135,7 +135,7 @@ cangen vcan0 -b -g 500 -v
 |---|---|
 | `No such device` | 接口卡驱动未加载或未创建 `vcan0` |
 | `Cannot assign requested address` | 接口没 `up` |
-| `candump` 不显示 FD 帧内容 | 长度显示正常但内容为空的,检查帧格式(如把经典帧的 `#` 与 FD 的 `##` 混用) |
+| `candump` 不显示 FD 帧内容 | 先确认内核与 can-utils 支持 FD(`candump --help` 或 man 页);发送/接收都用 FD 帧格式(`cansend can0 123##12345678`) |
 | 真实接口上频繁报错 | 位定时配置不当、无终端电阻、收发器不支持 FD——参考[位定时配置实战](06-bit-timing-config.md) |
 
 ## 关键结论
