@@ -56,7 +56,11 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed
   - pymdownx.tasklist
   - tables
@@ -73,6 +77,10 @@ extra:
     模拟IC: analog-ic
     嵌入式: embedded
     学生: student
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js
+  - javascripts/mermaid.js
 
 nav:                     # 显式声明全部板块(不依赖自动发现)
   - 首页: index.md
