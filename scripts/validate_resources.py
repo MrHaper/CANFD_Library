@@ -254,6 +254,12 @@ def _check_local_file(item, filename, title, repo_root, errors, warnings):
 def main(argv=None):
     """CLI 入口。返回退出码:0=无 ERROR;1=有 ERROR。"""
     args = list(sys.argv[1:] if argv is None else argv)
+    # Windows 下重定向输出时固定 UTF-8,避免中文乱码
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
     docs_dir = args[0] if args else "docs"
     data_dir = os.path.join(docs_dir, "resources", "_data")
 
