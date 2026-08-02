@@ -1,0 +1,484 @@
+[
+  {
+    "title": "CANoe / CANalyzer",
+    "type": "工具",
+    "organization": "Vector Informatik",
+    "year": "",
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "软件工具",
+      "商业(付费)"
+    ],
+    "description": "车载网络开发/测试事实标准,支持 CAN FD 与 SIC 分析、总线仿真、一致性测试脚本",
+    "source": "https://www.vector.com"
+  },
+  {
+    "title": "PCAN-View / PCAN-Explorer",
+    "type": "工具",
+    "organization": "PEAK-System",
+    "year": "",
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "软件工具",
+      "商业(基础版免费)"
+    ],
+    "description": "轻量 USB/CAN 分析工具,入门友好",
+    "source": "https://www.peak-system.com"
+  },
+  {
+    "title": "Kvaser 软件套件(canKing 等)",
+    "type": "工具",
+    "organization": "Kvaser",
+    "year": "",
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "软件工具",
+      "商业(部分免费)"
+    ],
+    "description": "总线分析、报文记录,支持 CAN FD",
+    "source": "https://www.kvaser.com"
+  },
+  {
+    "title": "BusMaster",
+    "type": "工具",
+    "organization": "RBEI(开源)",
+    "year": "",
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "软件工具",
+      "开源免费"
+    ],
+    "description": "跨平台开源 CAN/CAN FD 分析工具(Windows),学习协议帧结构很方便",
+    "source": "https://github.com/rbei-etas/busmaster"
+  },
+  {
+    "title": "python-can",
+    "type": "工具",
+    "organization": "python-can 社区",
+    "year": "",
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "软件工具",
+      "开源免费"
+    ],
+    "description": "Python 操作 CAN 接口的标准库,适合写脚本做数据分析",
+    "source": "https://github.com/hardbyte/python-can"
+  },
+  {
+    "title": "SocketCAN",
+    "type": "工具",
+    "organization": "Linux 内核",
+    "year": "",
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "软件工具",
+      "开源(内核自带)"
+    ],
+    "description": "Linux 原生 CAN/CAN FD 协议栈与工具(candump、cansend、cangen),实验首选",
+    "source": "https://www.kernel.org/doc/html/latest/networking/can.html"
+  },
+  {
+    "title": "CANdb++(DBC 编辑器)",
+    "type": "工具",
+    "organization": "Vector",
+    "year": "",
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "软件工具",
+      "商业"
+    ],
+    "description": "报文矩阵(DBC)编辑,理解车载信号定义",
+    "source": "https://www.vector.com"
+  },
+  {
+    "title": "can-utils",
+    "type": "工具",
+    "organization": "Linux 社区",
+    "year": "",
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "软件工具",
+      "开源免费"
+    ],
+    "description": "SocketCAN 配套命令行工具",
+    "source": "https://github.com/linux-can/can-utils"
+  },
+  {
+    "title": "示波器 + CAN/CAN FD 解码",
+    "type": "工具",
+    "organization": "Keysight / Tektronix / R&S",
+    "year": "",
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "硬件设备"
+    ],
+    "description": "观察总线波形、眼图、振铃、位定时;多数高端示波器自带 CAN FD 触发与解码",
+    "source": "https://www.keysight.com"
+  },
+  {
+    "title": "CAN 接口卡(USB / PCIe)",
+    "type": "工具",
+    "organization": "PEAK / Vector / Kvaser / 周立功 ZLG",
+    "year": "",
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "硬件设备"
+    ],
+    "description": "上位机收发报文、回环测试",
+    "source": "https://www.peak-system.com"
+  },
+  {
+    "title": "CAN FD 一致性测试系统",
+    "type": "工具",
+    "organization": "Vector / 第三方实验室",
+    "year": "",
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "硬件设备"
+    ],
+    "description": "依据 ISO 16845 执行协议一致性;物理层一致性多用 CiA plugfest 与厂商测试板",
+    "source": "https://www.vector.com"
+  },
+  {
+    "title": "阻抗/网络分析仪",
+    "type": "工具",
+    "organization": "通用仪器",
+    "year": "",
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "none",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "硬件设备"
+    ],
+    "description": "测收发器输出阻抗、回波损耗(SIC 规范关键指标)",
+    "source": ""
+  },
+  {
+    "title": "EMC 测试系统(传导发射 / 抗扰度)",
+    "type": "工具",
+    "organization": "R&S / 第三方实验室",
+    "year": "",
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "硬件设备"
+    ],
+    "description": "依据 CISPR 25、IEC 62228-3 做收发器 EMC 认证",
+    "source": "https://www.rohde-schwarz.com"
+  },
+  {
+    "title": "CiA plugfest / interoperability 测试",
+    "type": "工具",
+    "organization": "CiA",
+    "year": "",
+    "version": "",
+    "access": "member",
+    "status": "verified",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "认证渠道"
+    ],
+    "description": "CAN in Automation 定期组织的 CAN FD、CAN SIC 收发器互操作测试,是验证自研芯片与主流收发器互联的关键活动 → https://www.can-cia.org",
+    "source": "https://www.can-cia.org"
+  },
+  {
+    "title": "一致性测试标准",
+    "type": "工具",
+    "organization": "ISO / IEC",
+    "year": "",
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "认证渠道"
+    ],
+    "description": "ISO 16845-1/-2(见 01_标准规范);物理层 EMC 另见 **IEC 62228-3**(CAN 收发器 EMC 评估,见总 README 勘误补充)",
+    "source": "https://www.iso.org"
+  },
+  {
+    "title": "第三方实验室",
+    "type": "工具",
+    "organization": "TÜV / SGS / 广电计量 / 赛宝",
+    "year": "",
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "认证渠道"
+    ],
+    "description": "TÜV、SGS、广电计量、赛宝等可承接收发器一致性 / EMC / 车规认证(AEC-Q100 可靠性在认证机构或内部完成)",
+    "source": "https://www.tuv.com"
+  },
+  {
+    "title": "CiA CAN Knowledge",
+    "type": "工具",
+    "organization": "CiA CAN Knowledge",
+    "year": "",
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 3,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "社区平台",
+      "官方知识库"
+    ],
+    "description": "免费的 CAN/CAN FD 原理文章,权威且成体系,强烈推荐",
+    "source": "https://www.can-cia.org/can-knowledge"
+  },
+  {
+    "title": "Wikipedia: CAN bus / CAN FD",
+    "type": "工具",
+    "organization": "Wikipedia: CAN bus / CAN FD",
+    "year": "",
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "社区平台",
+      "百科"
+    ],
+    "description": "快速建立全局概念",
+    "source": "https://en.wikipedia.org/wiki/CAN_bus"
+  },
+  {
+    "title": "Stack Overflow(can 标签)",
+    "type": "工具",
+    "organization": "Stack Overflow",
+    "year": "",
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "社区平台",
+      "问答社区"
+    ],
+    "description": "协议与软件实现问题",
+    "source": "https://stackoverflow.com/questions/tagged/can"
+  },
+  {
+    "title": "知乎 / CSDN(车载网络、CAN FD 话题)",
+    "type": "工具",
+    "organization": "知乎 / CSDN",
+    "year": "",
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "none",
+    "priority": 1,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "社区平台",
+      "中文社区"
+    ],
+    "description": "中文资料杂,注意甄别错误(尤其 SIC 概念较新,错漏多)",
+    "source": ""
+  },
+  {
+    "title": "EDAboard / 电子发烧友论坛",
+    "type": "工具",
+    "organization": "EDAboard / 电子发烧友论坛",
+    "year": "",
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "none",
+    "priority": 1,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "社区平台",
+      "电子工程论坛"
+    ],
+    "description": "收发器电路实现讨论",
+    "source": ""
+  },
+  {
+    "title": "NXP / TI / Infineon 开发者社区",
+    "type": "工具",
+    "organization": "NXP / TI / Infineon 开发者社区",
+    "year": "",
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "none",
+    "priority": 1,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "社区平台",
+      "厂商社区"
+    ],
+    "description": "提问竞品实现细节、获取应用支持",
+    "source": ""
+  },
+  {
+    "title": "周立功 ZLG(致远电子)",
+    "type": "工具",
+    "organization": "周立功 ZLG",
+    "year": "",
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC",
+      "嵌入式",
+      "学生"
+    ],
+    "tags": [
+      "社区平台",
+      "中文资料库"
+    ],
+    "description": "CAN/CAN FD 分析仪与大量中文应用文档、教学视频",
+    "source": "https://www.zlg.cn"
+  }
+]

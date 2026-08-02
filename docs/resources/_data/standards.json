@@ -1,0 +1,326 @@
+[
+  {
+    "title": "ISO 11898-1 (2015)",
+    "type": "标准规范",
+    "organization": "ISO",
+    "year": 2015,
+    "version": "",
+    "access": "paid",
+    "status": "withdrawn",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "ISO 11898-1"
+    ],
+    "source": "https://www.iso.org/search.html?q=ISO%2011898"
+  },
+  {
+    "title": "ISO 11898-1 (2024)",
+    "type": "标准规范",
+    "organization": "ISO",
+    "year": 2024,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "ISO 11898-1"
+    ],
+    "source": "https://www.iso.org/standard/86384.html"
+  },
+  {
+    "title": "ISO 11898-2 (2016)",
+    "type": "标准规范",
+    "organization": "ISO",
+    "year": 2016,
+    "version": "",
+    "access": "paid",
+    "status": "withdrawn",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "ISO 11898-2"
+    ],
+    "source": "https://www.iso.org/search.html?q=%2211898-2%3A2016%22"
+  },
+  {
+    "title": "ISO 11898-2 (2024)",
+    "type": "标准规范",
+    "organization": "ISO",
+    "year": 2024,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 3,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "ISO 11898-2"
+    ],
+    "source": "https://www.iso.org/standard/90697.html"
+  },
+  {
+    "title": "ISO 11898-3",
+    "type": "标准规范",
+    "organization": "ISO",
+    "year": 2006,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "ISO 11898-3"
+    ],
+    "source": "https://www.iso.org/standard/36055.html"
+  },
+  {
+    "title": "ISO 11898-5 / -6",
+    "type": "标准规范",
+    "organization": "ISO",
+    "year": 2016,
+    "version": "",
+    "access": "paid",
+    "status": "withdrawn",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "ISO 11898-5 / -6"
+    ],
+    "source": "https://www.can-cia.org/can-knowledge/can-hs-transmission"
+  },
+  {
+    "title": "ISO 16845-1",
+    "type": "标准规范",
+    "organization": "ISO",
+    "year": 2016,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "ISO 16845-1"
+    ],
+    "source": "https://www.iso.org/standard/59166.html"
+  },
+  {
+    "title": "ISO 16845-2",
+    "type": "标准规范",
+    "organization": "ISO",
+    "year": 2018,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "ISO 16845-2"
+    ],
+    "source": "https://www.iso.org/standard/69841.html"
+  },
+  {
+    "title": "CiA 601 系列 Part 1",
+    "type": "标准规范",
+    "organization": "CiA",
+    "year": 2021,
+    "version": "v2.0.0",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "CiA 601"
+    ],
+    "source": "https://www.can-cia.org/can-knowledge/cia-601-series-can-fd-guidelines-and-recommendations"
+  },
+  {
+    "title": "CiA 601 系列 Part 3",
+    "type": "标准规范",
+    "organization": "CiA",
+    "year": 2021,
+    "version": "v1.0.0",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "CiA 601"
+    ],
+    "source": "https://www.can-cia.org/can-knowledge/cia-601-series-can-fd-guidelines-and-recommendations"
+  },
+  {
+    "title": "CiA 601-4(SIC)",
+    "type": "标准规范",
+    "organization": "CiA",
+    "year": 2023,
+    "version": "v2.1.0",
+    "access": "free",
+    "status": "withdrawn",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "CiA 601-4"
+    ],
+    "source": "https://www.can-cia.org/can-knowledge/cia-601-series-can-fd-guidelines-and-recommendations"
+  },
+  {
+    "title": "CiA 610 / 611 / 612 / 613 系列",
+    "type": "标准规范",
+    "organization": "CiA",
+    "year": "",
+    "version": "",
+    "access": "member",
+    "status": "verified",
+    "download": "link",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "CiA 610 / 611 / 612 / 613"
+    ],
+    "source": "https://www.can-cia.org/can-knowledge/cia-610-series-can-xl-specification-and-test-plans"
+  },
+  {
+    "title": "CiA 1301",
+    "type": "标准规范",
+    "organization": "CiA",
+    "year": "",
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "CiA 1301"
+    ],
+    "source": "https://www.can-cia.org/can-knowledge/canopen-fd-the-art-of-embedded-networking"
+  },
+  {
+    "title": "CiA 140",
+    "type": "标准规范",
+    "organization": "CiA",
+    "year": 2024,
+    "version": "",
+    "access": "free",
+    "status": "verified",
+    "download": "link",
+    "priority": 3,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "CiA 140"
+    ],
+    "source": "https://web.archive.org/web/20250426054403/https://www2.can-cia.org/news/cia-in-action/view/cia-corrigendum-proposal-iso-11898-22024/"
+  },
+  {
+    "title": "Bosch CAN FD Specification v1.0",
+    "type": "标准规范",
+    "organization": "Robert Bosch GmbH",
+    "year": 2012,
+    "version": "v1.0",
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 3,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "Bosch CAN FD Specification v1.0"
+    ],
+    "source": "https://web.archive.org/web/20151211125301/http://www.bosch-semiconductors.de/media/ubk_semiconductors/pdf_1/canliteratur/can_fd_spec.pdf",
+    "local_file": "files/standards/Bosch_CAN_FD_Specification_v1.0_2012.pdf"
+  },
+  {
+    "title": "SAE J2284-4",
+    "type": "标准规范",
+    "organization": "SAE International",
+    "year": 2016,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "SAE J2284-4"
+    ],
+    "source": "https://saemobilus.sae.org/standards/j22844_202211-high-speed-hsc-vehicle-applications-500-kbps-fd-data-2-mbps"
+  },
+  {
+    "title": "IEC 62228-3",
+    "type": "标准规范",
+    "organization": "IEC",
+    "year": 2019,
+    "version": "",
+    "access": "paid",
+    "status": "verified",
+    "download": "link",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "标准规范",
+      "IEC 62228-3"
+    ],
+    "source": "https://webstore.iec.ch/en/publication/30003"
+  }
+]
