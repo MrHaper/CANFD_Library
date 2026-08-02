@@ -400,7 +400,6 @@ def parse_standards(readme_text, pdf_files):
         warn("[01 标准规范] 未找到表格,条目数为 0")
         return []
     rows = first_data_rows(tables[0])
-    detail = extract_detail_sections(readme_text)
     items, prev_source, name_counts = [], None, Counter()
     raw = []
     for r in rows:
