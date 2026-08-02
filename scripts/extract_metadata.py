@@ -168,7 +168,7 @@ def extract_detail_sections(text):
 # --- priority 推导(详细说明中的显式字面标记) ---
 PRIORITY_3_WORDS = ["必读", "最关键", "最重要", "权威规范", "金标准",
                     "最值得精读", "强烈推荐", "强烈建议"]
-PRIORITY_2_WORDS = ["关键", "核心", "奠基", "直接依据", "事实标准", "重点"]
+PRIORITY_2_WORDS = ["关键", "奠基", "直接依据", "事实标准", "重点"]
 
 
 def infer_priority(text):
@@ -446,8 +446,8 @@ def parse_standards(readme_text, pdf_files):
                                        it["year"] if it["year"] else "?")
     # 组装完整条目
     for idx, it in enumerate(raw, start=1):
-        dtext = detail.get(idx, "")
-        priority = infer_priority(it["_version_col"] + " " + dtext)
+        # 01 的详细说明按主题 1~12 分节,不与表格行号对齐,故不用 detail 文本推导 priority
+        priority = infer_priority(it["_version_col"] + " " + it["title"])
         local = match_pdf_generic(pdf_files, it)
         items.append({
             "title": it["title"],

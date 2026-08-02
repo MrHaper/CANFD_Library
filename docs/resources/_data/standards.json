@@ -46,7 +46,7 @@
     "access": "paid",
     "status": "withdrawn",
     "download": "link",
-    "priority": 2,
+    "priority": 1,
     "audience": [
       "模拟IC"
     ],
@@ -84,7 +84,7 @@
     "access": "paid",
     "status": "verified",
     "download": "link",
-    "priority": 2,
+    "priority": 1,
     "audience": [
       "模拟IC"
     ],
@@ -103,7 +103,7 @@
     "access": "paid",
     "status": "withdrawn",
     "download": "link",
-    "priority": 2,
+    "priority": 1,
     "audience": [
       "模拟IC"
     ],
@@ -160,7 +160,7 @@
     "access": "free",
     "status": "verified",
     "download": "link",
-    "priority": 2,
+    "priority": 1,
     "audience": [
       "模拟IC"
     ],
@@ -179,7 +179,7 @@
     "access": "free",
     "status": "verified",
     "download": "link",
-    "priority": 2,
+    "priority": 1,
     "audience": [
       "模拟IC"
     ],
@@ -198,7 +198,7 @@
     "access": "free",
     "status": "withdrawn",
     "download": "link",
-    "priority": 2,
+    "priority": 1,
     "audience": [
       "模拟IC"
     ],
@@ -217,7 +217,7 @@
     "access": "member",
     "status": "verified",
     "download": "link",
-    "priority": 2,
+    "priority": 1,
     "audience": [
       "模拟IC"
     ],
