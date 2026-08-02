@@ -95,11 +95,14 @@ nav:                     # 显式声明全部板块(不依赖自动发现)
       - 控制器与驱动: knowledge/controller/index.md
       - 工具与测试: knowledge/tools/index.md
       - 项目实践笔记: knowledge/project-notes/index.md
+      - SIC设计专题: knowledge/sic-design/index.md
   - 教程: tutorials/index.md
   - 资源库:
       - resources/index.md
       - 标准规范: resources/standards.md
       - 标准查阅: resources/standards-text/index.md
+      - SIC设计专题: resources/sic-design.md
+      - 全文查阅: resources/full-text/index.md
       - 专利: resources/patents.md
       - 论文: resources/papers.md
       - 期刊: resources/journals.md

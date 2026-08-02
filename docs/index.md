@@ -76,3 +76,4 @@ search: { boost: 2 }
 - [Adamson 2020:5 Mbps 网络设计](resources/_entries/papers/2020-adamson-5mbps-networks.md)、[SLLA581 SIC 白皮书](resources/_entries/vendors/ti-slla581.md) — SIC 设计必读
 - [原创教程 12 篇](tutorials/index.md)与[术语表 51 词条](glossary/index.md)同步上线
 - 勘误收录:[CiA 613 实为 CAN XL](resources/_entries/standards/cia-610-613-can-xl-series.md)、[TLE9255 非 SIC](resources/_entries/vendors/infineon-tle9255w.md) 等 4 条,见[勘误与贡献](contribute.md)
+- **SIC 设计专题上线**:知识库新增[SIC 设计专题](knowledge/sic-design/index.md)(原理→设计→测试 三篇深度知识),资源库新增[SIC 设计专题分类](resources/sic-design.md)(10 篇 CAN Newsletter / iCC 论文,含本地 PDF),并开放[资料全文查阅](resources/full-text/index.md)(专利 5 篇、数据手册 4 份、白皮书与论文 2 篇站内全文)

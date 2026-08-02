@@ -1,0 +1,210 @@
+[
+  {
+    "title": "CNL 2022-4:Infineon CAN SIC 动态参数详解",
+    "type": "SIC设计专题",
+    "organization": "CAN Newsletter",
+    "year": 2022,
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 3,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "SIC",
+      "动态参数",
+      "EMC"
+    ],
+    "source": "https://www.can-cia.org",
+    "local_file": "files/sic-design/CNL2022-4_Infineon_CAN_SIC_dynamic_parameters.pdf",
+    "description": "Infineon 工程师详解 CAN SIC 收发器新增动态参数,阐明动态参数定义、测量方法及其与 EMC 测试结果的关系。"
+  },
+  {
+    "title": "CNL 2022-3:SIC 收发器多厂商方案访谈",
+    "type": "SIC设计专题",
+    "organization": "CAN Newsletter",
+    "year": 2022,
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "SIC",
+      "设计取舍"
+    ],
+    "source": "https://www.can-cia.org",
+    "local_file": "files/sic-design/CNL2022-3_SIC_transceiver_provider_interviews.pdf",
+    "description": "CAN Newsletter 多厂商 SIC 收发器方案访谈,横向对比各家在振铃抑制与信号改善上的设计取舍。"
+  },
+  {
+    "title": "CNL 2023-1:Infineon SIC 与 SIC XL 选型辨析",
+    "type": "SIC设计专题",
+    "organization": "CAN Newsletter",
+    "year": 2023,
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "SIC",
+      "SIC XL",
+      "演进"
+    ],
+    "source": "https://www.can-cia.org",
+    "local_file": "files/sic-design/CNL2023-1_Infineon_SIC_vs_SIC_XL.pdf",
+    "description": "Infineon 工程师辨析 SIC 与 SIC XL 的定位与区别,帮助理解 SIC 向 SIC XL 的演进路径与选型考量。"
+  },
+  {
+    "title": "CNL 2025-1:esd CAN SIC 实测信号质量",
+    "type": "SIC设计专题",
+    "organization": "CAN Newsletter",
+    "year": 2025,
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "SIC",
+      "信号质量",
+      "应用"
+    ],
+    "source": "https://www.can-cia.org",
+    "local_file": "files/sic-design/CNL2025-1_esd_CAN_SIC_signal_quality.pdf",
+    "description": "esd 分享 CAN SIC 收发器的实测信号质量结果,展示 SIC 在真实网络拓扑下的信号改善效果,属应用案例。"
+  },
+  {
+    "title": "iCC 2024:Kvaser 高位速率线束布局与 CAN SIC",
+    "type": "SIC设计专题",
+    "organization": "Kvaser",
+    "year": 2024,
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "SIC",
+      "线束布局",
+      "网络设计"
+    ],
+    "source": "https://www.can-cia.org",
+    "local_file": "files/sic-design/iCC2024_Kvaser_cable_layout_and_CAN_SIC.pdf",
+    "description": "Kvaser 论文讨论高位速率 CAN 网络的线束布局与 CAN SIC 的关系,给出网络级设计视角。"
+  },
+  {
+    "title": "iCC 2020:Kvaser 改进型 CAN 驱动器与振铃抑制",
+    "type": "SIC设计专题",
+    "organization": "Kvaser",
+    "year": 2020,
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 3,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "SIC",
+      "振铃抑制"
+    ],
+    "source": "https://www.can-cia.org",
+    "local_file": "files/sic-design/iCC2020_Kvaser_improved_CAN_driver.pdf",
+    "description": "Kvaser 论文从振铃机理出发介绍改进型 CAN 驱动器,是理解 SIC 为什么需要信号改善的原理基础文献。"
+  },
+  {
+    "title": "iCC 2024:Infineon CAN XL 物理层",
+    "type": "SIC设计专题",
+    "organization": "Infineon",
+    "year": 2024,
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "SIC",
+      "CAN XL",
+      "物理层"
+    ],
+    "source": "https://www.can-cia.org",
+    "local_file": "files/sic-design/iCC2024_Infineon_CAN_XL_physical_layer.pdf",
+    "description": "Infineon 论文介绍 CAN XL 物理层设计,给出 SIC 向 SIC XL 演进的系统全景。"
+  },
+  {
+    "title": "iCC 2024:LeCroy CAN 眼图分析",
+    "type": "SIC设计专题",
+    "organization": "LeCroy",
+    "year": 2024,
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "SIC",
+      "眼图",
+      "测试方法"
+    ],
+    "source": "https://www.can-cia.org",
+    "local_file": "files/sic-design/iCC2024_LeCroy_eye_diagrams_CAN.pdf",
+    "description": "LeCroy 论文介绍用眼图评估 CAN/CAN FD 信号质量的方法,是收发器输出验证的测试方法参考。"
+  },
+  {
+    "title": "iCC 2024:C&S CAN XL 网络验证",
+    "type": "SIC设计专题",
+    "organization": "C&S",
+    "year": 2024,
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 1,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "SIC",
+      "CAN XL",
+      "验证方法"
+    ],
+    "source": "https://www.can-cia.org",
+    "local_file": "files/sic-design/iCC2024_CS_CAN_XL_validation.pdf",
+    "description": "C&S 论文讨论 CAN XL(含 SIC XL)网络的验证方法与挑战,提供网络级验证视角。"
+  },
+  {
+    "title": "iCC 2024:NXP 部分网络与 SIC",
+    "type": "SIC设计专题",
+    "organization": "NXP",
+    "year": 2024,
+    "access": "free",
+    "status": "verified",
+    "download": "local",
+    "priority": 2,
+    "audience": [
+      "模拟IC"
+    ],
+    "tags": [
+      "SIC",
+      "部分网络",
+      "应用价值"
+    ],
+    "source": "https://www.can-cia.org",
+    "local_file": "files/sic-design/iCC2024_NXP_partial_networking_SIC.pdf",
+    "description": "NXP 论文讨论部分网络(PN)功能与 SIC 收发器的结合及其应用价值,提供功能规划参考。"
+  }
+]

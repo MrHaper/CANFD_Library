@@ -48,6 +48,7 @@ CATEGORIES = {
     "books":           {"type": "教材",     "min_items": 11},
     "vendors":         {"type": "厂商资料", "min_items": 17},
     "tools-community": {"type": "工具",     "min_items": 20},
+    "sic-design":      {"type": "SIC设计专题", "min_items": 10},
 }
 
 REQUIRED_FIELDS = (

@@ -12,7 +12,7 @@
 | 站点 | https://MrHaper.github.io/CANFD_Library/ |
 | 源码仓库 | https://github.com/MrHaper/CANFD_Library(main 分支 + gh-pages 部署分支) |
 | 技术栈 | MkDocs Material ≥ 9.6(Python 3.9+,本机 3.14)、mkdocs-minify-plugin、jieba、GitHub Actions |
-| 站点性质 | 中文 CAN FD 学习资料库:105 条资源(标准/专利/论文/期刊/教材/厂商/工具社区)+ 51 术语词条 + 12 原创教程 + 2 学习路线 + 7 知识子域 18 知识点页 |
+| 站点性质 | 中文 CAN FD 学习资料库:115 条资源(标准/专利/论文/期刊/教材/厂商/工具社区/SIC设计专题)+ 51 术语词条 + 12 原创教程 + 2 学习路线 + 8 知识子域(含项目实践笔记/SIC设计专题)+ 标准全文与资料全文查阅 |
 | 目标读者 | 模拟 IC 设计工程师(主线)与嵌入式工程师(辅助) |
 | 建站背景 | 团队已流片一颗 CAN FD (SIC) 收发器芯片,网站沉淀"协议→物理层→收发器设计→测试认证"全流程知识 |
 
@@ -50,17 +50,19 @@ python -m pytest scripts/test_validate_resources.py -v
 docs/
 ├── index.md                 # 首页(人群入口卡/TOP10/最新收录)
 ├── learn/                   # 学习路线:总览 + analog-ic(6 阶段)/embedded(5)
-├── knowledge/               # 知识库:7 子域(protocol/bit-timing/physical-layer/
-│                            #   transceiver-design/controller/tools/project-notes)
-│                            #   × 3 知识点页 + project-notes index/模板
+├── knowledge/               # 知识库:8 子域(protocol/bit-timing/physical-layer/
+│                            #   transceiver-design/controller/tools/project-notes/
+│                            #   sic-design)含 index 与知识点/专题页
 ├── tutorials/               # 12 篇原创教程(01~12 编号)+ index
 ├── resources/
 │   ├── index.md             # 资源库总览
-│   ├── standards.md …       # 7 个分类汇总页(按 priority 3/2/1 三表)
-│   ├── _data/*.json         # ★ 资源元数据唯一数据源(7 个文件,105 条)
+│   ├── standards.md …       # 8 个分类汇总页(按 priority 3/2/1 三表)
+│   ├── standards-text/      # 标准全文查阅(免费公开全文已收录)
+│   ├── full-text/           # 资料全文查阅(专利/数据手册/白皮书/论文全文)
+│   ├── _data/*.json         # ★ 资源元数据唯一数据源(8 个文件,115 条)
 │   ├── _entries/<分类>/*.md # ★ 每条资源一个条目页(导读五节 + frontmatter)
 │   └── …
-├── files/<分类>/*.pdf       # 35 个公开 PDF(仅可免费获取的,版权红线见 §7.2)
+├── files/<分类>/*.pdf       # 47 个公开 PDF(仅可免费获取的,版权红线见 §7.2)+ SIC学习笔记.html
 ├── glossary/                # 51 词条 + A-Z 索引
 ├── javascripts/mermaid.js   # mermaid 初始化
 └── contribute.md / about.md

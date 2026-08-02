@@ -31,6 +31,7 @@ CATEGORY_TYPES = {
     "books": "教材",
     "vendors": "厂商资料",
     "tools-community": "工具",
+    "sic-design": "SIC设计专题",
 }
 
 # 测试用宽松分类配置:type 与真实一致,条数下限降为 1
