@@ -94,6 +94,7 @@ nav:                     # 显式声明全部板块(不依赖自动发现)
       - 收发器设计: knowledge/transceiver-design/index.md
       - 控制器与驱动: knowledge/controller/index.md
       - 工具与测试: knowledge/tools/index.md
+      - 项目实践笔记: knowledge/project-notes/index.md
   - 教程: tutorials/index.md
   - 资源库:
       - resources/index.md
