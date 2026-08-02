@@ -74,7 +74,7 @@ search: { boost: 1 }
 从"能跑通"进阶到"看得懂":把帧结构、位填充、CRC、错误机制、位定时与采样点这些概念逐个吃透,并用波形/抓帧数据验证自己的理解。
 
 ### 必读资料
-- [ISO 11898-1:2024](../resources/_entries/standards/iso-11898-1-2024.md) — 现行标准,帧格式与错误处理的权威来源(选读关键章节);
+- [ISO 11898-1:2024](../resources/_entries/standards/iso-11898-1-2024.md) — 现行标准,帧格式与错误处理的权威来源(选读关键章节;付费标准,如无预算可用阶段 0/1 的 Bosch 规范等免费资料替代);
 - [Hartwich 2012:CAN FD 原始论文](../resources/_entries/papers/2012-hartwich-can-fd.md) — 作者讲设计动机,好懂且免费;
 - [CiA 601-3 位定时配置](../resources/_entries/standards/cia-601-3-bit-timing.md) — 采样点与位定时配置入门;
 - [教程:教程列表](../tutorials/index.md) — 原创图文教程(建设中,帧结构与位定时主题后续补充);
