@@ -72,3 +72,11 @@ search: { boost: 2 }
 - **不确定从哪开始**:回到本文的[必读 TOP 10](#-必读-top-10),或按身份进入对应[学习路线](learn/index.md)。
 
 > 如果发现条目信息有误(作者、编号、链接失效等),请到[勘误与贡献](contribute.md)查看勘误记录,并通过该页的渠道提交反馈。
+
+## 🆕 最新收录
+
+- [ISO 11898-2:2024(SIC 权威规范)](resources/_entries/standards/iso-11898-2-2024.md)、[Bosch CAN FD Specification v1.0](resources/_entries/standards/bosch-2012-canfd-spec.md) — 协议与物理层两大源头文档
+- [12 篇 SIC/CAN FD 收发器专利](resources/patents.md)(TI/NXP/Bosch/Infineon/Microchip,全部可下载 PDF)
+- [Adamson 2020:5 Mbps 网络设计](resources/_entries/papers/2020-adamson-5mbps-networks.md)、[SLLA581 SIC 白皮书](resources/_entries/vendors/ti-slla581.md) — SIC 设计必读
+- [原创教程 12 篇](tutorials/index.md)与[术语表 51 词条](glossary/index.md)同步上线
+- 勘误收录:[CiA 613 实为 CAN XL](resources/_entries/standards/cia-610-613-can-xl-series.md)、[TLE9255 非 SIC](resources/_entries/vendors/infineon-tle9255w.md) 等 4 条,见[勘误与贡献](contribute.md)
