@@ -51,7 +51,7 @@ ip link set can0 up
 candump can0
 
 # 3. 发送 FD 帧
-cansend can0 123##1123456789ABCDEF
+cansend can0 123##11122334455667788
 ```
 
 完整动手流程见教程[用 SocketCAN 5 分钟跑通 CAN FD 回环](../../tutorials/05-socketcan-loopback.md)。
