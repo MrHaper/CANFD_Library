@@ -19,7 +19,6 @@ Microchip ATA6563 / ATA6563-GAQW0/GBQW0 是 High-Speed CAN FD 收发器(Standby 
 ## 为什么值得读
 - **模拟IC 工程师**:作为后发厂商的 CAN FD 收发器,其"低成本 Standby 型"定位与 TI/NXP 同档次器件对比,可帮助理解收发器成本/性能折衷(TXD 定时、ESD 等级选择)。
 - **嵌入式开发工程师**:Standby 模式低功耗 CAN FD 节点的另一选型来源。
-- **学生**:对比不同厂商对"低成本 CAN FD"的不同实现策略。
 
 ## 核心内容要点
 - High-Speed CAN FD 收发器(Standby 模式),CAN FD 快相位优化时序。

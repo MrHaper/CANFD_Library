@@ -20,7 +20,6 @@ NXP TJA1464 是面向 ISO 11898-2:2024 / SAE J2284-1~5 的下一代 CAN SIC 收�
 ## 为什么值得读
 - **模拟IC 工程师**:Fact Sheet(CANPNFSA4)与产品规格给出 SIC→CAN XL 演进路线(总线负载范围扩大),是规划下一代收发器(支持 CAN XL)的参考;ASIL B 文档清单可作功能安全设计模板。
 - **嵌入式开发工程师**:了解 ASIL B 功能安全在收发器上的落地要求(safety manual / FMEDA),用于安全相关 ECU 选型。
-- **学生**:观察一款 Preproduction 产品的规格演进与功能安全文档体系。
 
 ## 核心内容要点
 ### 内部框图要点

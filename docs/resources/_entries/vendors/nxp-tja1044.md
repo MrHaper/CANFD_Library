@@ -20,7 +20,6 @@ NXP TJA1044 是 Mantis 家族经典 CAN FD 高速收发器数据手册(Rev 8.0, 
 ## 为什么值得读
 - **模拟IC 工程师**:作为"非 SIC"基线收发器,SIC 器件的时序/振铃指标与其对比可量化 SIC 带来的裕量提升(bit timing symmetry、ringing reduction),是性能对标基线。
 - **嵌入式开发工程师**:无需共模扼流圈即可获得优秀 EMC、8 kV ESD,是经济型 CAN FD 节点的经典选型。
-- **学生**:理解"经典 CAN FD 收发器"与 SIC 收发器的差异起点。
 
 ## 核心内容要点
 ### 内部框图要点

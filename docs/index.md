@@ -1,17 +1,17 @@
 ---
 title: 首页
-description: 面向模拟IC设计工程师、嵌入式工程师与学生的 CAN FD / CAN SIC 学习资料库:学习路线、知识库、教程、资源库、术语表一站直达。
+description: 面向模拟 IC 设计工程师(嵌入式工程师辅助)的 CAN FD / CAN SIC 学习资料库:学习路线、知识库、教程、资源库、术语表一站直达。
 search: { boost: 2 }
 ---
 # CAN FD 知识库
 
 > **一个站点,补齐 CAN FD / CAN SIC 从协议到芯片的全流程知识。**
 >
-> 本知识库面向 **模拟 IC 设计工程师、嵌入式工程师与学生** 三类读者,围绕"协议 → 物理层 → 收发器设计 → 测试认证"的全流程,聚合了权威标准、专利、论文、教材与厂商资料,并配以可执行的分角色学习路线与原创教程。建站动机是团队已流片一颗 CAN FD (SIC) 收发器芯片——这里沉淀的就是这条路上需要的一切。
+> 本知识库专门面向 **模拟 IC 设计工程师**(嵌入式工程师为辅助读者),围绕"协议 → 物理层 → 收发器设计 → 测试认证"的全流程,聚合了权威标准、专利、论文、教材与厂商资料,并配以可执行的分角色学习路线、原创教程与项目实践笔记。建站动机是团队已流片一颗 CAN FD (SIC) 收发器芯片——这里沉淀的就是这条路上需要的一切。
 
 ## 👥 按你的身份进入
 
-三条学习路线均由阶段目标、必读资料与动手任务组成,按顺序走即可,关键节点互相交叉互链。
+两条学习路线均由阶段目标、必读资料与动手任务组成,按顺序走即可,关键节点互相交叉互链;网站以**模拟IC 设计为主线**。
 
 !!! tip "模拟IC 设计工程师"
     - **适合谁**:正在或打算做 CAN FD / CAN SIC 收发器模拟设计(输出级、接收比较器、振铃抑制电路)的芯片工程师
@@ -25,18 +25,13 @@ search: { boost: 2 }
     - **终点能力**:在实际硬件上跑通 CAN FD 收发,正确配置采样点与 TDC,用示波器解码抓帧、排查错误帧,完成 DBC 与多节点系统搭建
     - **[:material-memory: 进入嵌入式路线](learn/embedded.md)**
 
-!!! info "学生 / 转行者"
-    - **适合谁**:从零开始、预算有限的高校学生或转行者,没有硬件基础也想低成本入门
-    - **路线周期**:约 7~13 周
-    - **终点能力**:理解 CAN FD 帧结构与工作机制,用低成本硬件跑通双节点收发,并根据兴趣明确下一步方向(IC 或嵌入式)
-    - **[:material-account-school: 进入学生路线](learn/student.md)**
 
 ## 🗺️ 全站内容导览
 
 | 板块 | 是什么 | 入口 |
 |------|--------|------|
-| 学习路线 | 按读者身份规划的分阶段路径:学什么、怎么学、学到什么程度算过 | [学习路线总览](learn/index.md) |
-| 知识库 | 按协议对象分域的权威知识点:协议基础、位定时、物理层与 SIC、收发器设计、控制器与工具 | [知识库总览](knowledge/index.md) |
+| 学习路线 | 按读者身份规划的分阶段路径(模拟IC 主线、嵌入式辅助):学什么、怎么学、学到什么程度算过 | [学习路线总览](learn/index.md) |
+| 知识库 | 按协议对象分域的权威知识点:协议基础、位定时、物理层与 SIC、收发器设计、控制器、工具,及项目实践笔记 | [知识库总览](knowledge/index.md) |
 | 教程 | 原创动手教程:帧结构、SocketCAN 回环、位定时配置、示波器抓帧、plugfest 等 | [教程列表](tutorials/index.md) |
 | 资源库 | 标准、专利、论文、期刊、教材、厂商资料、工具与社区的分类索引,附收录与版权说明 | [资源库总览](resources/index.md) |
 | 术语表 | A-Z 词条即时查漏:遇到陌生词点进来先看定义 | [术语表索引](glossary/index.md) |
@@ -75,6 +70,7 @@ search: { boost: 2 }
 
 ## 🆕 最新收录
 
+- 【新子域】[项目实践笔记](knowledge/project-notes/index.md)上线:项目问题 → 技术分析 → 知识点,持续更新;[标准查阅](resources/standards-text/index.md)提供标准全文站内查阅
 - [ISO 11898-2:2024(SIC 权威规范)](resources/_entries/standards/iso-11898-2-2024.md)、[Bosch CAN FD Specification v1.0](resources/_entries/standards/bosch-2012-canfd-spec.md) — 协议与物理层两大源头文档
 - [12 篇 SIC/CAN FD 收发器专利](resources/patents.md)(TI/NXP/Bosch/Infineon/Microchip,全部可下载 PDF)
 - [Adamson 2020:5 Mbps 网络设计](resources/_entries/papers/2020-adamson-5mbps-networks.md)、[SLLA581 SIC 白皮书](resources/_entries/vendors/ti-slla581.md) — SIC 设计必读

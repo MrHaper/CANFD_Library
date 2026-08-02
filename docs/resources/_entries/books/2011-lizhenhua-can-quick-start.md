@@ -8,7 +8,7 @@ access: paid
 status: verified
 download: none
 priority: 1
-audience: [模拟IC, 学生]
+audience: [模拟IC]
 tags: [教材, 中文]
 source: https://openlibrary.org/isbn/978-7-5124-0268-3
 ---
@@ -27,7 +27,6 @@ source: https://openlibrary.org/isbn/978-7-5124-0268-3
 ## 为什么值得读
 - **模拟IC 工程师**:入门快;其中「CAN 总线系统抗干扰设计」章节(电源与地隔离、I/O 隔离、PCB 注意事项)与收发器应用电路设计直接相关,可作为节点外围电路设计的参考。
 - **嵌入式开发工程师**:基于 51 + SJA1000 + 82C250 的完整实例可直接复现,是低成本动手入门材料。
-- **学生**:通过动手实例快速建立 CAN 节点软硬件实现的直觉。
 
 ## 核心内容要点
 - CAN 协议规范与应用层协议(iCAN)。

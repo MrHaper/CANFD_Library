@@ -7,7 +7,7 @@ access: paid
 status: verified
 download: link
 priority: 1
-audience: [模拟IC, 嵌入式, 学生]
+audience: [模拟IC, 嵌入式]
 tags: [软件工具, 商业(部分免费)]
 source: https://www.kvaser.com
 ---
@@ -18,7 +18,6 @@ Kvaser 提供的 CAN / CAN FD 软件套件,包括 **canKing**(简单易用的总
 ## 为什么值得读
 - **模拟IC 工程师**:用现成工具做报文收发与记录,辅助验证自研收发器。
 - **嵌入式开发工程师**:canKing 轻量免费,适合快速查看总线报文;高级记录功能用于现场抓包。
-- **学生**:了解另一主流厂商的工具生态,与 Vector / PEAK 工具做对比认知。
 
 ## 核心内容要点
 - **免费/付费**:部分免费(canKing 等);高级功能付费。

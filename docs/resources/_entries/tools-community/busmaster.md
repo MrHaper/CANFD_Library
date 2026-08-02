@@ -7,7 +7,7 @@ access: free
 status: verified
 download: link
 priority: 1
-audience: [模拟IC, 嵌入式, 学生]
+audience: [模拟IC, 嵌入式]
 tags: [软件工具, 开源免费]
 source: https://github.com/rbei-etas/busmaster
 ---
@@ -18,7 +18,6 @@ RBEI(ETAS)发起的**开源免费** CAN / CAN FD 分析工具 BusMaster,提供�
 ## 为什么值得读
 - **模拟IC 工程师**:免费图形化工具,快速查看报文时序与数据场,辅助理解自研收发器行为。
 - **嵌入式开发工程师**:零成本调试助手,支持脚本化收发与日志分析。
-- **学生**:图形化界面直观展示帧结构与总线活动,是学习协议帧格式的**很方便**的入门工具。
 
 ## 核心内容要点
 - **免费/付费**:开源免费。

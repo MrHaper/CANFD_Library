@@ -12,8 +12,8 @@
 | 站点 | https://MrHaper.github.io/CANFD_Library/ |
 | 源码仓库 | https://github.com/MrHaper/CANFD_Library(main 分支 + gh-pages 部署分支) |
 | 技术栈 | MkDocs Material ≥ 9.6(Python 3.9+,本机 3.14)、mkdocs-minify-plugin、jieba、GitHub Actions |
-| 站点性质 | 中文 CAN FD 学习资料库:105 条资源(标准/专利/论文/期刊/教材/厂商/工具社区)+ 51 术语词条 + 12 原创教程 + 3 学习路线 + 18 知识点页 |
-| 目标读者 | 模拟 IC 设计工程师、嵌入式工程师、学生 |
+| 站点性质 | 中文 CAN FD 学习资料库:105 条资源(标准/专利/论文/期刊/教材/厂商/工具社区)+ 51 术语词条 + 12 原创教程 + 2 学习路线 + 7 知识子域 18 知识点页 |
+| 目标读者 | 模拟 IC 设计工程师(主线)与嵌入式工程师(辅助) |
 | 建站背景 | 团队已流片一颗 CAN FD (SIC) 收发器芯片,网站沉淀"协议→物理层→收发器设计→测试认证"全流程知识 |
 
 **一次构建即发布:** 推送 `main` → GitHub Actions 自动 `mkdocs build` → `gh-deploy --force` 推送到 `gh-pages` 分支 → GitHub Pages 发布。
@@ -49,9 +49,10 @@ python -m pytest scripts/test_validate_resources.py -v
 ```
 docs/
 ├── index.md                 # 首页(人群入口卡/TOP10/最新收录)
-├── learn/                   # 学习路线:总览 + analog-ic(6 阶段)/embedded(5)/student(4)
-├── knowledge/               # 知识库:6 子域(protocol/bit-timing/physical-layer/
-│                            #   transceiver-design/controller/tools)× 3 知识点页 + index
+├── learn/                   # 学习路线:总览 + analog-ic(6 阶段)/embedded(5)
+├── knowledge/               # 知识库:7 子域(protocol/bit-timing/physical-layer/
+│                            #   transceiver-design/controller/tools/project-notes)
+│                            #   × 3 知识点页 + project-notes index/模板
 ├── tutorials/               # 12 篇原创教程(01~12 编号)+ index
 ├── resources/
 │   ├── index.md             # 资源库总览
@@ -59,7 +60,7 @@ docs/
 │   ├── _data/*.json         # ★ 资源元数据唯一数据源(7 个文件,105 条)
 │   ├── _entries/<分类>/*.md # ★ 每条资源一个条目页(导读五节 + frontmatter)
 │   └── …
-├── files/<分类>/*.pdf       # 35 个公开 PDF(仅可免费获取的,版权红线见 §6.2)
+├── files/<分类>/*.pdf       # 35 个公开 PDF(仅可免费获取的,版权红线见 §7.2)
 ├── glossary/                # 51 词条 + A-Z 索引
 ├── javascripts/mermaid.js   # mermaid 初始化
 └── contribute.md / about.md
@@ -80,12 +81,12 @@ user_dict.txt                # jieba 自定义词典(中文搜索分词)
 
 ### 4.1 新增/收录一份资料(标准流程)
 
-1. **版权预检**:仅可免费公开获取的资料可托管 PDF(厂商手册/开放论文/Google Patents/Bosch 公开规范);付费资料(ISO/IEC/SAE/IEEE/教材)只给官方链接,见 §6.2。
+1. **版权预检**:仅可免费公开获取的资料可托管 PDF(厂商手册/开放论文/Google Patents/Bosch 公开规范);付费资料(ISO/IEC/SAE/IEEE/教材)只给官方链接,见 §7.2。
 2. **更新元数据**:在 `docs/resources/_data/<分类>.json` 增加条目,字段遵循:
    `title/type/organization/year/access(free|paid|member)/status(verified|unverified|withdrawn)/download(local|link|none)/priority(1|2|3)/audience/tags/source/local_file(可选)`。
    **禁止编造字段**:年份未知留空串,链接未知留空(source 空会出 WARNING,可接受)。
 3. **生成条目页**:在 `docs/resources/_entries/<分类>/<slug>.md` 按既有模板(是什么/为什么值得读/核心内容要点/怎么读/参见 五节),frontmatter 与 JSON 逐字一致。
-4. **复制 PDF**(仅 download=local):放入 `docs/files/<分类>/`,文件名与 `local_file` 值一致(`local_file` 写 `files/<分类>/<文件名>.pdf`,站点路径语义,见 §6.3)。
+4. **复制 PDF**(仅 download=local):放入 `docs/files/<分类>/`,文件名与 `local_file` 值一致(`local_file` 写 `files/<分类>/<文件名>.pdf`,站点路径语义,见 §7.3)。
 5. **汇总页**:在对应分类汇总页表格补一行(按 priority 分组;priority=3 置顶)。
 6. **门禁**:`python scripts/validate_resources.py docs/` 必须 ERROR=0;`mkdocs build --strict` 零警告;有 pytest 改动时 `python -m pytest scripts/ -v`。
 7. 提交推送,等待 Actions 构建成功,抽查线上页面。
@@ -119,7 +120,29 @@ user_dict.txt                # jieba 自定义词典(中文搜索分词)
 
 ---
 
-## 5. 部署与发布
+## 5. "项目问题 → 技术分析 → 知识点"工作流(项目实践笔记)
+
+### 5.1 触发
+
+用户或维护者在实际项目开发中提出一个具体问题(现象、波形、测量结果均可),即进入本工作流。
+
+### 5.2 流程
+
+1. **记录问题背景与现象**:发生在什么项目场景、什么环境/拓扑/配置下,复现步骤与实测数据;
+2. **根因分析与技术论证**:以 ISO 11898 系列标准与厂商数据手册为准,给出机理分析、图示与定量计算(中文网络资料不作技术依据,口径同 §9 维护纪律);
+3. **写成知识点页**:按 `docs/knowledge/project-notes/_template.md` 模板结构(问题背景/现象 → 根因分析 → 技术分析 → 结论与设计建议 → 关联)放入 `docs/knowledge/project-notes/`,frontmatter 含 `tags: [项目实践]`;
+4. **同步入口**:首页"最新收录"与 `docs/knowledge/project-notes/index.md` 知识点列表同步更新;
+5. **校验门禁后发布**:`mkdocs build --strict` 零警告(涉及资源链接时 `validate_resources.py` ERROR=0),再推送发布。
+
+### 5.3 约定
+
+- 每个知识点页必须含:**日期**(YYYY-MM-DD)、**问题来源**(项目/场景描述)、**结论可复现**(给出验证方法或实测数据);
+- 同一问题不重复成页;已有知识点覆盖时优先补充原页;
+- 链接层级遵循 §4.4(project-notes 位于 knowledge 下 2 层深)。
+
+---
+
+## 6. 部署与发布
 
 - workflow:`.github/workflows/ci.yml`(main 触发,`pip install -r requirements.txt` + `mkdocs gh-deploy --force`);构建产物推 `gh-pages` 分支。
 - Pages 设置(已配置,勿动):仓库 Settings → Pages → Source: Deploy from a branch → `gh-pages` / `(root)`。
@@ -133,41 +156,41 @@ user_dict.txt                # jieba 自定义词典(中文搜索分词)
 
 ---
 
-## 6. 关键决策与约定(为什么这么设计)
+## 7. 关键决策与约定(为什么这么设计)
 
 > 改动前先读本节——这些是踩坑后沉淀的约定,违背会引入已修过的 bug。
 
-### 6.1 技术选型(MkDocs Material 而非 VitePress/Hugo/动态站)
+### 7.1 技术选型(MkDocs Material 而非 VitePress/Hugo/动态站)
 
 静态文档站,内容为王,Markdown 驱动;Material 的搜索(jieba 中文分词 9.2.0+ 内置)、标签、导航开箱即用;维护者只需写 Markdown。否决:VitePress(中文搜索需插件)、Hugo(无 Go 环境)、手写 HTML(70+ 页不可维护)、动态 CMS(超出资料库需求)。
 
-### 6.2 版权红线(不可违反)
+### 7.2 版权红线(不可违反)
 
 **只托管可免费公开获取的 PDF**(厂商数据手册、CiA iCC 开放论文、Google Patents 专利、Bosch 公开规范)。**绝不**上传付费标准(ISO/IEC/SAE)、付费期刊、教材正文;这些资料只提供官方获取链接。收录时无法判断 → 只给链接,不放文件。
 
-### 6.3 local_file 路径语义
+### 7.3 local_file 路径语义
 
 `local_file` 值是**站点路径**(构建后 URL),如 `files/standards/xxx.pdf`;PDF 实际存放于 **`docs/files/`** 下(MkDocs 只复制 docs/ 到 site,故必须放 docs/ 内)。校验脚本按"相对 docs/ 目录"解析 local_file(不是仓库根)——改动脚本时不要改回 repo_root 语义。
 
-### 6.4 元数据纪律
+### 7.4 元数据纪律
 
 - 所有元数据来自资料库索引(Leaning_Library)与厂商/标准官方页面,**禁止编造**任何字段;年份解析不了留空,链接没有留空并加 WARNING。
 - priority 推导:以资料库"必读 TOP 10"表为准(★★★=3/★★☆=2/★☆☆=1),不要用宽泛关键词(如"核心")推断——历史上"核心"误命中"核心内容"小标题导致大量条目被错误推为 2。
 - status 如实标注 `withdrawn`(已撤销标准)并在条目页加 `!!! warning` 警示;`unverified` 加 note。
 
-### 6.5 页面/锚点细节
+### 7.5 页面/锚点细节
 
 - **emoji 前缀标题的锚点带前导连字符**:`## ⭐ 必读 TOP 10` 的 slug 是 `-必读-top-10`(pymdownx 把 emoji 转成连字符),页内链接必须写 `#-必读-top-10`,否则锚点失效(strict 模式会报 no such anchor)。
 - mermaid 图通过 `pymdownx.superfences.custom_fences` + unpkg CDN + `docs/javascripts/mermaid.js` 启用;mermaid 是客户端渲染,`web_fetch`/无 JS 环境看不到图(构建时只要 fence 语法合法即可)。
 - `_entries/` 与 `glossary/` 下的页面不在 nav 树中(经索引页/汇总页可达,搜索不受影响)——这是有意为之,勿强行加入 nav(会撑爆侧栏)。
 
-### 6.6 中文搜索
+### 7.6 中文搜索
 
 `plugins.search` 配置 `lang: zh` + `jieba_dict_user: user_dict.txt`。用户词典不能含空格词条;新增专业术语时同步更新词典,否则分词不理想(如"振铃抑制"可能被拆开)。
 
 ---
 
-## 7. 已知限制与遗留事项(交接时点)
+## 8. 已知限制与遗留事项(交接时点)
 
 | # | 事项 | 建议处理时机 |
 |---|---|---|
@@ -182,18 +205,18 @@ user_dict.txt                # jieba 自定义词典(中文搜索分词)
 
 ---
 
-## 8. 维护纪律(红线,违反即视为事故)
+## 9. 维护纪律(红线,违反即视为事故)
 
 1. **校验门禁**:任何内容改动后 `validate_resources.py` 必须 ERROR=0、`mkdocs build --strict` 零警告;脚本改动后 pytest 27 全过。
 2. **不编造**:元数据、参数数值、链接一律以资料库 README / 官方文档为准,拿不准就写"以 XX 为准"或留空。
-3. **版权**:见 §6.2,只托管公开可获取 PDF。
+3. **版权**:见 §7.2,只托管公开可获取 PDF。
 4. **技术口径**:涉及 SIC 参数以 ISO 11898-2:2024 与厂商数据手册为准;中文网络资料(知乎/CSDN)错漏多,不可作为技术依据。
 5. **链接层级**:见 §4.4 铁律,改文件位置后必须复查相对链接。
 6. **单一事实源**:`_data/*.json` 是资源元数据唯一事实源,条目页与汇总页必须与它一致。
 
 ---
 
-## 9. 运营节奏建议
+## 10. 运营节奏建议
 
 | 频率 | 动作 |
 |---|---|
@@ -205,17 +228,17 @@ user_dict.txt                # jieba 自定义词典(中文搜索分词)
 
 ---
 
-## 10. 交接检查清单(接手者确认)
+## 11. 交接检查清单(接手者确认)
 
-- [ ] 已读本文档 §1~§9,本地 `mkdocs build --strict` 零警告可复现
+- [ ] 已读本文档 §1~§10,本地 `mkdocs build --strict` 零警告可复现
 - [ ] 已跑 `python scripts/validate_resources.py docs/`(ERROR=0)与 pytest(27 passed)
 - [ ] 已在浏览器打开线上站点,8 板块导航正常,搜索"振铃抑制"可命中
-- [ ] 已知悉版权红线(§6.2)、元数据纪律(§6.4)、链接层级铁律(§4.4)
-- [ ] 已知悉遗留事项清单(§7)与维护纪律(§8)
+- [ ] 已知悉版权红线(§7.2)、元数据纪律(§7.4)、链接层级铁律(§4.4)
+- [ ] 已知悉遗留事项清单(§8)与维护纪律(§9)
 
 ---
 
-## 11. 附录:常用命令速查
+## 12. 附录:常用命令速查
 
 ```bash
 mkdocs serve                          # 本地预览
@@ -234,3 +257,4 @@ git push origin main                  # 发布(触发 Actions 自动部署)
 | 日期 | 版本 | 内容 |
 |---|---|---|
 | 2026-08-02 | v1.0 | 初版:上线交接,含概览/快速开始/结构/运营流程/部署/关键决策/遗留事项/纪律/节奏/清单 |
+| 2026-08-02 | v1.1 | 方向调整:定位收窄为模拟 IC 设计工程师(主线)+ 嵌入式工程师(辅助);新增 §5"项目问题→技术分析→知识点"工作流;原 §5~§11 顺延为 §6~§12 |

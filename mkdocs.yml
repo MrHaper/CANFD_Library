@@ -1,6 +1,6 @@
 site_name: CAN FD 知识库
 site_url: https://MrHaper.github.io/CANFD_Library/
-site_description: 面向模拟IC设计工程师、嵌入式工程师与学生的 CAN FD 学习资料库
+site_description: 面向模拟IC设计工程师与嵌入式工程师的 CAN FD 学习资料库
 repo_url: https://github.com/MrHaper/CANFD_Library
 
 theme:
@@ -37,7 +37,6 @@ theme:
       expert: material/star
       analog-ic: material/chip
       embedded: material/memory
-      student: material/account-school
 
 plugins:
   - search:
@@ -76,7 +75,6 @@ extra:
     专家: expert
     模拟IC: analog-ic
     嵌入式: embedded
-    学生: student
 
 extra_javascript:
   - https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js
@@ -88,7 +86,6 @@ nav:                     # 显式声明全部板块(不依赖自动发现)
       - learn/index.md
       - 模拟IC工程师: learn/analog-ic.md
       - 嵌入式工程师: learn/embedded.md
-      - 学生: learn/student.md
   - 知识库:
       - knowledge/index.md
       - 协议基础: knowledge/protocol/index.md
@@ -101,6 +98,7 @@ nav:                     # 显式声明全部板块(不依赖自动发现)
   - 资源库:
       - resources/index.md
       - 标准规范: resources/standards.md
+      - 标准查阅: resources/standards-text/index.md
       - 专利: resources/patents.md
       - 论文: resources/papers.md
       - 期刊: resources/journals.md

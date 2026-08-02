@@ -7,7 +7,7 @@ access: free
 status: verified
 download: link
 priority: 1
-audience: [模拟IC, 嵌入式, 学生]
+audience: [模拟IC, 嵌入式]
 tags: [社区平台, 问答社区]
 source: https://stackoverflow.com/questions/tagged/can
 ---
@@ -18,7 +18,6 @@ Stack Overflow 上以 **`can` 标签**聚合的问答,覆盖 CAN / CAN FD 的**�
 ## 为什么值得读
 - **模拟IC 工程师**:了解协议实现层面的常见坑与解读。
 - **嵌入式开发工程师**:解决驱动、帧格式、工具用法等具体问题时的高质量答案来源。
-- **学生**:带着具体报错/疑问搜索,答案通常附带可复现代码。
 
 ## 核心内容要点
 - **语言/内容类型**:英文;问答社区(免费)。

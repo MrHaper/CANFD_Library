@@ -7,7 +7,7 @@ access: free
 status: verified
 download: link
 priority: 1
-audience: [模拟IC, 嵌入式, 学生]
+audience: [模拟IC, 嵌入式]
 tags: [软件工具, 开源(内核自带)]
 source: https://www.kernel.org/doc/html/latest/networking/can.html
 ---
@@ -18,7 +18,6 @@ SocketCAN 是 **Linux 内核原生**的 CAN / CAN FD 协议栈,把 CAN 总线抽
 ## 为什么值得读
 - **模拟IC 工程师**:在 Linux 环境用 SocketCAN 快速搭收发实验,验证自研收发器基本功能。
 - **嵌入式开发工程师**:理解 Linux 下 CAN 的抽象模型(网络接口而非串口),是车载 Linux 开发的基础技能。
-- **学生**:无需购买商用软件即可动手实验——把 USB-CAN 接口卡插上、加载驱动、配好接口,立刻收发报文。
 
 ## 核心内容要点
 - **免费/付费**:免费(Linux 内核自带)。

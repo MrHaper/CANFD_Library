@@ -7,7 +7,7 @@ access: free
 status: verified
 download: link
 priority: 1
-audience: [模拟IC, 嵌入式, 学生]
+audience: [模拟IC, 嵌入式]
 tags: [软件工具, 开源免费]
 source: https://github.com/hardbyte/python-can
 ---
@@ -18,7 +18,6 @@ python-can 是 Python 生态中操作 CAN / CAN FD 接口的**开源标准库**,
 ## 为什么值得读
 - **模拟IC 工程师**:用几行脚本批量收发报文、统计总线数据,辅助验证收发器行为。
 - **嵌入式开发工程师**:把 CAN 报文采集/回放并入 Python 自动化测试与数据分析流程。
-- **学生**:学习"用代码操作 CAN 总线"的最佳入口,社区活跃、文档齐全。
 
 ## 核心内容要点
 - **免费/付费**:开源免费(MIT 许可)。

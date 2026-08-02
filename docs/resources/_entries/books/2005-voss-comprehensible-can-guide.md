@@ -8,7 +8,7 @@ access: paid
 status: verified
 download: none
 priority: 1
-audience: [模拟IC, 学生]
+audience: [模拟IC]
 tags: [教材, 英文]
 source: https://openlibrary.org/isbn/9780976511601
 ---
@@ -27,7 +27,6 @@ source: https://openlibrary.org/isbn/9780976511601
 ## 为什么值得读
 - **模拟IC 工程师**:快速把 CAN 2.0 / CAN FD 帧结构、位电平定义补起来,适合在研读标准前先建立直觉;篇幅小、可快速通读。
 - **嵌入式开发工程师**:通俗的帧格式与仲裁/错误处理讲解,适合快速上手。
-- **学生**:低门槛、配图多,是入门 CAN 协议的轻松读本。
 
 ## 核心内容要点
 - CAN 帧格式(数据帧/远程帧/错误帧/过载帧)。

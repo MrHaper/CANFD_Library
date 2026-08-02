@@ -164,7 +164,6 @@ search: { boost: 1 }
 ## 参见
 
 - [嵌入式工程师学习路线](embedded.md) — 如果想了解芯片另一端(MCU 侧)怎么用,可交叉参考;
-- [学生学习路线](student.md) — 从零入门版,适合带新人用;
-- [学习路线总览](index.md) — 三路线如何选;
+- [学习路线总览](index.md) — 两条路线如何选;
 - [物理层与 SIC 知识域](../knowledge/physical-layer/index.md) — 相关知识点参考树;
 - [收发器设计知识域](../knowledge/transceiver-design/index.md) — 电路实现相关知识点。

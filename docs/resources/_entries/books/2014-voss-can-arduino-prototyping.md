@@ -8,7 +8,7 @@ access: paid
 status: verified
 download: none
 priority: 1
-audience: [模拟IC, 学生]
+audience: [模拟IC]
 tags: [教材, 英文]
 source: https://openlibrary.org/isbn/9781938581168
 ---
@@ -26,7 +26,6 @@ source: https://openlibrary.org/isbn/9781938581168
 ## 为什么值得读
 - **模拟IC 工程师**:成本最低的动手验证路径——用现成 Arduino + CAN 收发器搭建测试平台,可复现收发器时序、位速率、环回等行为,便于理解芯片外部使用场景与驱动要求。
 - **嵌入式开发工程师**:现成的 Arduino + MCP2515 + MCP2551 示例代码,是快速原型开发的可复用起点。
-- **学生**:低成本亲手摸到 CAN 协议收发过程,补足纯理论学习的空白。
 
 ## 核心内容要点
 - CAN 协议基础与帧格式。

@@ -21,7 +21,6 @@ Bosch CAN FD Specification v1.0 是 CAN FD 协议的原始公开规范,2012-04-1
 ## 为什么值得读
 - **模拟IC 工程师**:TDC 概念最早在此定义,仍是现代 CAN FD 控制器/收发器协同设计的核心,第 8 章 Bit Timing Requirements 与 8.1 Transceiver Delay Compensation 值得精读。
 - **嵌入式开发工程师**:理解 CAN FD 位速率切换与控制器的延迟补偿原理。
-- **学生**:免费 PDF,是零成本接触协议第一手资料的最佳起点。
 
 ## 核心内容要点
 - CAN FD 协议原始公开规范(帧格式、编码、误差处理、位定时)。

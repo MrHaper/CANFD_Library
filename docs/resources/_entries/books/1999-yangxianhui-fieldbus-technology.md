@@ -8,7 +8,7 @@ access: paid
 status: verified
 download: none
 priority: 1
-audience: [模拟IC, 学生]
+audience: [模拟IC]
 tags: [教材, 中文]
 source: https://openlibrary.org/isbn/978-7-302-03384-4
 ---
@@ -27,7 +27,6 @@ source: https://openlibrary.org/isbn/978-7-302-03384-4
 ## 为什么值得读
 - **模拟IC 工程师**:提供「总线谱系」的全景视野,理解 CAN 在工业现场总线中的地位与差异化优势;为未来横向研究其他总线物理层(如 RS-485、Ethernet PHY)提供参照系。
 - **嵌入式开发工程师**:横向对比多种现场总线,便于在项目选型时判断 CAN 的适用边界。
-- **学生**:以最低成本建立现场总线技术全景图。
 
 ## 核心内容要点
 - 横向对比 FF、LonWorks、PROFIBUS、CAN、HART 五大现场总线。

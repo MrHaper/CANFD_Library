@@ -7,7 +7,7 @@ access: free
 status: verified
 download: link
 priority: 1
-audience: [模拟IC, 嵌入式, 学生]
+audience: [模拟IC, 嵌入式]
 tags: [社区平台, 中文资料库]
 source: https://www.zlg.cn
 ---
@@ -18,7 +18,6 @@ source: https://www.zlg.cn
 ## 为什么值得读
 - **模拟IC 工程师**:中文应用文档便于快速理解总线产品用法与常见问题。
 - **嵌入式开发工程师**:ZLG 的 USBCAN 等产品与配套工具在国产方案中常用,资料齐全。
-- **学生**:中文教学视频与文档适合入门,但新技术(SIC)内容需与标准核对。
 
 ## 核心内容要点
 - **语言/内容类型**:中文;厂商资料库/教学资源(免费访问)。

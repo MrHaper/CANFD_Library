@@ -7,7 +7,7 @@ access: paid
 status: verified
 download: link
 priority: 1
-audience: [模拟IC, 嵌入式, 学生]
+audience: [模拟IC, 嵌入式]
 tags: [软件工具, 商业]
 source: https://www.vector.com
 ---
@@ -18,7 +18,6 @@ CANdb++ 是 Vector 出品的 **DBC(报文矩阵)编辑器**,用于创建与维�
 ## 为什么值得读
 - **模拟IC 工程师**:理解"信号如何映射进报文",便于阅读协议栈与测试向量。
 - **嵌入式开发工程师**:DBC 是车载软件开发的事实格式,掌握其编辑与理解能力是基本功。
-- **学生**:通过可视化编辑快速搞懂"报文 = 数据场位段 + 信号语义"的抽象关系。
 
 ## 核心内容要点
 - **免费/付费**:商业付费(可随 Vector 工具链申请试用)。

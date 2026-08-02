@@ -19,7 +19,6 @@ Infineon TLE9371VSJ 是 **Infineon 真正的 CAN SIC 产品**(CiA 601-4 Tx-based
 ## 为什么值得读
 - **模拟IC 工程师**:欧洲厂商的 SIC 实现与 NXP/TI 对标,可对比三种主流 SIC 收发器的 ESD/EMC/位对称 Spec 差异,完善 SIC 收发器的设计空间认知。
 - **嵌入式开发工程师**:区分 Infineon 产品线中"谁才是 SIC"(TLE9371),避免中文网络常见的 TLE9255 误读。
-- **学生**:了解同一标准的第三方厂商实现差异。
 
 ## 核心内容要点
 - **这是 Infineon 真正的 CAN SIC 产品**(CiA 601-4 Tx-based CAN FD SIC),与普通 CAN FD 收发器(TLE9255)本质不同。

@@ -7,7 +7,7 @@ access: free
 status: verified
 download: link
 priority: 1
-audience: [模拟IC, 嵌入式, 学生]
+audience: [模拟IC, 嵌入式]
 tags: [软件工具, 开源免费]
 source: https://github.com/linux-can/can-utils
 ---
@@ -18,7 +18,6 @@ can-utils 是 **SocketCAN 配套的命令行工具集**(开源免费),包含 can
 ## 为什么值得读
 - **模拟IC 工程师**:命令行即可完成自研收发器的收发验证,无需图形界面。
 - **嵌入式开发工程师**:在脚本与 CI 流程中集成 CAN 报文收发/生成,自动化测试利器。
-- **学生**:与 SocketCAN 天然配套,是"Linux 下入门 CAN 实验"的标准组合。
 
 ## 核心内容要点
 - **免费/付费**:开源免费。

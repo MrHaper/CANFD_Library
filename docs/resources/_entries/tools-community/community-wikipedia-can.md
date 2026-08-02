@@ -7,7 +7,7 @@ access: free
 status: verified
 download: link
 priority: 1
-audience: [模拟IC, 嵌入式, 学生]
+audience: [模拟IC, 嵌入式]
 tags: [社区平台, 百科]
 source: https://en.wikipedia.org/wiki/CAN_bus
 ---
@@ -18,7 +18,6 @@ Wikipedia 的 **CAN bus** 与 CAN FD 相关词条(含 Controller Area Network、
 ## 为什么值得读
 - **模拟IC 工程师**:快速回顾协议全貌,再进入标准与数据手册。
 - **嵌入式开发工程师**:便捷的术语与概念速查。
-- **学生**:入门第一站,先有全局再钻细节。
 
 ## 核心内容要点
 - **语言/内容类型**:英文为主(多语言版本);百科词条(免费)。

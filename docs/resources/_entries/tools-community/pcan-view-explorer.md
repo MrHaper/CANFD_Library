@@ -7,7 +7,7 @@ access: paid
 status: verified
 download: link
 priority: 1
-audience: [模拟IC, 嵌入式, 学生]
+audience: [模拟IC, 嵌入式]
 tags: [软件工具, 商业(基础版免费)]
 source: https://www.peak-system.com
 ---
@@ -18,7 +18,6 @@ PEAK-System 出品的 CAN / CAN FD 分析工具:**PCAN-View** 为基础免费版
 ## 为什么值得读
 - **模拟IC 工程师**:快速用现成工具抓取/回放报文,验证自研收发器在总线上的基本收发行为。
 - **嵌入式开发工程师**:与 PEAK USB-CAN 接口卡即插即用,开发调试时的低门槛辅助工具。
-- **学生**:免费版 PCAN-View 即可完成帧结构观察与报文收发实验,是入门 CAN 分析的捷径。
 
 ## 核心内容要点
 - **免费/付费**:PCAN-View 免费;PCAN-Explorer 付费(商业软件)。
