@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -101,7 +101,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
   <input type="search" id="q" placeholder="过滤目录…">
   <nav>
     <a href="#chap1">① 原理</a><a href="#chap2">② 设计</a><a href="#chap3">③ 测试</a>
-    <a href="../README.md" title="回到资料库首页">📚 资料库</a>
+    <a href="../../index.html" title="回到资料库首页">📚 资料库</a>
   </nav>
 </div></header>
 
@@ -166,7 +166,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
   <div class="chap-head"><span class="no">00</span><h2>协议基础</h2><span class="sub">CAN/CAN FD 帧格式 · 仲裁 · 位定时 · TDC · 错误处理 · 术语对照</span></div>
   <h1 id="00-can-can-fd">00 协议基础 — CAN / CAN FD 协议层</h1>
 <blockquote>
-<p>本篇补齐协议层知识,是后续 SIC 物理层内容的基础。内容依据 <strong>ISO 11898-1:2024</strong>(数据链路层与物理信令,全文见 <code>CAN资料/ISO 11898-1-2024</code>),关键条目标注标准章节号,可对照原文精读。
+<p>本篇补齐协议层知识,是后续 SIC 物理层内容的基础。内容依据 <strong>ISO 11898-1:2024</strong>(数据链路层与物理信令,全文见 <code><a href="../../resources/standards-text/index.md" target="_blank" rel="noopener">标准查阅</a>/ISO 11898-1-2024</code>),关键条目标注标准章节号,可对照原文精读。
 术语中文译名参考 GB/T 41588 系列(ISO 11898 系列采标)通用译法。</p>
 </blockquote>
 <hr>
@@ -217,7 +217,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 <blockquote>
 <p>关键分工:<strong>协议控制器(MCU 内)做 DLL+PCS;收发器芯片做 PMA</strong>。收发器设计者需要理解协议层的位定时/采样点要求,因为物理层延迟与对称性直接决定协议能否在高速率下工作(见第 6 节)。</p>
 </blockquote>
-<p><img alt="图 17 CAN 知识体系总览" src="images/fig17_can_mindmap.svg"></p>
+<p><img alt="图 17 CAN 知识体系总览" src="images/fig17_can_mindmap.svg"><em>图 17 CAN 知识体系总览</em>></p>
 <hr>
 <h2 id="2-iso-11898-12024-66106611">2. 帧格式(ISO 11898-1:2024 §6.6.10/6.6.11)</h2>
 <h3 id="21">2.1 帧类型总览</h3>
@@ -248,7 +248,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 </tbody>
 </table>
 <p>格式组合:CBFF(经典 11 位 ID)、CEFF(经典 29 位 ID)、FBFF(FD 11 位)、FEFF(FD 29 位)。</p>
-<p><img alt="图 19 CAN FD 帧结构思维导图" src="images/fig19_frame_mindmap.svg"></p>
+<p><img alt="图 19 CAN FD 帧结构思维导图" src="images/fig19_frame_mindmap.svg"><em>图 19 CAN FD 帧结构思维导图</em>></p>
 <h3 id="22-can-cbffceff6610">2.2 经典 CAN 数据帧(CBFF/CEFF,§6.6.10)</h3>
 <pre><code>SOF | 仲裁场(ID28~ID18 + RTR) | 控制场(IDE/r1 + DLC) | 数据场(0~8 B) | CRC(15位+分隔符) | ACK | EOF(7隐性位)
 </code></pre>
@@ -275,7 +275,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 <li><strong>CRC</strong>:数据场 ≤16 字节用 CRC-17,&gt;16 字节用 CRC-21;<strong>CRC 包含填充位计数(3 位)与奇偶位(1 位)</strong>——这是 CAN FD 能保持与经典 CAN 相同汉明距离的关键(Hartwich 2012 论文,已下载);</li>
 <li>其余(ACK/EOF/帧间空间)同经典。</li>
 </ul>
-<p><img alt="图 7 经典 CAN vs CAN FD 帧格式" src="images/fig7_can_fd_frames.svg"></p>
+<p><img alt="图 7 经典 CAN vs CAN FD 帧格式" src="images/fig7_can_fd_frames.svg"><em>图 7 经典 CAN vs CAN FD 帧格式</em>></p>
 <h3 id="24-stuffing666">2.4 位填充(stuffing,§6.6.6 相关)</h3>
 <table>
 <thead>
@@ -317,17 +317,12 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 <li>仲裁失败的节点在帧间空间后自动重发(重发尝试,§5.14)。</li>
 </ul>
 <hr>
-<p><img alt="图 9 非破坏性位仲裁" src="images/fig9_arbitration.svg"></p>
+<p><img alt="图 9 非破坏性位仲裁" src="images/fig9_arbitration.svg"><em>图 9 非破坏性位仲裁</em>></p>
 <hr>
 <h2 id="4-73">4. 位定时与同步(§7.3)</h2>
 <h3 id="41-732">4.1 位时间结构(§7.3.2)</h3>
 <p>一位时间由整数个<strong>时间量子 tq</strong> 组成,tq = 节点时钟周期 × 预分频 m(§7.3.2):</p>
-<pre><code>┌──────────────┬──────────────────┬──────────────┬──────────────┐
-│ Sync_Seg(1tq)│   Prop_Seg       │  Phase_Seg1  │  Phase_Seg2  │
-│ (同步段)     │ (传播段)         │ (相位段1)    │ (相位段2)    │
-└──────────────┴──────────────────┴──────┬───────┴──────────────┘
-                                   采样点(在 PS1/PS2 边界)
-</code></pre>
+<p><img alt="图 8 位时间结构与采样点" src="images/fig8_bit_timing.svg"><em>图 8 位时间结构与采样点</em><em>图 8 位时间结构与采样点</em>><em>图 8 位时间结构与采样点</em></p>
 <table>
 <thead>
 <tr>
@@ -360,7 +355,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 </tbody>
 </table>
 <p>配置范围示例(ISO 11898-1:2024 Table 12,支持 FD 的实现):标称位时间 Sync_Seg 1 tq、Prop_Seg 1~8 tq、Phase_Seg1 1~8 tq、Phase_Seg2 2~8 tq、SJW 1~4 tq;FD 数据位时间另行配置(Phase_Seg1 1~8 tq 等,见标准原文)。</p>
-<p><img alt="图 8 位时间结构与采样点" src="images/fig8_bit_timing.svg"></p>
+<p><img alt="图 8 位时间结构与采样点" src="images/fig8_bit_timing.svg"><em>图 8 位时间结构与采样点</em>></p>
 <h3 id="42-vs-fd">4.2 仲裁相位 vs FD 数据相位(位速率切换)</h3>
 <ul>
 <li>帧的仲裁相位(SOF 至 BRS 采样点)用<strong>标称位时间</strong>(如 500 kbps);</li>
@@ -375,7 +370,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 <li><strong>原理</strong>:控制器在数据相位发送时,以<strong>二次采样点 SSP(Secondary Sample Point)</strong>采样自己回读的位,SSP 位置 = 测得环回延迟 + 可编程 TDC 偏移(以 tq 为单位,§7.3.3);</li>
 <li><strong>与收发器设计的关系</strong>:环回延迟越小、对称性越好,SSP 裕量越大 → SIC 收紧环回延迟到 190 ns 与位宽对称性,正是为了让控制器 TDC 有足够的余量(CiA 601-1 有配套计算)。</li>
 </ul>
-<p><img alt="图 11 TDC 发射器延迟补偿原理" src="images/fig11_tdc.svg"></p>
+<p><img alt="图 11 TDC 发射器延迟补偿原理" src="images/fig11_tdc.svg"><em>图 11 TDC 发射器延迟补偿原理</em>></p>
 <h3 id="44-735">4.4 同步(§7.3.5)</h3>
 <ul>
 <li><strong>硬同步</strong>:总线空闲后 SOF 边沿,强制 Sync_Seg 对齐;</li>
@@ -429,19 +424,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 </ul>
 <h3 id="53-81figure-43">5.3 故障遏制状态机(§8.1,Figure 43)</h3>
 <p>节点通过<strong>发送错误计数 TEC</strong> 与<strong>接收错误计数 REC</strong> 分级:</p>
-<pre><code>        ┌──────────┐   T2: REC&gt;127 或 TEC&gt;127   ┌──────────┐
-        │error-    │ ───────────────────────────▶ │error-    │
-        │active    │                             │passive   │
-        │(EA)      │ ◀─────────────────────────── │(EP)      │
-        └──────────┘   T3: REC≤127 且 TEC≤127     └────┬─────┘
-              ▲                                       │ T4: TEC&gt;255
-              │ T5: 恢复请求 + 128 次空闲(11 连续隐性位) │
-              └───────────────────────────────────────▼──────┐
-                                          ┌──────────┐        │
-                                          │ bus-off  │◀───────┘
-                                          │(BO)      │
-                                          └──────────┘
-</code></pre>
+<p><img alt="图 10 故障遏制状态机" src="images/fig10_error_states.svg"><em>图 10 故障遏制状态机</em><em>图 10 故障遏制状态机</em>><em>图 10 故障遏制状态机</em></p>
 <table>
 <thead>
 <tr>
@@ -477,7 +460,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 <p>计数增减规则详见 §8.1.4(成功收发递减、错误递增,主动/被动节点规则不同)。故障遏制保证单个故障节点不会拖垮总线。</p>
 </blockquote>
 <hr>
-<p><img alt="图 10 故障遏制状态机" src="images/fig10_error_states.svg"></p>
+<p><img alt="图 10 故障遏制状态机" src="images/fig10_error_states.svg"><em>图 10 故障遏制状态机</em>></p>
 <hr>
 <h2 id="6-sic">6. 协议层如何约束收发器(SIC)设计</h2>
 <table>
@@ -660,10 +643,10 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 <hr>
 <h2 id="8">8. 参考资料</h2>
 <ul>
-<li><strong>ISO 11898-1:2024 全文</strong>(协议层权威出处):<code>CAN资料/ISO 11898-1-2024(可复制).pdf</code> / 中文版(扫描件);</li>
-<li>GB/T 41588.1~4-2022(国标采标,<code>CAN资料/</code>):中文对照;</li>
-<li>Hartwich 2012 iCC 论文(CAN FD 协议源头):<code>03_论文/PDF/2012_Hartwich_CAN_with_Flexible_Data-Rate.pdf</code>;</li>
-<li>Bosch CAN FD Specification v1.0(协议前身):<code>01_标准规范/PDF/Bosch_CAN_FD_Specification_v1.0_2012.pdf</code>;</li>
+<li><strong>ISO 11898-1:2024 全文</strong>(协议层权威出处):<code><a href="../../resources/standards-text/index.md" target="_blank" rel="noopener">标准查阅</a>/ISO 11898-1-2024(可复制).pdf</code> / 中文版(扫描件);</li>
+<li>GB/T 41588.1~4-2022(国标采标,<code><a href="../../resources/standards-text/index.md" target="_blank" rel="noopener">标准查阅</a>/</code>):中文对照;</li>
+<li>Hartwich 2012 iCC 论文(CAN FD 协议源头):<code><a href="../../files/papers/2012_Hartwich_CAN_with_Flexible_Data-Rate.pdf" target="_blank" rel="noopener">2012_Hartwich_CAN_with_Flexible_Data-Rate.pdf</a></code>;</li>
+<li>Bosch CAN FD Specification v1.0(协议前身):<code><a href="../../files/standards/Bosch_CAN_FD_Specification_v1.0_2012.pdf" target="_blank" rel="noopener">Bosch_CAN_FD_Specification_v1.0_2012.pdf</a></code>;</li>
 <li>CiA 601-3(位定时配置与评估工具,见 01_标准规范)。</li>
 </ul>
 </section>
@@ -674,7 +657,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 <p>本篇从"为什么需要 SIC"出发,讲清振铃的物理机理、SIC 的三方面改进、关键电气参数与系统级概念。
 所有数值均提取自已下载的原始资料(TI SLLA581 白皮书、NXP TJA1463 数据手册、Adamson 2020 iCC 论文),详见文末引用清单。</p>
 </blockquote>
-<p><img alt="图 18 CAN SIC 全流程知识体系" src="images/fig18_sic_mindmap.svg"></p>
+<p><img alt="图 18 CAN SIC 全流程知识体系" src="images/fig18_sic_mindmap.svg"><em>图 18 CAN SIC 全流程知识体系</em>></p>
 <hr>
 <h2 id="1-siccan-fd">1. 为什么需要 SIC:CAN FD 的高速瓶颈</h2>
 <h3 id="11-stub">1.1 背景:星型拓扑与 stub 反射</h3>
@@ -691,7 +674,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 <li>数据相位速率越高,位时间越短,振铃占位时间的比例越大,误码率越高。</li>
 </ul>
 <p><strong>CAN SIC 的目标</strong>:在复杂拓扑(星型、多 stub)下把可用数据速率提升到 5 Mbit/s 甚至 8 Mbit/s,且<strong>不需要改动网络拓扑或协议层</strong>。</p>
-<p><img alt="图 1 总线振铃现象对比" src="images/fig1_ringing_compare.svg"></p>
+<p><img alt="图 1 总线振铃现象对比" src="images/fig1_ringing_compare.svg"><em>图 1 总线振铃现象对比</em>></p>
 <hr>
 <h2 id="2">2. 振铃的物理机理(设计前必须理解)</h2>
 <h3 id="21">2.1 为什么隐性位最脆弱</h3>
@@ -700,7 +683,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 <li><strong>隐性位(recessive)</strong>:驱动器输出级变为<strong>高阻(约 60 kΩ)</strong>,总线状态由 60 Ω 端接电阻把分布电容放电决定——总线信号本质上是"靠网络自己放电",没有主动驱动。</li>
 <li>因此<strong>显性→隐性转换是最脆弱的边沿</strong>:任何反射都会叠加在这个放电过程上,而放电时间常数(RC)取决于线缆长度、stub、端接。</li>
 </ul>
-<p><img alt="图 4 星型拓扑与 stub 反射" src="images/fig4_star_topology.svg"></p>
+<p><img alt="图 4 星型拓扑与 stub 反射" src="images/fig4_star_topology.svg"><em>图 4 星型拓扑与 stub 反射</em>></p>
 <h3 id="22-rc">2.2 RC 放电与位时间的矛盾</h3>
 <ul>
 <li>隐性电平恢复速度受限于总线 RC 时间常数;stub 越长、节点越多,等效电容越大,放电越慢。</li>
@@ -731,7 +714,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 </tbody>
 </table>
 <p><strong>判据</strong>:隐性位信号必须在<strong>最早可能采样点之前</strong>降到 0.5 V 以下;这段可允许的振荡时间被称为 <strong>Allowable Ringing Time</strong>(Adamson 2020)。</p>
-<p><img alt="图 12 物理层电平与接收判定" src="images/fig12_levels.svg"></p>
+<p><img alt="图 12 物理层电平与接收判定" src="images/fig12_levels.svg"><em>图 12 物理层电平与接收判定</em>></p>
 <hr>
 <h2 id="3-sic">3. SIC 的定义与三方面改进</h2>
 <h3 id="31">3.1 定义与标准归属</h3>
@@ -787,14 +770,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 <li><strong>有源隐性相位(active recessive)</strong>:转换后,输出阻抗降到约 <strong>100 Ω</strong>,主动"拉着"总线向隐性放电——反射波遇到低阻看到的是近似匹配阻抗,振铃被大幅衰减;信号被快速拉到 0.5 V 以下。</li>
 <li><strong>被动隐性相位(passive recessive)</strong>:有源相位结束后,输出阻抗升回约 <strong>60 kΩ</strong>,回到标准 CAN 的高阻隐性状态(保证多节点共享总线、显性优先级仲裁不受影响)。</li>
 </ol>
-<pre><code>TXD  ──┐        ┌────────────────────────────
-       │        │  recessive
-       └─dominant┘
-总线   dominant ────┐              ┌─────────
-                  │   active rec  │ passive rec
-                  └──(R≈100Ω)─────┘ (R≈60kΩ)
-                     └── tSIC_TX_base ≤530ns ──┘
-</code></pre>
+<p><img alt="图 2 SIC 事件时序" src="images/fig2_sic_timing.svg"><em>图 2 SIC 事件时序</em><em>图 2 SIC 事件时序</em>><em>图 2 SIC 事件时序</em></p>
 <p><strong>关键时序窗口</strong>(ISO 11898-2:2024 Set C,见 SLLA581 Table 1-2 / TJA1463 数据手册):</p>
 <table>
 <thead>
@@ -830,7 +806,7 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 <blockquote>
 <p>注意:5 Mbit/s 数据相位位时间 200 ns,振铃抑制覆盖整个隐性位;而仲裁相位(1 Mbit/s,位时间 1 µs)多位同时发送时,显性位必须能覆盖隐性位,因此振铃抑制时长会限制仲裁速率与网络长度(见 CiA 601-4 细节,SLLA581 已提示)。</p>
 </blockquote>
-<p><img alt="图 2 SIC 事件时序" src="images/fig2_sic_timing.svg"></p>
+<p><img alt="图 2 SIC 事件时序" src="images/fig2_sic_timing.svg"><em>图 2 SIC 事件时序</em>></p>
 <p><strong>标准补充(ISO 11898-2:2024)</strong>:
 - 信号改善时间 tSIC 官方定义为 <strong>+300 ~ +530 ns</strong>(Table A.12,自 TXD 上升沿 50% 阈值起测)——即驱动端保持有源隐性、主动阻尼的最短/最长时长;
 - 隐性输出电平(Table A.2):CAN_H/CAN_L 单端 <strong>2.256~2.756 V</strong>(标称 2.5 V),差分 −0.5~+0.05 V(标称 0 V);
@@ -851,14 +827,14 @@ input[type=checkbox]{accent-color:var(--brand);margin-right:8px}
 <li>在安全操作区内,信号可以自由振荡,<strong>只要在最早隐性采样点前回到 0.5 V 以下</strong>——这段允许时间就是 Allowable Ringing Time;</li>
 <li>SIC 的价值体现在两个层面:<strong>收紧对称性(扩大安全区)+ 快速压振铃(尽快进入安全区)</strong>。</li>
 </ul>
-<p><img alt="图 5 安全操作区与采样点" src="images/fig5_safe_area.svg"></p>
+<p><img alt="图 5 安全操作区与采样点" src="images/fig5_safe_area.svg"><em>图 5 安全操作区与采样点</em>></p>
 <h3 id="42-adamson-2020">4.2 拓扑经验法则(Adamson 2020,经客户实测验证)</h3>
 <blockquote>
 <p><strong>HS-CAN 500 kbps 能工作的网络 → CAN SIC 2 Mbps 也能工作;
 HS-CAN 2 Mbps 能工作的网络 → CAN SIC 5 Mbps 也能工作。</strong></p>
 </blockquote>
 <p>依据:HS-CAN 500 kbps 与 SIC 2 Mbps 的 Allowable Ringing Time 相当;HS-CAN 2 Mbps 与 SIC 5 Mbps 相当。</p>
-<p><img alt="图 16 网络拓扑类型与端接" src="images/fig16_topologies.svg"></p>
+<p><img alt="图 16 网络拓扑类型与端接" src="images/fig16_topologies.svg"><em>图 16 网络拓扑类型与端接</em>></p>
 <h3 id="43">4.3 采样点选择</h3>
 <ul>
 <li><strong>2 Mbps</strong>:采样点宜靠后(70~80%),给振铃最多衰减时间;</li>
@@ -871,7 +847,7 @@ HS-CAN 2 Mbps 能工作的网络 → CAN SIC 5 Mbps 也能工作。</strong></p>
 <li><strong>PVC 绝缘线缆不满足要求</strong>(阻抗温度敏感性 + 传播延迟大),会放大振铃;SIC 的紧对称性与快速隐性边沿对劣质线缆有一定补偿,但仍建议温漂实测。</li>
 </ul>
 <h3 id="45-iso-11898-22024-55">4.5 低功耗与唤醒(ISO 11898-2:2024 §5.5)</h3>
-<p><img alt="图 14 总线唤醒时序" src="images/fig14_wakeup.svg"></p>
+<p><img alt="图 14 总线唤醒时序" src="images/fig14_wakeup.svg"><em>图 14 总线唤醒时序</em>></p>
 <ul>
 <li>基本唤醒:显性 ≥ tFilter;唤醒模式 WUP:两个显性(各 ≥ tFilter)间隔隐性 ≥ tFilter;选择性唤醒 WUF 按帧 ID 过滤;</li>
 <li>CAN activity filter time tFilter:长 0.5~5.0 µs / 短 0.15~1.8 µs(Table 20);唤醒超时 tWake 800 µs~10 ms(可选);</li>
@@ -879,21 +855,14 @@ HS-CAN 2 Mbps 能工作的网络 → CAN SIC 5 Mbps 也能工作。</strong></p>
 </ul>
 <hr>
 <h2 id="5">5. 标准演进与兼容性全景</h2>
-<p><img alt="图 6 SIC 标准演进" src="images/fig6_standard_evolution.svg"></p>
+<p><img alt="图 6 SIC 标准演进" src="images/fig6_standard_evolution.svg"><em>图 6 SIC 标准演进</em>></p>
 <blockquote>
-<p>📖 <strong>标准全文已收录</strong>(工作区 <code>CAN资料/</code> 目录):ISO 11898-2-2024(英文可复制版 + 中文版)、ISO 11898-1-2024、GB/T 41588.1~4-2022(国标采标)。建议直接对照标准原文精读 Table 17/18(参数集 C)与 Annex A(SIC/FAST 模式)。</p>
+<p>📖 <strong>标准全文已收录</strong>(工作区 <code><a href="../../resources/standards-text/index.md" target="_blank" rel="noopener">标准查阅</a>/</code> 目录):ISO 11898-2-2024(英文可复制版 + 中文版)、ISO 11898-1-2024、GB/T 41588.1~4-2022(国标采标)。建议直接对照标准原文精读 Table 17/18(参数集 C)与 Annex A(SIC/FAST 模式)。</p>
 </blockquote>
-<pre><code>CiA 601-4(2019,SIC 原始规范,2023 撤回)
-        │ 并入
-ISO 11898-2:2024 第三版
-   ├── Set A(≤2 Mbit/s 经典 CAN FD)
-   ├── Set B(≤5 Mbit/s CAN FD)
-   ├── Set C(≤8 Mbit/s, SIC 收发器权威参数)  ← 本专题核心
-   └── Annex A(FAST 模式, ≤20 Mbit/s, CAN XL 兼容, SIC 向后兼容)
-</code></pre>
+<p><img alt="图 6 SIC 标准演进" src="images/fig6_standard_evolution.svg"><em>图 6 SIC 标准演进</em><em>图 6 SIC 标准演进</em>><em>图 6 SIC 标准演进</em></p>
 <ul>
 <li><strong>互操作</strong>:CAN SIC 收发器与 CAN FD、HS-CAN 收发器可同总线混用(SLLA581 确认);</li>
-<li><strong>SIC vs SIC XL</strong>:SIC 面向 ≤5/8 Mbit/s;SIC XL(Annex A/FAST)面向 CAN XL 网络 ≤20 Mbit/s,详见专题内 <code>_PDF资料/CNL2023-1_Infineon_SIC_vs_SIC_XL.pdf</code>;</li>
+<li><strong>SIC vs SIC XL</strong>:SIC 面向 ≤5/8 Mbit/s;SIC XL(Annex A/FAST)面向 CAN XL 网络 ≤20 Mbit/s,详见专题内 <code><a href="../../files/sic-design/CNL2023-1_Infineon_SIC_vs_SIC_XL.pdf" target="_blank" rel="noopener">CNL2023-1_Infineon_SIC_vs_SIC_XL.pdf</a></code>;</li>
 <li><strong>数据速率收益</strong>:2→5 Mbps 吞吐提升约 43%(64 字节载荷);5→8 Mbps 仅 19%——这是为什么业界把下一个跳跃投向 CAN XL(Adamson 2020)。</li>
 </ul>
 <hr>
@@ -909,42 +878,42 @@ ISO 11898-2:2024 第三版
 <tbody>
 <tr>
 <td>TI SLLA581A SIC 白皮书(原理+实测波形)</td>
-<td><code>06_厂商资料/PDF/TI_SLLA581_SIC_whitepaper.pdf</code></td>
+<td><code><a href="../../files/vendors/TI_SLLA581_SIC_whitepaper.pdf" target="_blank" rel="noopener">TI_SLLA581_SIC_whitepaper.pdf</a></code></td>
 <td><strong>必读</strong>,原理与参数的最全一手来源</td>
 </tr>
 <tr>
 <td>Adamson 2020(5-Mbps 网络设计)</td>
-<td><code>03_论文/PDF/2020_Adamson_CAN_signal_improvement_and_5Mbps_networks.pdf</code></td>
+<td><code><a href="../../files/papers/2020_Adamson_CAN_signal_improvement_and_5Mbps_networks.pdf" target="_blank" rel="noopener">2020_Adamson_CAN_signal_improvement_and_5Mbps_networks.pdf</a></code></td>
 <td><strong>必读</strong>,系统级概念与拓扑法则</td>
 </tr>
 <tr>
 <td>NXP TJA1463 数据手册(SIC 参数表)</td>
-<td><code>06_厂商资料/PDF/NXP_TJA1463_CAN_SIC_datasheet.pdf</code></td>
+<td><code><a href="../../files/vendors/NXP_TJA1463_CAN_SIC_datasheet.pdf" target="_blank" rel="noopener">NXP_TJA1463_CAN_SIC_datasheet.pdf</a></code></td>
 <td>参数对照、ISO 参数↔厂商参数转换表</td>
 </tr>
 <tr>
 <td>Infineon:CAN SIC 动态参数(CAN Newsletter 4/2022)</td>
-<td><code>08_SIC设计专题/_PDF资料/CNL2022-4_Infineon_CAN_SIC_dynamic_parameters.pdf</code></td>
+<td><code><a href="../../files/sic-design/CNL2022-4_Infineon_CAN_SIC_dynamic_parameters.pdf" target="_blank" rel="noopener">CNL2022-4_Infineon_CAN_SIC_dynamic_parameters.pdf</a></code></td>
 <td>SIC 动态参数与 EMC 关系</td>
 </tr>
 <tr>
 <td>Infineon:SIC or SIC XL(1/2023)</td>
-<td><code>08_SIC设计专题/_PDF资料/CNL2023-1_Infineon_SIC_vs_SIC_XL.pdf</code></td>
+<td><code><a href="../../files/sic-design/CNL2023-1_Infineon_SIC_vs_SIC_XL.pdf" target="_blank" rel="noopener">CNL2023-1_Infineon_SIC_vs_SIC_XL.pdf</a></code></td>
 <td>SIC 与 SIC XL 选型</td>
 </tr>
 <tr>
 <td>多厂商 SIC 方案访谈(3/2022)</td>
-<td><code>08_SIC设计专题/_PDF资料/CNL2022-3_SIC_transceiver_provider_interviews.pdf</code></td>
+<td><code><a href="../../files/sic-design/CNL2022-3_SIC_transceiver_provider_interviews.pdf" target="_blank" rel="noopener">CNL2022-3_SIC_transceiver_provider_interviews.pdf</a></code></td>
 <td>各家设计取舍</td>
 </tr>
 <tr>
 <td>Kvaser:Cable layout and CAN transceivers for higher bit rates(2024 iCC)</td>
-<td><code>08_SIC设计专题/_PDF资料/iCC2024_Kvaser_cable_layout_and_CAN_SIC.pdf</code></td>
+<td><code><a href="../../files/sic-design/iCC2024_Kvaser_cable_layout_and_CAN_SIC.pdf" target="_blank" rel="noopener">iCC2024_Kvaser_cable_layout_and_CAN_SIC.pdf</a></code></td>
 <td>线束布局与 SIC 收益量化</td>
 </tr>
 <tr>
 <td>Kvaser:Improved CAN-driver(2020 iCC)</td>
-<td><code>08_SIC设计专题/_PDF资料/iCC2020_Kvaser_improved_CAN_driver.pdf</code></td>
+<td><code><a href="../../files/sic-design/iCC2020_Kvaser_improved_CAN_driver.pdf" target="_blank" rel="noopener">iCC2020_Kvaser_improved_CAN_driver.pdf</a></code></td>
 <td>振铃机理与 slew rate 关系</td>
 </tr>
 <tr>
@@ -960,23 +929,13 @@ ISO 11898-2:2024 第三版
   <h1 id="02-can-sic">02 设计 — CAN SIC 收发器芯片设计要点</h1>
 <blockquote>
 <p>本篇面向<strong>模拟 IC 设计工程师</strong>,从收发器芯片架构出发,拆解 SIC 的核心电路模块设计:输出级/驱动器、振铃抑制电路、接收器、SIC 相位控制逻辑,并给出参数规格对照与设计检查清单。
-电路实现思路主要取自 12 篇已下载专利(Google Patents 官方 PDF,见 <code>02_专利/PDF/</code>)与厂商数据手册。</p>
+电路实现思路主要取自 12 篇已下载专利(Google Patents 官方 PDF,见 <code><a href="../../resources/patents.md" target="_blank" rel="noopener">专利分类</a>/</code>)与厂商数据手册。</p>
 </blockquote>
-<p><img alt="图 21 收发器芯片设计要点思维导图" src="images/fig21_design_mindmap.svg"></p>
+<p><img alt="图 21 收发器芯片设计要点思维导图" src="images/fig21_design_mindmap.svg"><em>图 21 收发器芯片设计要点思维导图</em>></p>
 <hr>
 <h2 id="1-sic">1. SIC 收发器芯片架构总览</h2>
-<pre><code>              ┌─────────────────────────────────────────────┐
-              │               CAN SIC 收发器                 │
-   TXD ──────►│  驱动控制逻辑     ┌───────► 输出级(驱动器)   │──► CANH
-              │  (边沿/模式检测)  │                          │──► CANL
-              │             ┌────┴────┐   ┌──────────────┐   │
-              │             │ SIC 控制│◄──│ 接收器(比较器) │◄──┤
-   RXD ◄──────│             │ 时序/   │   └──────────────┘   │
-              │             │ 阻抗切换│                      │
-              │  VCC/VIO/VBAT 电源管理 / ESD / 保护          │
-              └─────────────────────────────────────────────┘
-</code></pre>
-<p><img alt="图 3 收发器芯片架构" src="images/fig3_transceiver_arch.svg"></p>
+<p><img alt="图 3 收发器芯片架构" src="images/fig3_transceiver_arch.svg"><em>图 3 收发器芯片架构</em><em>图 3 收发器芯片架构</em>><em>图 3 收发器芯片架构</em></p>
+<p><img alt="图 3 收发器芯片架构" src="images/fig3_transceiver_arch.svg"><em>图 3 收发器芯片架构</em>></p>
 <p>三大关键设计域:
 1. <strong>输出级(驱动器)</strong>:决定位时序对称性、边沿斜率、SIC 阻抗切换——SIC 性能的核心;
 2. <strong>SIC 控制逻辑</strong>:检测显性→隐性转换,按窗口(≤120 ns / ≥355 ns / ≤530 ns)切换有源/被动隐性;
@@ -1066,7 +1025,7 @@ ISO 11898-2:2024 第三版
 </ul>
 <hr>
 <h2 id="3">3. 振铃抑制电路实现(专利对照)</h2>
-<p>这是 SIC 设计的"秘密武器",各家实现路线不同,均有专利保护。<strong>建议按"先懂物理、再对照电路"的方式阅读下列专利</strong>(全部已下载到 <code>02_专利/PDF/</code>)。</p>
+<p>这是 SIC 设计的"秘密武器",各家实现路线不同,均有专利保护。<strong>建议按"先懂物理、再对照电路"的方式阅读下列专利</strong>(全部已下载到 <code><a href="../../resources/patents.md" target="_blank" rel="noopener">专利分类</a>/</code>)。</p>
 <h3 id="31-tirecessive-nulling-us9606948b2lrnhrn">3.1 TI:Recessive Nulling(隐性抵消)— US9606948B2(已过期,LRN/HRN 模式)</h3>
 <ul>
 <li><strong>思想</strong>:显性→隐性转换瞬间,额外并联一段低阻通路,加速泄放总线分布电容,让差分波形更快衰减到隐性阈值。</li>
@@ -1076,7 +1035,7 @@ ISO 11898-2:2024 第三版
 <li>混合模式按总线阻抗特征选择 nulling 时长,<strong>必须在采样点前终止</strong>。</li>
 <li><strong>设计启发</strong>:nulling 时长可由寄存器编程;终止时刻的时序精度(与采样点错开)是设计重点;额外低阻通路会增加转换瞬间电流,需评估 EMC/共模电流。</li>
 </ul>
-<p><img alt="图 15 振铃抑制电路原理" src="images/fig15_ring_suppress_circuit.svg"></p>
+<p><img alt="图 15 振铃抑制电路原理" src="images/fig15_ring_suppress_circuit.svg"><em>图 15 振铃抑制电路原理</em>></p>
 <h3 id="32-ti-us11310072b2">3.2 TI:瞬态触发振铃抑制 — US11310072B2</h3>
 <ul>
 <li><strong>思想</strong>:不靠精确定时,而是<strong>检测振铃本身</strong>:显性→隐性跳变后,振铃信号经电容耦合到 NMOS 栅极,幅度超过阈值即让管子导通,把振铃能量泄放到 VCC/GND。</li>
@@ -1318,7 +1277,7 @@ ISO 11898-2:2024 第三版
 </tbody>
 </table>
 <blockquote>
-<p>详细数据以各数据手册为准(<code>06_厂商资料/PDF/</code>)。</p>
+<p>详细数据以各数据手册为准(<code><a href="../../resources/vendors.md" target="_blank" rel="noopener">厂商资料分类</a>/</code>)。</p>
 </blockquote>
 <hr>
 <h2 id="8">8. 设计检查清单(流片前对照)</h2>
@@ -1345,9 +1304,9 @@ ISO 11898-2:2024 第三版
 <hr>
 <h2 id="9">9. 参考资料</h2>
 <ul>
-<li>专利(全部已下载):<code>02_专利/PDF/</code>(US9606948B2、US11310072B2、US11539548B2、US10020841B2、US11068429B2、US11048657B2、US10042807B2、US7113759B2、US7183793B2、US9471528B2、US10084617B2、US11588662B1)</li>
-<li>数据手册:<code>06_厂商资料/PDF/</code>(TJA1462/63/64、TCAN1462/63/1044、NCV7357)</li>
-<li>芯片级论文:<code>03_论文/PDF/</code>(Deloge 2015 NXP SOI 收发器)、<code>04_期刊/PDF/</code>(TCAS-I 2025 安全收发器、MDPI Chips 2024、IEICE ELEX 2025 过冲设计)</li>
+<li>专利(全部已下载):<code><a href="../../resources/patents.md" target="_blank" rel="noopener">专利分类</a>/</code>(US9606948B2、US11310072B2、US11539548B2、US10020841B2、US11068429B2、US11048657B2、US10042807B2、US7113759B2、US7183793B2、US9471528B2、US10084617B2、US11588662B1)</li>
+<li>数据手册:<code><a href="../../resources/vendors.md" target="_blank" rel="noopener">厂商资料分类</a>/</code>(TJA1462/63/64、TCAN1462/63/1044、NCV7357)</li>
+<li>芯片级论文:<code><a href="../../resources/papers.md" target="_blank" rel="noopener">论文分类</a>/</code>(Deloge 2015 NXP SOI 收发器)、<code><a href="../../resources/journals.md" target="_blank" rel="noopener">期刊分类</a>/</code>(TCAS-I 2025 安全收发器、MDPI Chips 2024、IEICE ELEX 2025 过冲设计)</li>
 <li>补充文献:IEEE EDAPS 2020(串联阻尼)、UNIST 2020(动态振铃抑制)、DENSO 2014(振铃抑制电路)——DOI 见 <code>03_论文/README.md</code> 与调研记录</li>
 </ul>
 </section>
@@ -1358,30 +1317,10 @@ ISO 11898-2:2024 第三版
 <p>本篇覆盖 SIC 收发器从<strong>芯片级参数测量</strong>到<strong>一致性认证</strong>、<strong>EMC 测试</strong>、<strong>网络级验证</strong>的完整测试体系,并给出测试计划模板。
 测试方法与标准依据取自已下载资料(Hancock 2020 iCC 测量论文、Adamson 2020、TJA1463 数据手册)与经验证的 CiA/ADI 行业文章(链接见文末)。</p>
 </blockquote>
-<p><img alt="图 22 验证测试体系思维导图" src="images/fig22_test_mindmap.svg"></p>
+<p><img alt="图 22 验证测试体系思维导图" src="images/fig22_test_mindmap.svg"><em>图 22 验证测试体系思维导图</em>></p>
 <hr>
 <h2 id="1">1. 测试体系总览</h2>
-<pre><code>芯片级参数测量(示波器/仪表)
-   ├── 时序参数:环回延迟、位宽偏差、接收对称性、SIC 相位时序
-   ├── 电平参数:输出差分/共模、阈值、RDIFF_act_rec
-   └── 保护参数:ESD、总线容错、TXD 超时
-        │
-一致性测试(标准符合性)
-   ├── ISO 16845-1/-2(CAN 一致性测试计划)
-   ├── ISO 11898-2:2024 Set C 参数符合性
-   └── CiA plugfest(多厂商互操作,会员制)
-        │
-EMC 测试
-   ├── IEC 62228-3(收发器 IC EMC 评估:CAN)
-   ├── CISPR 25(模块/整车级)
-   └── 传导发射/抗扰(DPI、BCI)
-        │
-网络级验证(系统)
-   ├── 眼图模板测试(数据相位)
-   ├── Safe Operating Area 仿真 + 台架验证
-   ├── 多节点/星型拓扑实测(振铃、0.5V 判据)
-   └── 采样点/SSP 配置验证
-</code></pre>
+<p><img alt="图 22 验证测试体系思维导图" src="images/fig22_test_mindmap.svg"><em>图 22 验证测试体系思维导图</em><em>图 22 验证测试体系思维导图</em>><em>图 22 验证测试体系思维导图</em></p>
 <hr>
 <h2 id="2">2. 芯片级参数测量</h2>
 <h3 id="21">2.1 测量设备与设置</h3>
@@ -1412,9 +1351,9 @@ EMC 测试
 </tbody>
 </table>
 <blockquote>
-<p>Hancock 2020(Keysight)"Characterizing the physical layer of CAN FD"给出了环回延迟与隐性位宽的标准示波器测量流程(已下载:<code>03_论文/PDF/2020_Hancock_Characterizing_the_physical_layer_of_CAN_FD.pdf</code>)。</p>
+<p>Hancock 2020(Keysight)"Characterizing the physical layer of CAN FD"给出了环回延迟与隐性位宽的标准示波器测量流程(已下载:<code><a href="../../files/papers/2020_Hancock_Characterizing_the_physical_layer_of_CAN_FD.pdf" target="_blank" rel="noopener">2020_Hancock_Characterizing_the_physical_layer_of_CAN_FD.pdf</a></code>)。</p>
 </blockquote>
-<p><img alt="图 13 HS-PMA 标准测试电路" src="images/fig13_test_circuit.svg"></p>
+<p><img alt="图 13 HS-PMA 标准测试电路" src="images/fig13_test_circuit.svg"><em>图 13 HS-PMA 标准测试电路</em>></p>
 <h3 id="22">2.2 时序参数测量(核心)</h3>
 <table>
 <thead>
@@ -1543,7 +1482,7 @@ EMC 测试
 <h3 id="41-iec-62228-3can-ic-emc-emc">4.1 IEC 62228-3(CAN 收发器 IC EMC 评估)— 芯片级 EMC 标准</h3>
 <ul>
 <li>规定 CAN 收发器 IC 的<strong>传导发射(150 kHz~1 GHz)与射频抗扰度</strong>测试板规范、测试条件与限值;</li>
-<li><strong>与 SIC 直接相关</strong>:Infineon 的 CAN SIC 动态参数文章(已下载 <code>_PDF资料/CNL2022-4_Infineon_CAN_SIC_dynamic_parameters.pdf</code>)专门讨论 SIC 动态参数与 EMC 测试的关系——SIC 快速边沿在降低振铃的同时会<strong>增加高频发射</strong>,两者需要权衡;</li>
+<li><strong>与 SIC 直接相关</strong>:Infineon 的 CAN SIC 动态参数文章(已下载 <code><a href="../../files/sic-design/CNL2022-4_Infineon_CAN_SIC_dynamic_parameters.pdf" target="_blank" rel="noopener">CNL2022-4_Infineon_CAN_SIC_dynamic_parameters.pdf</a></code>)专门讨论 SIC 动态参数与 EMC 测试的关系——SIC 快速边沿在降低振铃的同时会<strong>增加高频发射</strong>,两者需要权衡;</li>
 <li>获取:IEC Webstore 付费购买。</li>
 </ul>
 <h3 id="42-cispr-25">4.2 CISPR 25(模块/整车级)</h3>
@@ -1562,10 +1501,10 @@ EMC 测试
 <h3 id="51">5.1 眼图模板测试</h3>
 <ul>
 <li>CAN FD 数据相位用<strong>眼图模板(eye diagram mask)</strong>作为合成信号质量测试(仲裁段 + 数据段分开评估);</li>
-<li>参考:LeCroy Stüber 2024 iCC "What information can eye diagrams provide for CAN?"(已下载 <code>_PDF资料/iCC2024_LeCroy_eye_diagrams_CAN.pdf</code>)、Hancock 2020;</li>
+<li>参考:LeCroy Stüber 2024 iCC "What information can eye diagrams provide for CAN?"(已下载 <code><a href="../../files/sic-design/iCC2024_LeCroy_eye_diagrams_CAN.pdf" target="_blank" rel="noopener">iCC2024_LeCroy_eye_diagrams_CAN.pdf</a></code>)、Hancock 2020;</li>
 <li>实测时注意:触发源用 SOF,数据相位速率与仲裁速率分别配置。</li>
 </ul>
-<p><img alt="图 5 安全操作区与采样点" src="images/fig5_safe_area.svg"></p>
+<p><img alt="图 5 安全操作区与采样点" src="images/fig5_safe_area.svg"><em>图 5 安全操作区与采样点</em>></p>
 <h3 id="52-safe-operating-area-adamson-2020">5.2 Safe Operating Area 仿真 + 台架对照(Adamson 2020 方法论)</h3>
 <ol>
 <li><strong>仿真输入</strong>:典型(typical)仿真模型 + <strong>最坏情况不对称评估</strong>(不叠加所有参数同时最坏,那不符合实际);</li>
@@ -1617,32 +1556,32 @@ EMC 测试
 <tbody>
 <tr>
 <td>Hancock 2020 物理层表征(iCC)</td>
-<td><code>03_论文/PDF/2020_Hancock_Characterizing_the_physical_layer_of_CAN_FD.pdf</code></td>
+<td><code><a href="../../files/papers/2020_Hancock_Characterizing_the_physical_layer_of_CAN_FD.pdf" target="_blank" rel="noopener">2020_Hancock_Characterizing_the_physical_layer_of_CAN_FD.pdf</a></code></td>
 <td>环回延迟/隐性位宽/眼图测量方法</td>
 </tr>
 <tr>
 <td>Adamson 2020(5-Mbps 网络)</td>
-<td><code>03_论文/PDF/2020_Adamson_CAN_signal_improvement_and_5Mbps_networks.pdf</code></td>
+<td><code><a href="../../files/papers/2020_Adamson_CAN_signal_improvement_and_5Mbps_networks.pdf" target="_blank" rel="noopener">2020_Adamson_CAN_signal_improvement_and_5Mbps_networks.pdf</a></code></td>
 <td>Safe Operating Area 仿真方法论、位模式、采样点</td>
 </tr>
 <tr>
 <td>TJA1463 数据手册</td>
-<td><code>06_厂商资料/PDF/NXP_TJA1463_CAN_SIC_datasheet.pdf</code></td>
+<td><code><a href="../../files/vendors/NXP_TJA1463_CAN_SIC_datasheet.pdf" target="_blank" rel="noopener">NXP_TJA1463_CAN_SIC_datasheet.pdf</a></code></td>
 <td>参数定义、测试电路(Figure 12)、测量条件</td>
 </tr>
 <tr>
 <td>Infineon CAN SIC 动态参数(4/2022)</td>
-<td><code>08_SIC设计专题/_PDF资料/CNL2022-4_Infineon_CAN_SIC_dynamic_parameters.pdf</code></td>
+<td><code><a href="../../files/sic-design/CNL2022-4_Infineon_CAN_SIC_dynamic_parameters.pdf" target="_blank" rel="noopener">CNL2022-4_Infineon_CAN_SIC_dynamic_parameters.pdf</a></code></td>
 <td>SIC 动态参数与 EMC 关系</td>
 </tr>
 <tr>
 <td>LeCroy 眼图(iCC 2024)</td>
-<td><code>08_SIC设计专题/_PDF资料/iCC2024_LeCroy_eye_diagrams_CAN.pdf</code></td>
+<td><code><a href="../../files/sic-design/iCC2024_LeCroy_eye_diagrams_CAN.pdf" target="_blank" rel="noopener">iCC2024_LeCroy_eye_diagrams_CAN.pdf</a></code></td>
 <td>眼图分析方法</td>
 </tr>
 <tr>
 <td>Kvaser 线束/CAN 驱动(iCC 2020/2024)</td>
-<td><code>08_SIC设计专题/_PDF资料/iCC2024_Kvaser_cable_layout_and_CAN_SIC.pdf</code>、<code>iCC2020_Kvaser_improved_CAN_driver.pdf</code></td>
+<td><code><a href="../../files/sic-design/iCC2024_Kvaser_cable_layout_and_CAN_SIC.pdf" target="_blank" rel="noopener">iCC2024_Kvaser_cable_layout_and_CAN_SIC.pdf</a></code>、<code>iCC2020_Kvaser_improved_CAN_driver.pdf</code></td>
 <td>振铃机理、slew rate 与线束</td>
 </tr>
 <tr>
@@ -1672,10 +1611,10 @@ EMC 测试
   <div class="chap-head"><span class="no">04</span><h2>参数速查</h2><span class="sub">ISO 11898-2:2024 Table 2-23 数据指标全集 · 测量条件 · 参数集 A/B/C 对比</span></div>
   <h1 id="04-iso-11898-22024">04 参数速查 — ISO 11898-2:2024 数据指标全集</h1>
 <blockquote>
-<p>本篇把 ISO 11898-2:2024 <strong>正文 Table 2~Table 23 与 Annex A 关键表</strong>的数据指标整理为速查表,全部数值提取自标准原文(<code>CAN资料/ISO 11898-2-2024(可复制).pdf</code>),标注表格号便于对照。
+<p>本篇把 ISO 11898-2:2024 <strong>正文 Table 2~Table 23 与 Annex A 关键表</strong>的数据指标整理为速查表,全部数值提取自标准原文(<code><a href="../../resources/standards-text/index.md" target="_blank" rel="noopener">标准查阅</a>/ISO 11898-2-2024(可复制).pdf</code>),标注表格号便于对照。
 用途:芯片设计指标对标、数据手册编写、测试计划制定时快速查阅。</p>
 </blockquote>
-<p><img alt="图 20 物理层指标体系思维导图" src="images/fig20_phys_mindmap.svg"></p>
+<p><img alt="图 20 物理层指标体系思维导图" src="images/fig20_phys_mindmap.svg"><em>图 20 物理层指标体系思维导图</em>></p>
 <hr>
 <h2 id="1-figure-2">1. 测量条件速查(Figure 2 测试电路)</h2>
 <table>
@@ -2489,8 +2428,8 @@ EMC 测试
 <hr>
 <h2 id="8">8. 参考资料</h2>
 <ul>
-<li>ISO 11898-2:2024 全文:<code>CAN资料/ISO 11898-2-2024(可复制).pdf</code>(英文)+ 中文版(扫描件);</li>
-<li>厂商参数对照:TJA1463(<code>06_厂商资料/PDF/</code>)、TCAN1463(<code>06_厂商资料/PDF/</code>)— 数据手册参数表与标准 Table 17/18 的对照;</li>
+<li>ISO 11898-2:2024 全文:<code><a href="../../resources/standards-text/index.md" target="_blank" rel="noopener">标准查阅</a>/ISO 11898-2-2024(可复制).pdf</code>(英文)+ 中文版(扫描件);</li>
+<li>厂商参数对照:TJA1463(<code><a href="../../resources/vendors.md" target="_blank" rel="noopener">厂商资料分类</a>/</code>)、TCAN1463(<code><a href="../../resources/vendors.md" target="_blank" rel="noopener">厂商资料分类</a>/</code>)— 数据手册参数表与标准 Table 17/18 的对照;</li>
 <li>参数测量方法:见 <code>03_测试/README.md</code>;SIC 窗口与阻抗的物理意义:见 <code>01_原理/README.md</code> 与 <code>02_设计/README.md</code>。</li>
 </ul>
 </section>
