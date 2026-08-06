@@ -96,6 +96,17 @@ nav:                     # 显式声明全部板块(不依赖自动发现)
       - 学习路线总览: learn/index.md
       - 模拟IC 工程师: learn/analog-ic.md
       - 嵌入式工程师: learn/embedded.md
+  - 设计参考:
+      - 设计参考总览: design/index.md
+      - 参数集与规格基线: design/parameter-sets.md
+      - 时序链路预算: design/timing-budget.md
+      - 输出级设计要点: design/output-stage.md
+      - 接收比较器设计要点: design/receiver.md
+      - SIC 控制逻辑设计要点: design/sic-control.md
+      - 振铃抑制电路设计要点: design/ring-suppression.md
+      - ESD 与总线保护设计要点: design/esd-protection.md
+      - 电源与唤醒设计要点: design/power-wake.md
+      - 参数设计要点总表: design/parameter-checklist.md
   - 知识库:
       - 知识库总览: knowledge/index.md
       - 协议基础: knowledge/protocol/index.md

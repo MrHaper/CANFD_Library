@@ -9,6 +9,7 @@
 | 板块 | 内容 | 入口 |
 | --- | --- | --- |
 | 学习路线 | 模拟 IC / 嵌入式两条分角色路线,按阶段给出目标、必读与动手任务 | [学习路线](https://MrHaper.github.io/CANFD_Library/learn/) |
+| 设计参考 | **收发器模块参数设计要点**(模拟 IC 主线):规格基线、时序链路预算、输出级、接收比较器、SIC 控制、振铃抑制、ESD/总线保护、电源唤醒与自查总表 | [设计参考](https://MrHaper.github.io/CANFD_Library/design/) |
 | 知识库 | 8 大子域:协议、位定时、物理层与 SIC、收发器设计、控制器、工具测试、项目实践笔记、SIC 设计专题 | [知识库](https://MrHaper.github.io/CANFD_Library/knowledge/) |
 | 教程 | 12 篇原创图文教程(帧结构、位定时、TDC、SocketCAN、示波器抓帧、plugfest 等) | [教程](https://MrHaper.github.io/CANFD_Library/tutorials/) |
 | 资源库 | 115 条分类索引:标准 / 专利 / 论文 / 期刊 / 教材 / 厂商资料 / 工具社区 / SIC 专题,45 份公开 PDF 直接下载 | [资源库](https://MrHaper.github.io/CANFD_Library/resources/) |

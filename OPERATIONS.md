@@ -53,6 +53,9 @@ python scripts/generate_figures.py
 docs/
 ├── index.md                 # 首页(人群入口卡/TOP10/最新收录)
 ├── learn/                   # 学习路线:总览 + analog-ic(6 阶段)/embedded(5)
+├── design/                  # 设计参考(模拟IC 主线):参数集规格基线、时序链路预算、
+│                            #   输出级/接收比较器/SIC控制/振铃抑制/ESD保护/电源唤醒
+│                            #   10 页参数设计要点 + 流片前自查总表
 ├── knowledge/               # 知识库:8 子域(protocol/bit-timing/physical-layer/
 │                            #   transceiver-design/controller/tools/project-notes/
 │                            #   sic-design)含 index 与知识点/专题页
@@ -78,7 +81,7 @@ scripts/
 ├── extract_metadata.py      # 从资料库 README 提取元数据 → _data/*.json(建库用,一般不再跑)
 ├── validate_resources.py    # 内容运营门禁:校验 _data/*.json 与本地文件
 └── test_validate_resources.py  # pytest 27 用例
-mkdocs.yml                   # 站点配置(8 板块 nav/jieba 搜索/mermaid/深浅色)
+mkdocs.yml                   # 站点配置(9 板块 nav:含设计参考/jieba 搜索/mermaid/深浅色)
 user_dict.txt                # jieba 自定义词典(中文搜索分词)
 .github/workflows/ci.yml     # 自动部署 workflow
 ```

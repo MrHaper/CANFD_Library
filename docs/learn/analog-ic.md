@@ -97,6 +97,10 @@ search: { boost: 1 }
 从规范走向电路:搞清各家厂商怎么做 SIC——通过关键专利读电路思路,通过竞品数据手册读内部框图与电气参数,形成自己的芯片架构与电路实现方案。
 
 ### 必读资料
+- [设计参考总览](../design/index.md) — 收发器模块参数设计要点(规格基线 → 时序预算 → 输出级 → 接收器 → SIC 控制 → 振铃抑制 → ESD → 电源唤醒),本阶段的主线阅读;
+- [参数集与规格基线](../design/parameter-sets.md) — 先明确你的芯片要满足 Set A/B/C 中哪一档;
+- [时序链路预算](../design/timing-budget.md) — 环回延迟/位宽对称性如何拆到模块;
+- [参数设计要点总表](../design/parameter-checklist.md) — 全模块逐项对标与流片前自查清单;
 - [TI US9606948B2(recessive nulling 隐性抵消,边沿加速)](../resources/_entries/patents/us9606948b2.md) — 显性→隐性边沿加速的核心思路;
 - [TI US11310072B2(瞬态触发振铃抑制电路)](../resources/_entries/patents/us11310072b2.md) — 振铃抑制的 TI 实现;
 - [Microchip US11539548B2(阻抗匹配 + 斜率控制)](../resources/_entries/patents/us11539548b2.md) — 明确标注 CAN SIC 的专利;
@@ -105,6 +109,9 @@ search: { boost: 1 }
 - [Deloge 2015:0.14µm HV SOI 收发器](../resources/_entries/papers/2015-deloge-soi-cmos-transceiver.md) — 芯片级实现论文,工艺与电路结合的范例。
 
 ### 动手任务
+- [ ] 按[参数集与规格基线](../design/parameter-sets.md)形成自研芯片的《设计规格基线》,标出目标档位与扩展功能;
+- [ ] 用[时序链路预算](../design/timing-budget.md)把 tLoop ≤ 190 ns 拆到每个模块并留 PVT 裕量;
+- [ ] 用[参数设计要点总表](../design/parameter-checklist.md)对照 TJA1463/TCAN1463,逐项标注差距;
 - [ ] 对照 [TJA1463 数据手册](../resources/_entries/vendors/nxp-tja1463.md) **画出接收比较器框图**(差分输入 → 比较器 → 迟滞 → 输出整形),标注每一级的带宽/迟滞/共模范围要求;
 - [ ] 对照 [TJA1463](../resources/_entries/vendors/nxp-tja1463.md)、[TCAN1463-Q1](../resources/_entries/vendors/ti-tcan1463-q1.md)、[TLE9371](../resources/_entries/vendors/infineon-tle9371v.md) 三家数据手册,比较"同一 SIC 核心 + 不同外设"的家族化设计思路,并画出自研芯片的输出级框图,标出 SIC 振铃抑制电路应挂在哪一级、由什么触发;
 - [ ] 把 [US9606948B2](../resources/_entries/patents/us9606948b2.md)、[US11310072B2](../resources/_entries/patents/us11310072b2.md)、[US11539548B2](../resources/_entries/patents/us11539548b2.md)、[US11068429B2](../resources/_entries/patents/us11068429b2.md)、[US10020841B2](../resources/_entries/patents/us10020841b2.md) 五篇振铃抑制专利的电路方案做成对比表(方案/触发方式/优劣势/适用场景),形成自己的方案选型文档;
@@ -167,3 +174,4 @@ search: { boost: 1 }
 - [学习路线总览](index.md) — 两条路线如何选;
 - [物理层与 SIC 知识域](../knowledge/physical-layer/index.md) — 相关知识点参考树;
 - [收发器设计知识域](../knowledge/transceiver-design/index.md) — 电路实现相关知识点。
+- [设计参考](../design/index.md) — 模块参数设计要点与自查清单。
