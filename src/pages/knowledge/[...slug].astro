@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from "astro:content";
+import Doc from "../../layouts/Doc.astro";
+import { routeSlug } from "../../lib/content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("knowledge");
+  return entries
+    .filter((e) => e.id !== "index")
+    .map((entry) => ({
+      params: { slug: routeSlug(entry.id) },
+      props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const meta = [
+  { label: "子域", value: entry.id.split("/")[0] },
+  ...(entry.data.date ? [{ label: "日期", value: entry.data.date }] : []),
+];
+---
+<Doc title={entry.data.title} description={entry.data.description} headings={headings} meta={meta}>
+  <Content />
+</Doc>

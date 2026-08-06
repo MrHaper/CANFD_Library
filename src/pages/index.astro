@@ -1,0 +1,170 @@
+---
+import Base from "../layouts/Base.astro";
+import { getCollection } from "astro:content";
+import Reveal from "../components/Reveal.astro";
+
+const design = await getCollection("design");
+const knowledge = await getCollection("knowledge");
+const tutorials = await getCollection("tutorials");
+const glossary = await getCollection("glossary");
+const resources = await getCollection("resources");
+
+const knowledgeIndexes = knowledge
+  .filter((e) => e.id.endsWith("/index") || e.id === "index")
+  .map((e) => ({
+    title: e.data.title,
+    description: e.data.description || "",
+    url: `/knowledge/${(e.id.replace(/\.md$/, "").replace(/\/index$/, "") === "index" ? "" : e.id.replace(/\.md$/, "").replace(/\/index$/, ""))}/`,
+    section: e.id.split("/")[0],
+  }));
+
+const tutorialList = tutorials
+  .filter((e) => !e.id.endsWith("/index") && e.id !== "index")
+  .sort((a, b) => a.id.localeCompare(b.id))
+  .map((e) => ({
+    title: e.data.title,
+    description: e.data.description || "",
+    url: `/tutorials/${e.id.replace(/\.md$/, "")}/`,
+    difficulty: (e.data.tags || [])[0] || "",
+  }));
+
+const resourceCats: Record<string, { label: string; count: number; url: string }> = {};
+for (const e of resources) {
+  const cat = e.id.split("/")[0];
+  if (!resourceCats[cat]) {
+    resourceCats[cat] = { label: cat, count: 0, url: `/resources/${cat}/` };
+  }
+  resourceCats[cat].count++;
+}
+const resourceList = Object.values(resourceCats).sort((a, b) => b.count - a.count);
+
+const designPages = design
+  .filter((e) => !e.id.endsWith("/index") && e.id !== "index")
+  .map((e) => ({
+    title: e.data.title,
+    description: e.data.description || "",
+    url: `/design/${e.id.replace(/\.md$/, "")}/`,
+  }));
+---
+<Base title="CAN FD 知识库" description="面向模拟 IC 设计工程师的 CAN FD / CAN SIC 中文知识库:协议、位定时、物理层、收发器设计、测试认证与资源索引。">
+  <section class="hero">
+    <div class="container">
+      <Reveal>
+        <span class="hero__eyebrow">面向模拟 IC 设计工程师</span>
+        <h1>CAN FD / CAN SIC<br />从协议到芯片的完整知识库</h1>
+        <p class="hero__lead">
+          聚合 ISO 标准、专利、论文、数据手册与工程经验,覆盖协议、位定时、物理层、收发器模块设计、测试认证与资源索引。
+        </p>
+        <div class="hero__actions">
+          <a class="btn" href="/design/">进入设计参考</a>
+          <a class="btn btn--ghost" href="/knowledge/">浏览知识库</a>
+        </div>
+      </Reveal>
+      <Reveal delay={120}>
+        <div class="stat-row" style="margin-top:3rem;">
+          <div class="stat"><div class="stat__num">{designPages.length + knowledge.length}</div><div class="stat__label">设计参考 + 知识点</div></div>
+          <div class="stat"><div class="stat__num">{tutorialList.length}</div><div class="stat__label">原创教程</div></div>
+          <div class="stat"><div class="stat__num">{resources.length}</div><div class="stat__label">资源条目</div></div>
+          <div class="stat"><div class="stat__num">{glossary.length}</div><div class="stat__label">术语词条</div></div>
+        </div>
+      </Reveal>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <Reveal>
+        <div class="section__head">
+          <h2>设计参考</h2>
+          <a class="section__link" href="/design/">全部模块 →</a>
+        </div>
+      </Reveal>
+      <div class="card-grid">
+        {
+          designPages.slice(0, 6).map((p, i) => (
+            <Reveal delay={i * 60}>
+              <a class="card" href={p.url}>
+                <div class="card__icon">⚙</div>
+                <h3>{p.title}</h3>
+                <p>{p.description}</p>
+              </a>
+            </Reveal>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <Reveal>
+        <div class="section__head">
+          <h2>知识库</h2>
+          <a class="section__link" href="/knowledge/">全部子域 →</a>
+        </div>
+      </Reveal>
+      <div class="card-grid">
+        {
+          knowledgeIndexes.map((k, i) => (
+            <Reveal delay={(i % 3) * 70}>
+              <a class="card" href={k.url}>
+                <div class="card__icon">📘</div>
+                <h3>{k.title.replace(/总览$/, "")}</h3>
+                <p>{k.description}</p>
+              </a>
+            </Reveal>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <Reveal>
+        <div class="section__head">
+          <h2>教程</h2>
+          <a class="section__link" href="/tutorials/">全部教程 →</a>
+        </div>
+      </Reveal>
+      <div class="card-grid">
+        {
+          tutorialList.slice(0, 6).map((t, i) => (
+            <Reveal delay={i * 60}>
+              <a class="card" href={t.url}>
+                <div class="card__icon">🛠</div>
+                <h3>{t.title}</h3>
+                <p>{t.description}</p>
+                {t.difficulty && <div class="card__meta">{t.difficulty}</div>}
+              </a>
+            </Reveal>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <Reveal>
+        <div class="section__head">
+          <h2>资源库</h2>
+          <a class="section__link" href="/resources/">全部资源 →</a>
+        </div>
+      </Reveal>
+      <div class="card-grid">
+        {
+          resourceList.map((r, i) => (
+            <Reveal delay={(i % 3) * 70}>
+              <a class="card" href={r.url}>
+                <div class="card__icon">📄</div>
+                <h3>{r.label}</h3>
+                <p>{r.count} 条收录资料</p>
+              </a>
+            </Reveal>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>

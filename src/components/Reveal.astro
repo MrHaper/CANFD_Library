@@ -1,0 +1,31 @@
+---
+interface Props {
+  children: any;
+  delay?: number;
+  as?: string;
+}
+const { children, delay = 0, as = "div" } = Astro.props;
+const Tag = as as any;
+---
+<Tag class="reveal" data-delay={delay}><slot /></Tag>
+
+<script>
+  import { animate, inView } from "motion";
+
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduced) {
+    document.querySelectorAll<HTMLElement>(".reveal").forEach((el) => {
+      const delay = Number(el.getAttribute("data-delay") || 0) / 1000;
+      inView(
+        el,
+        () => {
+          animate(el, { opacity: 1, y: 0 }, { duration: 0.6, delay, easing: [0.22, 1, 0.36, 1] });
+          el.classList.add("visible");
+        },
+        { amount: 0.15, once: true }
+      );
+    });
+  } else {
+    document.querySelectorAll<HTMLElement>(".reveal").forEach((el) => el.classList.add("visible"));
+  }
+</script>

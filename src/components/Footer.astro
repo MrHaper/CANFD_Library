@@ -1,0 +1,22 @@
+---
+const links = [
+  { href: "/design/", label: "设计参考" },
+  { href: "/knowledge/", label: "知识库" },
+  { href: "/tutorials/", label: "教程" },
+  { href: "/resources/", label: "资源库" },
+  { href: "/glossary/", label: "术语表" },
+  { href: "/about/", label: "关于" },
+  { href: "/contribute/", label: "勘误与贡献" },
+];
+---
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div>
+      <strong>CAN FD 知识库</strong>
+      <p style="margin: 0.35rem 0 0;">面向模拟 IC 设计工程师的 CAN FD / CAN SIC 资料库 · 2026</p>
+    </div>
+    <nav aria-label="页脚导航">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+  </div>
+</footer>

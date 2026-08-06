@@ -1,0 +1,51 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+
+const links = [
+  { href: "/", label: "首页" },
+  { href: "/design/", label: "设计参考" },
+  { href: "/knowledge/", label: "知识库" },
+  { href: "/tutorials/", label: "教程" },
+  { href: "/resources/", label: "资源" },
+  { href: "/glossary/", label: "术语" },
+];
+const currentPath = Astro.url.pathname;
+---
+<header class="site-header" id="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="/" data-astro-transition-persist="logo">
+      <span class="site-logo__mark">F</span>
+      <span>CAN FD 知识库</span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      {links.map((l) => (
+        <a href={l.href} aria-current={currentPath === l.href || (l.href !== "/" && currentPath.startsWith(l.href)) ? "page" : undefined}>
+          {l.label}
+        </a>
+      ))}
+    </nav>
+    <div class="site-header__actions">
+      <button class="icon-btn" type="button" data-search-open aria-label="搜索" title="搜索 (Ctrl+K)">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+      <ThemeToggle />
+      <button class="icon-btn menu-toggle" id="menu-toggle" type="button" aria-label="打开菜单">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("site-header");
+  const onScroll = () => header?.classList.toggle("scrolled", window.scrollY > 8);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+</script>

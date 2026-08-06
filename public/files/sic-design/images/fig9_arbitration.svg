@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif">
+<rect x="0" y="0" width="1000" height="600" fill="#ffffff"/>
+<rect x="0" y="0" width="1000" height="62" fill="#0a3a63"/>
+<text x="36" y="30" font-size="22" font-weight="bold" fill="#ffffff">图 9 非破坏性位仲裁</text>
+<text x="36" y="51" font-size="13" fill="#c7d6ea">显性(0)覆盖隐性(1):ID 数值小者优先,仲裁失败节点自动转为接收</text>
+<defs>
+<marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+  <path d="M0,0 L8,3 L0,6 Z" fill="#0f4c81"/>
+</marker>
+<marker id="arrA" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+  <path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/>
+</marker>
+<marker id="arrG" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+  <path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/>
+</marker>
+<marker id="dot" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+  <circle cx="4" cy="4" r="3" fill="#64748b"/>
+</marker>
+</defs>
+<text x="70.0" y="110.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="start">节点 A(TxD)</text><path d="M 130.0 140.0 L 260.0 140.0 L 260.0 140.0 L 480.0 140.0 L 480.0 195.0 L 750.0 195.0 L 750.0 195.0 L 1070.0 195.0 L 1070.0 195.0" fill="none" stroke="#0f4c81" stroke-width="2.2" stroke-linejoin="round"/><text x="70.0" y="240.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="start">节点 B(TxD)</text><path d="M 130.0 270.0 L 260.0 270.0 L 260.0 270.0 L 480.0 270.0 L 480.0 325.0 L 750.0 325.0 L 750.0 270.0 L 1070.0 270.0 L 1070.0 270.0" fill="none" stroke="#8b9bb4" stroke-width="2.2" stroke-linejoin="round"/><text x="70.0" y="370.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="start">总线结果</text><path d="M 130.0 400.0 L 260.0 400.0 L 260.0 400.0 L 480.0 400.0 L 480.0 455.0 L 750.0 455.0 L 750.0 400.0 L 1070.0 400.0 L 1070.0 400.0" fill="none" stroke="#0a3a63" stroke-width="2.6" stroke-linejoin="round"/><line x1="175.0" y1="470.0" x2="175.0" y2="480.0" stroke="#64748b" stroke-width="1.1"/><text x="175.0" y="495.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="12" fill="#64748b" font-weight="normal" text-anchor="middle">ID10</text><line x1="265.0" y1="470.0" x2="265.0" y2="480.0" stroke="#64748b" stroke-width="1.1"/><text x="265.0" y="495.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="12" fill="#64748b" font-weight="normal" text-anchor="middle">ID9</text><line x1="315.0" y1="470.0" x2="315.0" y2="480.0" stroke="#64748b" stroke-width="1.1"/><text x="315.0" y="495.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="12" fill="#64748b" font-weight="normal" text-anchor="middle">ID8</text><line x1="265.0" y1="120.0" x2="265.0" y2="470.0" stroke="#d97706" stroke-width="1.4" stroke-dasharray="4 4"/><text x="265.0" y="108.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="13" fill="#d97706" font-weight="normal" text-anchor="middle">A 发隐性,B 发显性 → B 胜出</text><text x="515.0" y="540.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="13.5" fill="#64748b" font-weight="normal" text-anchor="middle">非破坏性:胜者继续发送,无需重发;仲裁失败节点在帧间空间后自动重发</text></svg>

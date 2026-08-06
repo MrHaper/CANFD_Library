@@ -1,3 +1,0 @@
-mkdocs-material>=9.6
-mkdocs-minify-plugin
-jieba>=0.42.1

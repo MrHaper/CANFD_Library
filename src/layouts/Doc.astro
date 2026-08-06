@@ -1,0 +1,51 @@
+---
+import Base from "./Base.astro";
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+interface Props {
+  title: string;
+  description?: string;
+  headings?: Heading[];
+  meta?: { label: string; value: string }[];
+}
+const { title, description, headings = [], meta = [] } = Astro.props;
+---
+<Base title={title} description={description}>
+  <div class="doc-layout">
+    <article class="doc">
+      <h1>{title}</h1>
+      {
+        meta.length > 0 && (
+          <div class="doc__meta">
+            {meta.map((m) => (
+              <span><strong>{m.label}:</strong> {m.value}</span>
+            ))}
+          </div>
+        )
+      }
+      <div class="prose">
+        <slot />
+      </div>
+    </article>
+    {
+      headings.filter((h) => h.depth > 1).length > 0 && (
+        <aside class="toc">
+          <h4>本页目录</h4>
+          <ul>
+            {headings
+              .filter((h) => h.depth <= 3)
+              .map((h) => (
+                <li style={h.depth === 3 ? "padding-left:0.75rem" : ""}>
+                  <a href={`#${h.slug}`}>{h.text}</a>
+                </li>
+              ))}
+          </ul>
+        </aside>
+      )
+    }
+  </div>
+</Base>

@@ -1,0 +1,124 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Doc from "../../layouts/Doc.astro";
+import Reveal from "../../components/Reveal.astro";
+import {
+  routeSlug,
+  resourceLabel,
+  accessLabel,
+  statusLabel,
+  priorityStars,
+} from "../../lib/content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("resources");
+  const paths: any[] = [];
+  const cats = new Set(entries.map((e) => e.id.split("/")[0]));
+  for (const entry of entries) {
+    if (entry.id === "index") continue;
+    paths.push({
+      params: { slug: routeSlug(entry.id) },
+      props: { kind: "entry", entry },
+    });
+  }
+  for (const cat of cats) {
+    if (!entries.some((e) => e.id === `${cat}/index`)) {
+      paths.push({ params: { slug: cat }, props: { kind: "category", cat } });
+    }
+  }
+  return paths;
+}
+
+const { kind, entry, cat } = Astro.props;
+const allEntries = await getCollection("resources");
+
+let categoryList: any[] = [];
+let categoryLabel = "";
+let docTitle = "";
+let docDescription = "";
+let docMeta: { label: string; value: string }[] = [];
+let Content: any = null;
+let headings: any[] = [];
+let downloadHref: string | null = null;
+let sourceUrl: string | null = null;
+
+if (kind === "category") {
+  categoryLabel = resourceLabel(cat);
+  categoryList = allEntries
+    .filter((e) => e.id.startsWith(`${cat}/`) && !e.id.endsWith("/index"))
+    .sort(
+      (a, b) =>
+        (b.data.priority || 0) - (a.data.priority || 0) ||
+        String(b.data.year || "").localeCompare(String(a.data.year || ""))
+    )
+    .map((e) => ({
+      title: e.data.title,
+      description: e.data.description || "",
+      url: `/resources/${routeSlug(e.id)}/`,
+      org: e.data.organization || "",
+      year: e.data.year || "",
+      access: accessLabel(e.data.access),
+      stars: priorityStars(e.data.priority),
+    }));
+} else {
+  const rendered = await render(entry);
+  Content = rendered.Content;
+  headings = rendered.headings;
+  const data = entry.data;
+  docTitle = data.title;
+  docDescription = data.description || "";
+  docMeta = [
+    { label: "组织", value: data.organization || "—" },
+    { label: "年份", value: String(data.year ?? "—") },
+    { label: "可获取性", value: accessLabel(data.access) },
+    { label: "状态", value: statusLabel(data.status) },
+    { label: "优先级", value: priorityStars(data.priority) },
+  ];
+  downloadHref = data.local_file ? `/${data.local_file}` : null;
+  sourceUrl = data.source || null;
+}
+---
+
+{
+  kind === "category" ? (
+    <Base title={categoryLabel} description={`${categoryLabel}分类下的 CAN FD / CAN SIC 收录资料。`}>
+      <section class="hero" style="padding-bottom:2.5rem;">
+        <div class="container">
+          <span class="hero__eyebrow">{categoryList.length} 条资料</span>
+          <h1>{categoryLabel}</h1>
+          <p class="hero__lead">按优先级排序(★ 越多越优先),点击条目查看导读与下载。</p>
+        </div>
+      </section>
+      <section class="section" style="padding-top:0;">
+        <div class="container">
+          <div class="card-grid">
+            {categoryList.map((e, i) => (
+              <Reveal delay={(i % 3) * 70}>
+                <a class="card" href={e.url}>
+                  <h3>{e.title}</h3>
+                  <p>{e.description}</p>
+                  <div class="card__meta">
+                    {e.org} · {e.year} · {e.access} · {e.stars}
+                  </div>
+                </a>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+    </Base>
+  ) : (
+    <Doc title={docTitle} description={docDescription} headings={headings} meta={docMeta}>
+      <div class="hero__actions" style="justify-content:flex-start;margin:-0.5rem 0 1.2rem;">
+        {downloadHref && (
+          <a class="btn" href={downloadHref} target="_blank" rel="noopener">下载 PDF</a>
+        )}
+        {sourceUrl && (
+          <a class="btn btn--secondary" href={sourceUrl} target="_blank" rel="noopener">官方来源</a>
+        )}
+      </div>
+      <Content />
+    </Doc>
+  )
+}

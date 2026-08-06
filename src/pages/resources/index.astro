@@ -1,0 +1,45 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection } from "astro:content";
+import Reveal from "../../components/Reveal.astro";
+import { resourceLabel } from "../../lib/content";
+
+const entries = await getCollection("resources");
+const cats = new Map<string, number>();
+for (const e of entries) {
+  const cat = e.id.split("/")[0];
+  cats.set(cat, (cats.get(cat) || 0) + 1);
+}
+const list = [...cats.entries()].map(([cat, count]) => ({
+  cat,
+  label: resourceLabel(cat),
+  count,
+  url: `/resources/${cat}/`,
+}));
+---
+<Base title="资源库" description="标准、专利、论文、期刊、教材、厂商资料、工具社区与全文资料分类索引。">
+  <section class="hero" style="padding-bottom:2.5rem;">
+    <div class="container">
+      <span class="hero__eyebrow">分类索引</span>
+      <h1>资源库</h1>
+      <p class="hero__lead">每一条资料均标注来源、可获取性与优先级,可直接下载的 PDF 已本地收录。</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="card-grid">
+        {
+          list.map((c, i) => (
+            <Reveal delay={(i % 3) * 70}>
+              <a class="card" href={c.url}>
+                <div class="card__icon">📄</div>
+                <h3>{c.label}</h3>
+                <p>{c.count} 条收录</p>
+              </a>
+            </Reveal>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>

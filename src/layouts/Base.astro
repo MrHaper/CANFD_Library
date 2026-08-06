@@ -1,0 +1,46 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Search from "../components/Search.astro";
+import MobileMenu from "../components/MobileMenu.astro";
+import MermaidRenderer from "../components/MermaidRenderer.astro";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title = "CAN FD 知识库", description = "面向模拟 IC 设计工程师的 CAN FD / CAN SIC 中文知识库" } = Astro.props;
+const pageTitle = title === "CAN FD 知识库" ? title : `${title} · CAN FD 知识库`;
+---
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <ViewTransitions />
+    <script is:inline>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("canfd-theme"); } catch (e) {}
+        var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+      })();
+    </script>
+  </head>
+  <body>
+    <Header />
+    <Search />
+    <MobileMenu />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <MermaidRenderer />
+  </body>
+</html>
