@@ -1,7 +1,11 @@
 site_name: CAN FD 知识库
 site_url: https://MrHaper.github.io/CANFD_Library/
-site_description: 面向模拟IC设计工程师与嵌入式工程师的 CAN FD 学习资料库
+site_description: 面向模拟 IC 设计工程师与嵌入式工程师的 CAN FD / CAN SIC 中文知识库——协议、位定时、物理层、收发器设计、测试认证与资源索引一站直达。
+site_author: CAN FD 知识库项目组
 repo_url: https://github.com/MrHaper/CANFD_Library
+repo_name: MrHaper/CANFD_Library
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; 2026 CAN FD 知识库项目组
 
 theme:
   name: material
@@ -15,11 +19,13 @@ theme:
     - navigation.expand
     - navigation.indexes        # section index 页(每个板块 index.md)
     - navigation.top
+    - navigation.footer
     - toc.follow
     - search.suggest
     - search.highlight
     - search.share
     - content.code.copy
+    - content.action.edit
   palette:
     - scheme: default
       primary: indigo
@@ -38,6 +44,11 @@ theme:
       analog-ic: material/chip
       embedded: material/memory
 
+# 术语/知识条目页通过索引页可达,不需要全部塞进侧边栏(否则导航爆炸)
+validation:
+  nav:
+    omitted_files: info
+
 plugins:
   - search:
       lang: zh
@@ -45,10 +56,6 @@ plugins:
   - tags          # 标签索引
   - meta          # .meta.yml 板块级公共元数据
   - minify: { minify_html: true }   # 需 requirements.txt 含 mkdocs-minify-plugin
-
-# requirements.txt 内容:
-#   mkdocs-material>=9.6
-#   mkdocs-minify-plugin
 
 markdown_extensions:
   - admonition
@@ -76,32 +83,36 @@ extra:
     模拟IC: analog-ic
     嵌入式: embedded
 
+extra_css:
+  - stylesheets/extra.css
+
 extra_javascript:
-  - https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js
+  - javascripts/vendor/mermaid.min.js
   - javascripts/mermaid.js
 
 nav:                     # 显式声明全部板块(不依赖自动发现)
   - 首页: index.md
   - 学习路线:
-      - learn/index.md
-      - 模拟IC工程师: learn/analog-ic.md
+      - 学习路线总览: learn/index.md
+      - 模拟IC 工程师: learn/analog-ic.md
       - 嵌入式工程师: learn/embedded.md
   - 知识库:
-      - knowledge/index.md
+      - 知识库总览: knowledge/index.md
       - 协议基础: knowledge/protocol/index.md
       - 位定时与同步: knowledge/bit-timing/index.md
-      - 物理层与SIC: knowledge/physical-layer/index.md
+      - 物理层与 SIC: knowledge/physical-layer/index.md
       - 收发器设计: knowledge/transceiver-design/index.md
       - 控制器与驱动: knowledge/controller/index.md
       - 工具与测试: knowledge/tools/index.md
       - 项目实践笔记: knowledge/project-notes/index.md
-      - SIC设计专题: knowledge/sic-design/index.md
-  - 教程: tutorials/index.md
+      - SIC 设计专题: knowledge/sic-design/index.md
+  - 教程:
+      - 教程列表: tutorials/index.md
   - 资源库:
-      - resources/index.md
+      - 资源库总览: resources/index.md
       - 标准规范: resources/standards.md
       - 标准查阅: resources/standards-text/index.md
-      - SIC设计专题: resources/sic-design.md
+      - SIC 设计专题: resources/sic-design.md
       - 全文查阅: resources/full-text/index.md
       - 专利: resources/patents.md
       - 论文: resources/papers.md

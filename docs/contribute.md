@@ -73,4 +73,4 @@ search: { boost: 1 }
 - 版权存疑的资料:优先在 Issue 中讨论,不要直接添加 PDF。
 
 !!! tip "仓库地址"
-    仓库地址见 `mkdocs.yml` 中的 `repo_url`(上线前由施工方替换为真实地址)。Issues 入口为 `repo_url/issues`。
+    源码仓库:[github.com/MrHaper/CANFD_Library](https://github.com/MrHaper/CANFD_Library);Issues 入口:[Issues 页](https://github.com/MrHaper/CANFD_Library/issues)。

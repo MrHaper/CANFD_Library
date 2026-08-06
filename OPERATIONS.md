@@ -1,7 +1,7 @@
 # CAN FD 知识库 — 运营交接文档
 
 > 本文档供后续维护者 / AI Agent 接手本仓库运营时阅读。**接手前请完整阅读本文档**,再开始任何修改。
-> 文档版本:v1.0 · 交接日期:2026-08-02 · 上线日期:2026-08-02 · 交接基线 commit:`0e46e83`
+> 文档版本:v1.2 · 交接日期:2026-08-02 · 最近重构:2026-08-06
 
 ---
 
@@ -38,6 +38,9 @@ python scripts/validate_resources.py docs/
 
 # 校验脚本单元测试(27 个用例)
 python -m pytest scripts/test_validate_resources.py -v
+
+# 重新生成 SIC 学习笔记的 22 张 SVG 技术图(改动脚本后必跑)
+python scripts/generate_figures.py
 ```
 
 > 注意:PyYAML 的 `safe_load` 无法解析 `mkdocs.yml` 中 `!!python/object/apply:pymdownx.slugs.slugify`(PyYAML 限制,非配置错误),验证 YAML 请用 `mkdocs build` 而非 yaml.safe_load。
@@ -62,11 +65,16 @@ docs/
 │   ├── _data/*.json         # ★ 资源元数据唯一数据源(8 个文件,115 条)
 │   ├── _entries/<分类>/*.md # ★ 每条资源一个条目页(导读五节 + frontmatter)
 │   └── …
-├── files/<分类>/*.pdf       # 47 个公开 PDF(仅可免费获取的,版权红线见 §7.2)+ SIC学习笔记.html
+├── files/<分类>/*.pdf       # 45 个公开 PDF(仅可免费获取的,版权红线见 §7.2)+ SIC学习笔记.html
 ├── glossary/                # 51 词条 + A-Z 索引
-├── javascripts/mermaid.js   # mermaid 初始化
+├── javascripts/mermaid.js   # mermaid 初始化(深浅色自适应)
+├── javascripts/vendor/mermaid.min.js  # 本地托管的 mermaid(不依赖外网 CDN)
+├── stylesheets/extra.css    # 图表容器/图片全局样式
+├── user_dict.txt            # jieba 中文分词词典(仓库根,见 §7.6)
+├── files/sic-design/images/ # 22 张原创 SVG 技术图(由 generate_figures.py 生成)
 └── contribute.md / about.md
 scripts/
+├── generate_figures.py      # 生成 22 张 SVG 技术图(可复现)
 ├── extract_metadata.py      # 从资料库 README 提取元数据 → _data/*.json(建库用,一般不再跑)
 ├── validate_resources.py    # 内容运营门禁:校验 _data/*.json 与本地文件
 └── test_validate_resources.py  # pytest 27 用例
@@ -176,19 +184,21 @@ user_dict.txt                # jieba 自定义词典(中文搜索分词)
 
 ### 7.4 元数据纪律
 
-- 所有元数据来自资料库索引(Leaning_Library)与厂商/标准官方页面,**禁止编造**任何字段;年份解析不了留空,链接没有留空并加 WARNING。
+- 所有元数据来自原始资料索引与厂商/标准官方页面,**禁止编造**任何字段;年份解析不了留空,链接没有留空并加 WARNING。
 - priority 推导:以资料库"必读 TOP 10"表为准(★★★=3/★★☆=2/★☆☆=1),不要用宽泛关键词(如"核心")推断——历史上"核心"误命中"核心内容"小标题导致大量条目被错误推为 2。
 - status 如实标注 `withdrawn`(已撤销标准)并在条目页加 `!!! warning` 警示;`unverified` 加 note。
 
-### 7.5 页面/锚点细节
+### 7.5 页面/锚点/图表细节
 
 - **emoji 前缀标题的锚点带前导连字符**:`## ⭐ 必读 TOP 10` 的 slug 是 `-必读-top-10`(pymdownx 把 emoji 转成连字符),页内链接必须写 `#-必读-top-10`,否则锚点失效(strict 模式会报 no such anchor)。
-- mermaid 图通过 `pymdownx.superfences.custom_fences` + unpkg CDN + `docs/javascripts/mermaid.js` 启用;mermaid 是客户端渲染,`web_fetch`/无 JS 环境看不到图(构建时只要 fence 语法合法即可)。
+- mermaid 图通过 `pymdownx.superfences.custom_fences` + **本地托管的 `docs/javascripts/vendor/mermaid.min.js`** + `docs/javascripts/mermaid.js` 启用;脚本会读取站点深浅色主题并自动重绘,统一中文字体与配色。不要改回 unpkg CDN(内网/离线会裂图)。
+- **SIC 学习笔记的 22 张 SVG 图**由 `scripts/generate_figures.py` 生成,输出到 `docs/files/sic-design/images/`;改图先改脚本再重新生成,不要手改 SVG(不可复现)。
+- `mkdocs.yml` 顶层 `not_in_nav: true` 用于忽略“未列入 nav”的页面警告(glossary/资源条目等按设计只经索引页可达);`mkdocs build --strict` 必须以零警告通过。
 - `_entries/` 与 `glossary/` 下的页面不在 nav 树中(经索引页/汇总页可达,搜索不受影响)——这是有意为之,勿强行加入 nav(会撑爆侧栏)。
 
 ### 7.6 中文搜索
 
-`plugins.search` 配置 `lang: zh` + `jieba_dict_user: user_dict.txt`。用户词典不能含空格词条;新增专业术语时同步更新词典,否则分词不理想(如"振铃抑制"可能被拆开)。
+`plugins.search` 配置 `lang: zh` + `jieba_dict_user: user_dict.txt`。**词典放在仓库根,且 mkdocs 命令必须在仓库根执行**(Material 按当前工作目录解析该路径,不按 docs_dir),用户词典不能含空格词条;新增专业术语时同步更新词典,否则分词不理想(如"振铃抑制"可能被拆开)。
 
 ---
 
@@ -197,9 +207,11 @@ user_dict.txt                # jieba 自定义词典(中文搜索分词)
 | # | 事项 | 建议处理时机 |
 |---|---|---|
 | 1 | tools-community 4 条 source 为空(阻抗/网络分析仪、知乎CSDN、EDAboard、厂商社区),页面已加"获取渠道待补充"提示 | 有可靠 URL 时补上 |
-| 2 | mermaid 依赖 unpkg CDN;CDN 故障/内网部署时图表不渲染(文本仍完整) | 有内网需求时自托管 mermaid.min.js |
+| 2 | ~~mermaid 依赖 unpkg CDN~~ **已解决(2026-08-06)**:改为本地托管 `docs/javascripts/vendor/mermaid.min.js` | 已完成 |
 | 3 | 5 条 tools 条目 description 与 JSON 非逐字一致(语义等价,前端展示优先) | 触发 JSON 同步时顺手统一 |
 | 4 | ~~`docs/` 子目录遗留的 10 个 `.gitkeep`~~ **已清理(2026-08-02,commit 31a7d64)** | 已完成 |
+| 9 | SIC 学习笔记 22 张 SVG 曾缺失(线上裂图),已由 `generate_figures.py` 补齐;改图请走脚本 | 已完成(2026-08-06) |
+| 10 | `mkdocs build --strict` 曾因 user_dict 路径 + 未入 nav 页面报 107 警告;**已修复**(词典保持仓库根、validation.nav.omitted_files=info) | 已完成(2026-08-06) |
 | 5 | 控制台/日志在 Windows GBK 下中文乱码(JSON/文件内容本身 UTF-8 正常);validate_resources.py 已加 `sys.stdout.reconfigure(encoding="utf-8")` 缓解 | 不处理亦可 |
 | 6 | 设计文档记载 standards 16 条,实际 17 条(IEC 62228-3 为建库补充);tools-community 20 vs 实际 23 | 以 `_data/*.json` 为准 |
 | 7 | ISO 11898-2 条目/知识点提及"ISO 官网现有 2026 更新版" | 随 ISO 版本演进定期复核 |
@@ -247,6 +259,7 @@ mkdocs serve                          # 本地预览
 mkdocs build --strict                 # 严格构建(门禁)
 python scripts/validate_resources.py docs/   # 资源数据校验(ERROR=0 通过)
 python -m pytest scripts/ -v          # 校验脚本单测(27 passed)
+python scripts/generate_figures.py    # 重新生成 22 张 SVG 技术图
 git push origin main                  # 发布(触发 Actions 自动部署)
 ```
 
@@ -260,3 +273,4 @@ git push origin main                  # 发布(触发 Actions 自动部署)
 |---|---|---|
 | 2026-08-02 | v1.0 | 初版:上线交接,含概览/快速开始/结构/运营流程/部署/关键决策/遗留事项/纪律/节奏/清单 |
 | 2026-08-02 | v1.1 | 方向调整:定位收窄为模拟 IC 设计工程师(主线)+ 嵌入式工程师(辅助);新增 §5"项目问题→技术分析→知识点"工作流;原 §5~§11 顺延为 §6~§12 |
+| 2026-08-06 | v1.2 | 全站重构:修复 user_dict 路径与 strict 门禁(not_in_nav)、Mermaid 本地化+深浅色自适应、22 张 SVG 补齐并替换 ASCII 图、SIC 笔记死链清理、README/首页/贡献页文案更新 |

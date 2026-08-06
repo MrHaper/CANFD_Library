@@ -42,5 +42,5 @@ description: 本站项目背景(已流片 CAN FD (SIC) 收发器芯片)、站点
 ## ⚙️ 站点技术说明
 
 - 本站由 **MkDocs Material** 构建(中文界面,支持深浅色主题切换、站内中文搜索、标签索引与 mermaid 图);
-- 资源条目以 `docs/_data/*.json` 为数据源,经 `scripts/validate_resources.py` 校验后渲染,保证链接与字段一致;
+- 资源条目以 `docs/resources/_data/*.json` 为数据源,经 `scripts/validate_resources.py` 校验后生成,保证链接与字段一致;
 - 内容与数据结构变更通过 GitHub 协作,勘误与贡献流程见[勘误与贡献](contribute.md)。

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 946.0" width="1000" height="946.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif">
+<rect x="0" y="0" width="1000" height="946.0" fill="#ffffff"/>
+<rect x="0" y="0" width="1000" height="62" fill="#0a3a63"/>
+<text x="36" y="30" font-size="22" font-weight="bold" fill="#ffffff">图 18 CAN SIC 全流程知识体系</text>
+<text x="36" y="51" font-size="13" fill="#c7d6ea">原理 → 设计 → 测试 完整知识链</text>
+<defs>
+<marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+  <path d="M0,0 L8,3 L0,6 Z" fill="#0f4c81"/>
+</marker>
+<marker id="arrA" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+  <path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/>
+</marker>
+<marker id="arrG" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+  <path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/>
+</marker>
+<marker id="dot" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+  <circle cx="4" cy="4" r="3" fill="#64748b"/>
+</marker>
+</defs>
+<path d="M 254.0 474.0 C 260.0 474.0 260.0 218.0 266.0 218.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<path d="M 474.0 218.0 C 480.0 218.0 480.0 122.0 486.0 122.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<rect x="486.0" y="96.0" width="208.0" height="52.0" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="590.0" y="121.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">振铃机理</text>
+<text x="590.0" y="137.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="11.5" fill="#64748b" font-weight="normal" text-anchor="middle">RC 放电 · 反射</text>
+<path d="M 474.0 218.0 C 480.0 218.0 480.0 186.0 486.0 186.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<rect x="486.0" y="160.0" width="208.0" height="52.0" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="590.0" y="185.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">三方面改进</text>
+<text x="590.0" y="201.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="11.5" fill="#64748b" font-weight="normal" text-anchor="middle">对称性 · 有源隐性 · 抑制电路</text>
+<path d="M 474.0 218.0 C 480.0 218.0 480.0 250.0 486.0 250.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<rect x="486.0" y="224.0" width="208.0" height="52.0" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="590.0" y="249.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">系统概念</text>
+<text x="590.0" y="265.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="11.5" fill="#64748b" font-weight="normal" text-anchor="middle">安全区 · Allowable Ringing</text>
+<path d="M 474.0 218.0 C 480.0 218.0 480.0 314.0 486.0 314.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<rect x="486.0" y="288.0" width="208.0" height="52.0" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="590.0" y="313.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">标准演进</text>
+<text x="590.0" y="329.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="11.5" fill="#64748b" font-weight="normal" text-anchor="middle">601-4 → ISO 11898-2:2024</text>
+<rect x="266.0" y="198.0" width="208.0" height="40.0" rx="10" fill="#eaf1fb" stroke="#0f4c81" stroke-width="1.4"/>
+<text x="370.0" y="222.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">原理</text>
+<path d="M 254.0 474.0 C 260.0 474.0 260.0 474.0 266.0 474.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<path d="M 474.0 474.0 C 480.0 474.0 480.0 378.0 486.0 378.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<rect x="486.0" y="352.0" width="208.0" height="52.0" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="590.0" y="377.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">芯片架构</text>
+<text x="590.0" y="393.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="11.5" fill="#64748b" font-weight="normal" text-anchor="middle">驱动 / 接收 / SIC 控制</text>
+<path d="M 474.0 474.0 C 480.0 474.0 480.0 442.0 486.0 442.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<rect x="486.0" y="416.0" width="208.0" height="52.0" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="590.0" y="441.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">输出级</text>
+<text x="590.0" y="457.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="11.5" fill="#64748b" font-weight="normal" text-anchor="middle">三态阻抗</text>
+<path d="M 474.0 474.0 C 480.0 474.0 480.0 506.0 486.0 506.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<rect x="486.0" y="480.0" width="208.0" height="52.0" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="590.0" y="505.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">振铃抑制电路</text>
+<text x="590.0" y="521.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="11.5" fill="#64748b" font-weight="normal" text-anchor="middle">nulling · 检测阻尼</text>
+<path d="M 474.0 474.0 C 480.0 474.0 480.0 570.0 486.0 570.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<rect x="486.0" y="544.0" width="208.0" height="52.0" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="590.0" y="569.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">接收器</text>
+<text x="590.0" y="585.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="11.5" fill="#64748b" font-weight="normal" text-anchor="middle">tREC · 抗扰</text>
+<rect x="266.0" y="454.0" width="208.0" height="40.0" rx="10" fill="#fff3dd" stroke="#d97706" stroke-width="1.4"/>
+<text x="370.0" y="478.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">设计</text>
+<path d="M 254.0 474.0 C 260.0 474.0 260.0 730.0 266.0 730.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<path d="M 474.0 730.0 C 480.0 730.0 480.0 634.0 486.0 634.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<rect x="486.0" y="608.0" width="208.0" height="52.0" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="590.0" y="633.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">时序参数</text>
+<text x="590.0" y="649.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="11.5" fill="#64748b" font-weight="normal" text-anchor="middle">tLoop · tBit · tREC</text>
+<path d="M 474.0 730.0 C 480.0 730.0 480.0 698.0 486.0 698.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<rect x="486.0" y="672.0" width="208.0" height="52.0" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="590.0" y="697.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">电平参数</text>
+<text x="590.0" y="713.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="11.5" fill="#64748b" font-weight="normal" text-anchor="middle">VOD · 阈值 · RDIFF</text>
+<path d="M 474.0 730.0 C 480.0 730.0 480.0 762.0 486.0 762.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<rect x="486.0" y="736.0" width="208.0" height="52.0" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="590.0" y="761.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">一致性</text>
+<text x="590.0" y="777.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="11.5" fill="#64748b" font-weight="normal" text-anchor="middle">ISO 16845 · plugfest</text>
+<path d="M 474.0 730.0 C 480.0 730.0 480.0 826.0 486.0 826.0" fill="none" stroke="#64748b" stroke-width="1.5"/>
+<rect x="486.0" y="800.0" width="208.0" height="52.0" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="590.0" y="825.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">EMC / 网络级</text>
+<text x="590.0" y="841.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="11.5" fill="#64748b" font-weight="normal" text-anchor="middle">IEC 62228-3 · 多节点</text>
+<rect x="266.0" y="710.0" width="208.0" height="40.0" rx="10" fill="#e7f6ef" stroke="#16a34a" stroke-width="1.4"/>
+<text x="370.0" y="734.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">测试</text>
+<rect x="46.0" y="454.0" width="208.0" height="40.0" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="150.0" y="478.0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#1f2933" font-weight="bold" text-anchor="middle">CAN SIC 全流程</text></svg>

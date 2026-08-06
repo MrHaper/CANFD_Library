@@ -159,15 +159,9 @@ SIC 收发器在显性→隐性转换后,不是立刻进入高阻,而是先进�
 2. **有源隐性相位(active recessive)**:转换后,输出阻抗降到约 **100 Ω**,主动"拉着"总线向隐性放电——反射波遇到低阻看到的是近似匹配阻抗,振铃被大幅衰减;信号被快速拉到 0.5 V 以下。
 3. **被动隐性相位(passive recessive)**:有源相位结束后,输出阻抗升回约 **60 kΩ**,回到标准 CAN 的高阻隐性状态(保证多节点共享总线、显性优先级仲裁不受影响)。
 
-```
-TXD  ──┐        ┌────────────────────────────
-       │        │  recessive
-       └─dominant┘
-总线   dominant ────┐              ┌─────────
-                  │   active rec  │ passive rec
-                  └──(R≈100Ω)─────┘ (R≈60kΩ)
-                     └── tSIC_TX_base ≤530ns ──┘
-```
+![图 2 SIC 事件时序](../../files/sic-design/images/fig2_sic_timing.svg)
+
+*图 2:显性 → 有源隐性 → 被动隐性三相位时序(与下面的 Mermaid 循环图对应)*
 
 ```mermaid
 flowchart LR
@@ -253,15 +247,9 @@ flowchart LR
 
 ## 5. 标准演进与兼容性全景
 
-```
-CiA 601-4(2019,SIC 原始规范,2023 撤回)
-        │ 并入
-ISO 11898-2:2024 第三版
-   ├── Set A(≤2 Mbit/s 经典 CAN FD)
-   ├── Set B(≤5 Mbit/s CAN FD)
-   ├── Set C(≤8 Mbit/s, SIC 收发器权威参数)  ← 本专题核心
-   └── Annex A(FAST 模式, ≤20 Mbit/s, CAN XL 兼容, SIC 向后兼容)
-```
+![图 6 SIC 标准演进](../../files/sic-design/images/fig6_standard_evolution.svg)
+
+*图 6:CiA 601-4 并入 ISO 11898-2:2024,参数集 Set A/B/C 与 Annex A*
 
 ```mermaid
 timeline

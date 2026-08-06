@@ -36,6 +36,6 @@ tags: [教程]
 
 ## 相关入口
 
-- [三条学习路线](../learn/index.md)
+- [两条学习路线](../learn/index.md)
 - [术语表](../glossary/index.md)
 - [资源库](../resources/index.md)
