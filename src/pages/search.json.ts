@@ -14,6 +14,12 @@ function stripMd(src: string, max = 900): string {
 }
 
 function urlFor(collection: string, id: string): string {
+  if (collection === "docs") {
+    if (id === "sic") return "/sic/";
+    if (id === "about") return "/about/";
+    if (id === "contribute") return "/contribute/";
+    return `/${id}/`;
+  }
   let slug = id.replace(/\.md$/, "").replace(/\/index$/, "");
   if (collection === "resources") {
     return slug === "index" ? "/resources/" : `/resources/${slug}/`;
@@ -23,7 +29,7 @@ function urlFor(collection: string, id: string): string {
 }
 
 export const GET: APIRoute = async () => {
-  const collections = ["design", "knowledge", "tutorials", "glossary", "learn", "resources"] as const;
+  const collections = ["design", "knowledge", "tutorials", "glossary", "learn", "resources", "docs"] as const;
   const items: any[] = [];
   for (const name of collections) {
     const entries = await getCollection(name);

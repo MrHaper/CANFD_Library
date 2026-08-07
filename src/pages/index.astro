@@ -100,6 +100,24 @@ const designPages = design
     <div class="container">
       <Reveal>
         <div class="section__head">
+          <h2>SIC 专题</h2>
+          <a class="section__link" href={withBase("/sic/")}>打开专题 →</a>
+        </div>
+      </Reveal>
+      <Reveal>
+        <a class="card" href={withBase("/sic/")}>
+          <div class="card__icon">⚡</div>
+          <h3>CAN SIC 收发器完整专题</h3>
+          <p>振铃机理、三方面改进、关键参数、芯片架构、振铃抑制电路与测试验证,22 张原创技术图整合为一页。</p>
+        </a>
+      </Reveal>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <Reveal>
+        <div class="section__head">
           <h2>知识库</h2>
           <a class="section__link" href={withBase("/knowledge/")}>全部子域 →</a>
         </div>
@@ -117,6 +135,24 @@ const designPages = design
           ))
         }
       </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <Reveal>
+        <div class="section__head">
+          <h2>教材与基础</h2>
+          <a class="section__link" href={withBase("/knowledge/transceiver-design/analog-ic-textbooks/")}>知识地图 →</a>
+        </div>
+      </Reveal>
+      <Reveal>
+        <a class="card" href={withBase("/knowledge/transceiver-design/analog-ic-textbooks/")}>
+          <div class="card__icon">📖</div>
+          <h3>模拟 IC 设计教材知识总结</h3>
+          <p>器件工艺、放大器/比较器、输出级、ESD/闩锁、版图与噪声——按收发器模块映射经典教材章节。</p>
+        </a>
+      </Reveal>
     </div>
   </section>
 
