@@ -915,6 +915,194 @@ def fig22():
     return draw_mindmap(root, "图 22 验证测试体系思维导图", "芯片级 → 一致性 → EMC → 网络级 → 测试计划")
 
 
+# ---------------------------------------------------------------- 图 23~26 显隐转换工作过程
+
+def fig23():
+    h = 800
+    s = open_svg(h, "图 23 显性→隐性转换:SIC 工作过程总览",
+                 "TXD 边沿后输出级依次进入显性、有源隐性、被动隐性,总线电压被主动拉回隐性阈值以下")
+
+    def tx(t):
+        return 120 + t * 1.2
+
+    # TXD 车道
+    s += T(60, 185, "TXD", 15, INK, "bold", "start")
+    s += wave([(tx(60) - tx(0), 0), (tx(700) - tx(60), 1)], tx(0), 210, 55, BRAND, 2.2)
+    s += ARR(tx(60), 150, tx(60), 185, ACCENT, 1.6, marker="arrA")
+    s += T(tx(60) + 90, 142, "TXD 上升沿(t = 0)", 12.5, ACCENT)
+    # 总线电压车道
+    s += T(60, 330, "总线 Vdiff", 15, INK, "bold", "start")
+    s += hline(tx(0), tx(700), 353, RED, 1.2, "5 4")
+    s += T(tx(700) - 8, 345, "0.9 V 显性阈值", 12, RED, "end")
+    s += hline(tx(0), tx(700), 374, MUTED, 1.2, "5 4")
+    s += T(tx(700) - 8, 366, "0.5 V 隐性阈值", 12, MUTED, "end")
+    s += L(tx(0), 296, tx(60), 296, BRAND2, 2.4)
+    s += damped(tx(60), tx(430), 296, 390, freq=2.2, decay=4.0, amp=0.45, color=BRAND2, sw=2.2)
+    s += L(tx(430), 390, tx(700), 390, BRAND2, 2.4)
+    s += T(180, 282, "显性 ≈2 V", 12, BRAND2, "bold")
+    # 输出阻抗车道
+    s += T(60, 470, "输出阻抗", 15, INK, "bold", "start")
+    s += L(tx(0), 455, tx(60), 455, BRAND, 2.4)
+    s += L(tx(60), 455, tx(60), 478, BRAND, 2.4)
+    s += L(tx(60), 478, tx(430), 478, ACCENT, 2.4)
+    s += L(tx(430), 478, tx(430), 501, MUTED, 2.4)
+    s += L(tx(430), 501, tx(700), 501, MUTED, 2.4)
+    s += T(tx(30), 443, "≈50 Ω", 12.5, BRAND, "bold")
+    s += T(tx(240), 466, "≈100 Ω(有源隐性)", 12.5, ACCENT, "bold")
+    s += T(tx(560), 489, "≈60 kΩ(被动隐性)", 12.5, MUTED, "bold")
+    # 相位条
+    y = 560
+    s += R(tx(0), y, tx(60) - tx(0), 42, rx=8, fill=AMBER, stroke=ACCENT)
+    s += T(tx(30), y + 26, "显性", 13, "#5b3a12", "bold")
+    s += R(tx(60), y, tx(430) - tx(60), 42, rx=8, fill=LIGHT, stroke=BRAND)
+    s += T(tx(245), y + 26, "有源隐性(主动拉回 + 阻尼)", 13, BRAND2, "bold")
+    s += R(tx(430), y, tx(700) - tx(430), 42, rx=8, fill="#f1f5f9", stroke=MUTED)
+    s += T(tx(560), y + 26, "被动隐性(自然放电)", 13, MUTED, "bold")
+    # 参数箭头
+    s += ARR(tx(120), y + 70, tx(120), y + 108, ACCENT, 1.5, marker="arrA")
+    s += T(tx(120) + 120, y + 102, "tact_rec_start ≤ 120 ns", 12.5, ACCENT)
+    s += ARR(tx(430), y + 70, tx(430), y + 108, BRAND, 1.5)
+    s += T(tx(430) + 120, y + 102, "tact_rec_end ≥ 355 ns", 12.5, BRAND)
+    s += ARR(tx(560), y + 70, tx(560), y + 108, MUTED, 1.5)
+    s += T(tx(560) + 90, y + 136, "tpas_rec_start ≤ 530 ns", 12.5, MUTED)
+    # 时间轴
+    for t, lbl in [(0, "0"), (200, "200 ns"), (400, "400 ns"), (600, "600 ns")]:
+        s += L(tx(t), 720, tx(t), 732, MUTED, 1.2)
+        s += T(tx(t), 748, lbl, 12, MUTED)
+    s += T(560, 778, "5 Mbit/s 位时间 200 ns:有源隐性覆盖整个隐性位,采样点前信号已低于 0.5 V", 13.5, MUTED)
+    return s + close_svg()
+
+
+def fig24():
+    h = 660
+    s = open_svg(h, "图 24 显性→隐性转换:输出级三态阻抗切换",
+                 "显性低阻驱动 → 有源隐性中等阻抗主动拉回 → 被动隐性高阻释放")
+    # 状态切换序列
+    s += box_text(200, 110, 220, 54, "显性", "低阻 ≈50 Ω", tsize=15, ssize=12, fill=AMBER, stroke=ACCENT)
+    s += box_text(600, 110, 220, 54, "有源隐性", "≈100 Ω", tsize=15, ssize=12, fill=LIGHT, stroke=BRAND)
+    s += box_text(1000, 110, 220, 54, "被动隐性", "≈60 kΩ", tsize=15, ssize=12, fill="#f1f5f9", stroke=MUTED)
+    s += ARR(310, 110, 490, 110, ACCENT, 1.8, marker="arrA")
+    s += T(400, 96, "≤120 ns", 12, ACCENT)
+    s += ARR(710, 110, 890, 110, MUTED, 1.8)
+    s += T(800, 96, "≥355 / ≤530 ns", 12, MUTED)
+    # 三面板
+    panels = [
+        (200, "强制差分", "CANH 高 · CANL 低", "电流 I 从 CANH 流向 CANL", AMBER, ACCENT),
+        (600, "主动拉回隐性", "两线靠近 2.5 V 中点", "≈100 Ω 支路阻尼反射", LIGHT, BRAND),
+        (1000, "自然放电", "输出级高阻", "总线由 60 Ω 终端放电", "#f1f5f9", MUTED),
+    ]
+    for cx, state, cond, note, fill, stroke in panels:
+        s += T(cx, 220, state, 14, INK, "bold")
+        s += R(cx - 130, 250, 260, 74, rx=10, fill=fill, stroke=stroke)
+        s += T(cx, 284, cond, 12.5, BRAND2, "bold")
+        s += T(cx, 306, note, 12, MUTED)
+        s += L(cx - 120, 370, cx + 120, 370, BRAND, 2.6)
+        s += L(cx - 120, 420, cx + 120, 420, BRAND2, 2.6)
+        if cx == 200:
+            s += T(cx - 140, 395, "+", 18, RED, "bold")
+            s += T(cx + 130, 395, "−", 18, BRAND2, "bold")
+            s += ARR(cx - 60, 395, cx + 60, 395, RED, 2, marker="arrA")
+            s += T(cx, 448, "I", 13, RED, "bold")
+        elif cx == 600:
+            s += T(cx, 395, "≈0 V 差分", 12, BRAND2)
+            s += damped(cx - 100, cx + 100, 395, 395, freq=2.0, decay=5.5, amp=18, color=OK, sw=2.0)
+            s += T(cx, 448, "反射被阻尼", 12.5, OK)
+        else:
+            s += T(cx, 395, "≈0 V 差分", 12, MUTED)
+            s += T(cx - 100, 430, "— —", 12, MUTED)
+            s += T(cx, 448, "靠网络放电", 12.5, MUTED)
+    s += T(600, 560, "仲裁兼容:有源隐性相位中 TXD 变 LOW 必须立即切回显性(显性覆盖隐性)", 13.5, INK, "bold")
+    s += T(600, 600, "RDIFF_act_rec 75~133 Ω:过低加载总线,过高失去阻尼;建议可编程/校准覆盖 PVT", 13, MUTED)
+    return s + close_svg()
+
+
+def fig25():
+    h = 800
+    s = open_svg(h, "图 25 显性→隐性转换:反射波如何被有源隐性阻抗吸收",
+                 "无 SIC:反射在开放端几乎全反射、来回振荡;有 SIC:反射波进入 ≈100 Ω 有源隐性被阻尼")
+    # 左:无 SIC
+    s += T(290, 130, "无 SIC(被动隐性 ≈60 kΩ)", 16, RED, "bold")
+    s += L(70, 260, 510, 260, MUTED, 2.4)
+    s += L(290, 260, 290, 400, MUTED, 2)
+    s += R(236, 400, 108, 40, rx=8, fill="#f1f5f9", stroke=MUTED)
+    s += T(290, 425, "stub 末端(开放)", 12, MUTED)
+    s += ARR(290, 380, 290, 300, RED, 2, marker="arrA")
+    s += ARR(290, 300, 200, 250, RED, 2, marker="arrA")
+    s += ARR(200, 250, 330, 300, RED, 2, marker="arrA")
+    s += T(290, 200, "反射近乎全反射,来回振荡", 13, RED, "bold")
+    s += R(70, 150, 90, 50, rx=10, fill="#f1f5f9", stroke=MUTED)
+    s += T(115, 180, "驱动器", 12, MUTED)
+    # 右:有 SIC
+    s += T(890, 130, "有 SIC(有源隐性 ≈100 Ω)", 16, OK, "bold")
+    s += L(690, 260, 1130, 260, BRAND, 2.4)
+    s += L(910, 260, 910, 400, MUTED, 2)
+    s += R(856, 400, 108, 40, rx=8, fill="#f1f5f9", stroke=MUTED)
+    s += T(910, 425, "stub 末端(开放)", 12, MUTED)
+    s += ARR(910, 380, 910, 310, OK, 2, marker="arrG")
+    s += ARR(910, 310, 780, 220, OK, 2, marker="arrG")
+    s += R(690, 150, 120, 56, rx=10, fill=GREEN, stroke=OK)
+    s += T(750, 178, "有源隐性", 12.5, "#0b4b37", "bold")
+    s += T(750, 196, "≈100 Ω", 11.5, "#0b4b37")
+    s += T(900, 200, "反射进入低阻支路被吸收", 13, OK, "bold")
+    # 底部波形对比
+    s += T(290, 540, "总线波形", 14, RED, "bold")
+    s += hline(90, 510, 630, RED, 1.1, "4 4")
+    s += hline(90, 510, 670, MUTED, 1.1, "4 4")
+    s += L(90, 500, 210, 500, RED, 2)
+    s += damped(210, 510, 500, 680, freq=2.4, decay=2.6, amp=0.55, color=RED, sw=2)
+    s += T(300, 720, "振铃长时间越阈 → RXD 毛刺", 13, RED)
+    s += T(890, 540, "总线波形", 14, OK, "bold")
+    s += hline(690, 1110, 630, RED, 1.1, "4 4")
+    s += hline(690, 1110, 670, MUTED, 1.1, "4 4")
+    s += L(690, 500, 810, 500, OK, 2)
+    s += damped(810, 1050, 500, 650, freq=1.8, decay=7.0, amp=0.28, color=OK, sw=2)
+    s += T(900, 720, "采样点前回到 0.5 V 以下", 13, OK)
+    return s + close_svg()
+
+
+def fig26():
+    h = 880
+    s = open_svg(h, "图 26 显性→隐性转换:采样点与振铃抑制窗口",
+                 "SIC 窗口必须让总线在最早采样点前回到 0.5 V 以下;无 SIC 时振铃越阈导致 RXD 毛刺")
+
+    def tx(t):
+        return 120 + t * 1.2
+
+    # 总线波形
+    s += T(60, 210, "总线 Vdiff", 15, INK, "bold", "start")
+    s += hline(tx(0), tx(700), 375, RED, 1.2, "5 4")
+    s += T(tx(700) - 8, 367, "0.9 V", 12, RED, "end")
+    s += hline(tx(0), tx(700), 394, MUTED, 1.2, "5 4")
+    s += T(tx(700) - 8, 386, "0.5 V", 12, MUTED, "end")
+    s += L(tx(0), 326, tx(60), 326, MUTED, 2.0, "6 4")
+    s += damped(tx(60), tx(520), 326, 405, freq=2.6, decay=2.8, amp=0.5, color=RED, sw=2.0)
+    s += L(tx(60), 326, tx(60), 405, MUTED, 1.2)
+    s += T(210, 300, "无 SIC:振铃越阈", 13, RED, "bold")
+    s += L(tx(0), 430, tx(60), 430, BRAND, 2.4)
+    s += damped(tx(60), tx(360), 430, 520, freq=1.8, decay=6.5, amp=0.3, color=BRAND, sw=2.2)
+    s += L(tx(360), 520, tx(700), 520, BRAND, 2.4)
+    s += T(240, 416, "有 SIC:快速回到 0.5 V 以下", 13, BRAND, "bold")
+    # 采样点
+    sx = tx(220)
+    s += L(sx, 120, sx, 660, BRAND, 1.5, "4 4")
+    s += T(sx, 108, "最早采样点", 13, BRAND, "bold")
+    s += T(sx, 676, "▼", 15, BRAND)
+    # SIC 窗口条
+    y = 570
+    s += R(tx(0), y, tx(60) - tx(0), 40, rx=8, fill=AMBER, stroke=ACCENT)
+    s += T(tx(30), y + 25, "显性", 12.5, "#5b3a12", "bold")
+    s += R(tx(60), y, tx(430) - tx(60), 40, rx=8, fill=LIGHT, stroke=BRAND)
+    s += T(tx(245), y + 25, "有源隐性 ≤120 / ≥355 ns", 12.5, BRAND2, "bold")
+    s += R(tx(430), y, tx(700) - tx(430), 40, rx=8, fill="#f1f5f9", stroke=MUTED)
+    s += T(tx(560), y + 25, "被动 ≤530 ns", 12.5, MUTED, "bold")
+    # RXD 对比
+    s += T(60, 700, "RXD(无 SIC)", 14, RED, "bold", "start")
+    s += wave([(tx(60) - tx(0), 0), (tx(130) - tx(60), 1), (tx(160) - tx(130), 0), (tx(190) - tx(160), 1), (tx(700) - tx(190), 0)], tx(0), 720, 40, RED, 2.0)
+    s += T(60, 800, "RXD(有 SIC)", 14, BRAND, "bold", "start")
+    s += wave([(tx(60) - tx(0), 0), (tx(700) - tx(60), 1)], tx(0), 820, 40, BRAND, 2.2)
+    return s + close_svg()
+
+
 def main():
     here = os.path.dirname(os.path.abspath(__file__))
     default_out = os.path.abspath(os.path.join(here, "..", "public", "files", "sic-design", "images"))
@@ -943,6 +1131,10 @@ def main():
         "fig20_phys_mindmap.svg": fig20,
         "fig21_design_mindmap.svg": fig21,
         "fig22_test_mindmap.svg": fig22,
+        "fig23_dr_overview.svg": fig23,
+        "fig24_dr_impedance.svg": fig24,
+        "fig25_dr_reflection.svg": fig25,
+        "fig26_dr_sampling.svg": fig26,
     }
     for name, fn in figures.items():
         with open(os.path.join(out_dir, name), "w", encoding="utf-8") as f:
