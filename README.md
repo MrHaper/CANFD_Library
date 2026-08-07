@@ -12,10 +12,19 @@
 ## 本地开发
 
 ```bash
+# 使用 pnpm 9(package.json 已声明 packageManager,corepack 会自动选择)
+corepack enable
 pnpm install
 pnpm dev        # http://localhost:4321
 pnpm build      # 输出 dist/
 pnpm preview
+```
+
+验证命令:
+
+```bash
+pnpm exec astro check   # 类型检查(0 错误)
+pnpm audit --prod       # 依赖安全审计
 ```
 
 ## 目录结构

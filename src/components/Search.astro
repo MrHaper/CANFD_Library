@@ -1,5 +1,4 @@
 ---
-import { withBase } from "../lib/base";
 ---
 <div id="search-overlay" class="search-overlay" role="dialog" aria-modal="true" aria-label="站内搜索">
   <div class="search-sheet">
@@ -19,6 +18,7 @@ import { withBase } from "../lib/base";
 
 <script>
   import { animate } from "motion";
+  import { withBase } from "../lib/base";
   const overlay = document.getElementById("search-overlay")!;
   const sheet = overlay.querySelector(".search-sheet") as HTMLElement;
   const input = document.getElementById("search-input") as HTMLInputElement;

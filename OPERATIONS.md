@@ -9,8 +9,11 @@
 ## 构建门禁
 
 ```bash
+corepack enable          # 使用 pnpm 9(package.json packageManager)
 pnpm install
 pnpm build
+pnpm exec astro check    # 类型检查(0 错误)
+pnpm audit --prod        # 依赖安全审计
 python3 ../tmp/check_dist.py   # 可选:内部链接完整性校验(需在项目外脚本目录)
 ```
 

@@ -24,7 +24,8 @@ export async function getStaticPaths() {
     });
   }
   for (const cat of cats) {
-    if (!entries.some((e) => e.id === `${cat}/index`)) {
+    // Astro 7 会把 <分类>/index.md 的 id 归一为分类名,存在即代表已有索引条目页
+    if (!entries.some((e) => e.id === cat)) {
       paths.push({ params: { slug: cat }, props: { kind: "category", cat } });
     }
   }

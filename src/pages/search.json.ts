@@ -15,6 +15,10 @@ function stripMd(src: string, max = 900): string {
 
 function urlFor(collection: string, id: string): string {
   let slug = id.replace(/\.md$/, "").replace(/\/index$/, "");
+  if (collection === "resources") {
+    return slug === "index" ? "/resources/" : `/resources/${slug}/`;
+  }
+  if (slug === "index") return `/${collection}/`;
   return `/${collection}/${slug}/`;
 }
 
@@ -25,9 +29,7 @@ export const GET: APIRoute = async () => {
     const entries = await getCollection(name);
     for (const e of entries) {
       if (e.id.includes("_template")) continue;
-      const cat = name === "resources" ? e.id.split("/")[0] : name;
-      const path = urlFor(cat, e.id);
-      const url = urlFor(cat, e.id);
+      const path = urlFor(name, e.id);
       items.push({
         title: e.data.title || e.id,
         description: e.data.description || "",

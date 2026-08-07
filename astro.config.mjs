@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
+import { unified } from "@astrojs/markdown-remark";
 import {
   remarkMermaid,
   remarkAbsoluteImages,
@@ -16,8 +17,10 @@ export default defineConfig({
     format: "directory",
   },
   markdown: {
-    remarkPlugins: [remarkMermaid, [remarkAbsoluteImages, { base: "/CANFD_Library" }]],
-    rehypePlugins: [rehypeAdmonitions, [rehypeRewriteLinks, { base: "/CANFD_Library" }]],
+    processor: unified({
+      remarkPlugins: [remarkMermaid, [remarkAbsoluteImages, { base: "/CANFD_Library" }]],
+      rehypePlugins: [rehypeAdmonitions, [rehypeRewriteLinks, { base: "/CANFD_Library" }]],
+    }),
     shikiConfig: {
       theme: "github-light",
       wrap: true,

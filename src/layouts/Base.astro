@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import Search from "../components/Search.astro";
 import MobileMenu from "../components/MobileMenu.astro";
 import MermaidRenderer from "../components/MermaidRenderer.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import { withBase } from "../lib/base";
 
 interface Props {
@@ -24,7 +24,7 @@ const pageTitle = title === "CAN FD 知识库" ? title : `${title} · CAN FD 知
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
-    <ViewTransitions />
+    <ClientRouter />
     <script is:inline>
       (function () {
         var saved = null;

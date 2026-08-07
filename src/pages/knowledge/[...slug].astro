@@ -17,7 +17,7 @@ const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
 const meta = [
   { label: "子域", value: entry.id.split("/")[0] },
-  ...(entry.data.date ? [{ label: "日期", value: entry.data.date }] : []),
+  ...(entry.data.date ? [{ label: "日期", value: String(entry.data.date) }] : []),
 ];
 ---
 <Doc title={entry.data.title} description={entry.data.description} headings={headings} meta={meta}>

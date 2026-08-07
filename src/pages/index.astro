@@ -11,11 +11,11 @@ const glossary = await getCollection("glossary");
 const resources = await getCollection("resources");
 
 const knowledgeIndexes = knowledge
-  .filter((e) => e.id.endsWith("/index") || e.id === "index")
+  .filter((e) => e.id !== "index" && !e.id.includes("/"))
   .map((e) => ({
     title: e.data.title,
     description: e.data.description || "",
-    url: `/knowledge/${(e.id.replace(/\.md$/, "").replace(/\/index$/, "") === "index" ? "" : e.id.replace(/\.md$/, "").replace(/\/index$/, ""))}/`,
+    url: `/knowledge/${e.id}/`,
     section: e.id.split("/")[0],
   }));
 

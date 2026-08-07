@@ -31,8 +31,8 @@ function renderInnerMd(source: string): string {
 /** 在 rehype 层把 pymdownx 风格的 `!!! type "标题"` 段落转换为告警块。 */
 export function rehypeAdmonitions() {
   return (tree: HastRoot) => {
-    visit(tree, "element", (node: any, index: number | null, parent: any) => {
-      if (index === null || !parent || node.tagName !== "p") return;
+    visit(tree, "element", (node: any, index: number | undefined, parent: any) => {
+      if (index === undefined || !parent || node.tagName !== "p") return;
       const text = (node.children || [])
         .map((c: any) => (c.type === "text" ? c.value : ""))
         .join("");
@@ -55,8 +55,8 @@ export function rehypeAdmonitions() {
 /** 把 mermaid 代码块提取为 <pre class="mermaid">,由前端渲染。 */
 export function remarkMermaid() {
   return (tree: Root) => {
-    visit(tree, "code", (node: any, index: number | null, parent: any) => {
-      if (index === null || !parent) return;
+    visit(tree, "code", (node: any, index: number | undefined, parent: any) => {
+      if (index === undefined || !parent) return;
       if (node.lang !== "mermaid") return;
       const value = String(node.value ?? "")
         .replace(/&/g, "&amp;")
