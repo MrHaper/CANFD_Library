@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../lib/base";
 ---
 <div id="search-overlay" class="search-overlay" role="dialog" aria-modal="true" aria-label="站内搜索">
   <div class="search-sheet">
@@ -30,7 +31,7 @@
   async function loadIndex() {
     if (index.length) return;
     try {
-      index = await (await fetch("/search.json")).json();
+      index = await (await fetch(withBase("/search.json"))).json();
     } catch {
       index = [];
     }

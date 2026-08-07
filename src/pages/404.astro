@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { withBase } from "../lib/base";
 ---
 <Base title="页面未找到">
   <section class="hero">
@@ -7,8 +8,8 @@ import Base from "../layouts/Base.astro";
       <h1>404</h1>
       <p class="hero__lead">这个页面不存在或已被移动。</p>
       <div class="hero__actions">
-        <a class="btn" href="/">回到首页</a>
-        <a class="btn btn--ghost" href="/knowledge/">浏览知识库</a>
+        <a class="btn" href={withBase("/")}>回到首页</a>
+        <a class="btn btn--ghost" href={withBase("/knowledge/")}>浏览知识库</a>
       </div>
     </div>
   </section>

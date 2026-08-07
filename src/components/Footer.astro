@@ -1,4 +1,6 @@
 ---
+import { withBase } from "../lib/base";
+
 const links = [
   { href: "/design/", label: "设计参考" },
   { href: "/knowledge/", label: "知识库" },
@@ -16,7 +18,7 @@ const links = [
       <p style="margin: 0.35rem 0 0;">面向模拟 IC 设计工程师的 CAN FD / CAN SIC 资料库 · 2026</p>
     </div>
     <nav aria-label="页脚导航">
-      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      {links.map((l) => <a href={withBase(l.href)}>{l.label}</a>)}
     </nav>
   </div>
 </footer>

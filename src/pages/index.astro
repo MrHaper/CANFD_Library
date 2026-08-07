@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import { getCollection } from "astro:content";
 import Reveal from "../components/Reveal.astro";
+import { withBase } from "../lib/base";
 
 const design = await getCollection("design");
 const knowledge = await getCollection("knowledge");
@@ -56,8 +57,8 @@ const designPages = design
           聚合 ISO 标准、专利、论文、数据手册与工程经验,覆盖协议、位定时、物理层、收发器模块设计、测试认证与资源索引。
         </p>
         <div class="hero__actions">
-          <a class="btn" href="/design/">进入设计参考</a>
-          <a class="btn btn--ghost" href="/knowledge/">浏览知识库</a>
+          <a class="btn" href={withBase("/design/")}>进入设计参考</a>
+          <a class="btn btn--ghost" href={withBase("/knowledge/")}>浏览知识库</a>
         </div>
       </Reveal>
       <Reveal delay={120}>
@@ -76,14 +77,14 @@ const designPages = design
       <Reveal>
         <div class="section__head">
           <h2>设计参考</h2>
-          <a class="section__link" href="/design/">全部模块 →</a>
+          <a class="section__link" href={withBase("/design/")}>全部模块 →</a>
         </div>
       </Reveal>
       <div class="card-grid">
         {
           designPages.slice(0, 6).map((p, i) => (
             <Reveal delay={i * 60}>
-              <a class="card" href={p.url}>
+              <a class="card" href={withBase(p.url)}>
                 <div class="card__icon">⚙</div>
                 <h3>{p.title}</h3>
                 <p>{p.description}</p>
@@ -100,14 +101,14 @@ const designPages = design
       <Reveal>
         <div class="section__head">
           <h2>知识库</h2>
-          <a class="section__link" href="/knowledge/">全部子域 →</a>
+          <a class="section__link" href={withBase("/knowledge/")}>全部子域 →</a>
         </div>
       </Reveal>
       <div class="card-grid">
         {
           knowledgeIndexes.map((k, i) => (
             <Reveal delay={(i % 3) * 70}>
-              <a class="card" href={k.url}>
+              <a class="card" href={withBase(k.url)}>
                 <div class="card__icon">📘</div>
                 <h3>{k.title.replace(/总览$/, "")}</h3>
                 <p>{k.description}</p>
@@ -124,14 +125,14 @@ const designPages = design
       <Reveal>
         <div class="section__head">
           <h2>教程</h2>
-          <a class="section__link" href="/tutorials/">全部教程 →</a>
+          <a class="section__link" href={withBase("/tutorials/")}>全部教程 →</a>
         </div>
       </Reveal>
       <div class="card-grid">
         {
           tutorialList.slice(0, 6).map((t, i) => (
             <Reveal delay={i * 60}>
-              <a class="card" href={t.url}>
+              <a class="card" href={withBase(t.url)}>
                 <div class="card__icon">🛠</div>
                 <h3>{t.title}</h3>
                 <p>{t.description}</p>
@@ -149,14 +150,14 @@ const designPages = design
       <Reveal>
         <div class="section__head">
           <h2>资源库</h2>
-          <a class="section__link" href="/resources/">全部资源 →</a>
+          <a class="section__link" href={withBase("/resources/")}>全部资源 →</a>
         </div>
       </Reveal>
       <div class="card-grid">
         {
           resourceList.map((r, i) => (
             <Reveal delay={(i % 3) * 70}>
-              <a class="card" href={r.url}>
+              <a class="card" href={withBase(r.url)}>
                 <div class="card__icon">📄</div>
                 <h3>{r.label}</h3>
                 <p>{r.count} 条收录资料</p>

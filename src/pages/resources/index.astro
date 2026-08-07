@@ -3,6 +3,7 @@ import Base from "../../layouts/Base.astro";
 import { getCollection } from "astro:content";
 import Reveal from "../../components/Reveal.astro";
 import { resourceLabel } from "../../lib/content";
+import { withBase } from "../../lib/base";
 
 const entries = await getCollection("resources");
 const cats = new Map<string, number>();
@@ -31,7 +32,7 @@ const list = [...cats.entries()].map(([cat, count]) => ({
         {
           list.map((c, i) => (
             <Reveal delay={(i % 3) * 70}>
-              <a class="card" href={c.url}>
+              <a class="card" href={withBase(c.url)}>
                 <div class="card__icon">📄</div>
                 <h3>{c.label}</h3>
                 <p>{c.count} 条收录</p>

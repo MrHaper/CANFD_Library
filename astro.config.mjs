@@ -9,14 +9,15 @@ import {
 
 export default defineConfig({
   site: "https://MrHaper.github.io/CANFD_Library",
+  base: "/CANFD_Library",
   trailingSlash: "always",
   viewTransitions: true,
   build: {
     format: "directory",
   },
   markdown: {
-    remarkPlugins: [remarkMermaid, remarkAbsoluteImages],
-    rehypePlugins: [rehypeAdmonitions, rehypeRewriteLinks],
+    remarkPlugins: [remarkMermaid, [remarkAbsoluteImages, { base: "/CANFD_Library" }]],
+    rehypePlugins: [rehypeAdmonitions, [rehypeRewriteLinks, { base: "/CANFD_Library" }]],
     shikiConfig: {
       theme: "github-light",
       wrap: true,

@@ -10,6 +10,7 @@ import {
   statusLabel,
   priorityStars,
 } from "../../lib/content";
+import { withBase } from "../../lib/base";
 
 export async function getStaticPaths() {
   const entries = await getCollection("resources");
@@ -75,7 +76,7 @@ if (kind === "category") {
     { label: "状态", value: statusLabel(data.status) },
     { label: "优先级", value: priorityStars(data.priority) },
   ];
-  downloadHref = data.local_file ? `/${data.local_file}` : null;
+  downloadHref = data.local_file ? withBase(`/${data.local_file}`) : null;
   sourceUrl = data.source || null;
 }
 ---
@@ -95,7 +96,7 @@ if (kind === "category") {
           <div class="card-grid">
             {categoryList.map((e, i) => (
               <Reveal delay={(i % 3) * 70}>
-                <a class="card" href={e.url}>
+                <a class="card" href={withBase(e.url)}>
                   <h3>{e.title}</h3>
                   <p>{e.description}</p>
                   <div class="card__meta">

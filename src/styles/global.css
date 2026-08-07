@@ -663,14 +663,7 @@ code, pre {
 }
 
 /* ---------- 滚动显现 ---------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-}
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
+.reveal { will-change: opacity, transform; }
 
 /* ---------- 页面过渡 ---------- */
 ::view-transition-old(root) {

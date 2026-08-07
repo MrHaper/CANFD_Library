@@ -6,6 +6,7 @@ import Search from "../components/Search.astro";
 import MobileMenu from "../components/MobileMenu.astro";
 import MermaidRenderer from "../components/MermaidRenderer.astro";
 import { ViewTransitions } from "astro:transitions";
+import { withBase } from "../lib/base";
 
 interface Props {
   title?: string;
@@ -22,7 +23,7 @@ const pageTitle = title === "CAN FD 知识库" ? title : `${title} · CAN FD 知
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
     <ViewTransitions />
     <script is:inline>
       (function () {

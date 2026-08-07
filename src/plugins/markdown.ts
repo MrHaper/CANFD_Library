@@ -67,8 +67,9 @@ export function remarkMermaid() {
   };
 }
 
-/** 把相对图片路径解析为绝对站点路径,避免 Astro 把它们当模块资源处理。 */
-export function remarkAbsoluteImages() {
+/** 把相对图片路径解析为绝对站点路径(含 base),避免 Astro 把它们当模块资源处理。 */
+export function remarkAbsoluteImages(options: { base?: string } = {}) {
+  const base = options.base || "";
   return (tree: Root, file: any) => {
     const filePath: string = file.history?.[0] ?? "";
     const sep = filePath.includes("\\") ? "\\" : "/";
@@ -92,7 +93,7 @@ export function remarkAbsoluteImages() {
       if (/^(https?:|data:|#)/i.test(src) || src.startsWith("/")) return;
       try {
         const url = new URL(src, baseUrl);
-        node.url = url.pathname + (url.hash || "");
+        node.url = base + url.pathname + (url.hash || "");
       } catch {
         // ignore
       }
@@ -100,8 +101,9 @@ export function remarkAbsoluteImages() {
   };
 }
 
-/** 把旧的相对 .md 链接重写为新的站点路由。 */
-export function rehypeRewriteLinks() {
+/** 把旧的相对 .md 链接重写为新的站点路由(含 base 前缀)。 */
+export function rehypeRewriteLinks(options: { base?: string } = {}) {
+  const base = options.base || "";
   return (tree: any, file: any) => {
     const filePath: string = file.history?.[0] ?? "";
     const marker = `${filePath.includes("\\") ? "\\" : "/"}src${filePath.includes("\\") ? "\\" : "/"}content`;
@@ -140,14 +142,14 @@ export function rehypeRewriteLinks() {
         // 旧资源条目路径 -> 新路由
         out = out.replace(/^\/resources\/_entries\//, "/resources/");
       } else if (out.endsWith(".pdf") || out.endsWith(".svg") || out.endsWith(".png") || out.endsWith(".jpg")) {
-        node.properties.href = out + (url.hash || "");
+        node.properties.href = base + out + (url.hash || "");
         return;
       } else if (out.endsWith(".html")) {
-        node.properties.href = out + (url.hash || "");
+        node.properties.href = base + out + (url.hash || "");
         return;
       }
       if (!out.endsWith("/") && out !== "/") out += "/";
-      node.properties.href = out + (url.hash || "");
+      node.properties.href = base + out + (url.hash || "");
     });
   };
 }

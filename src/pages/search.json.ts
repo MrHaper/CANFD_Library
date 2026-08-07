@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
+import { withBase } from "../lib/base";
 
 function stripMd(src: string, max = 900): string {
   return src
@@ -26,12 +27,13 @@ export const GET: APIRoute = async () => {
       if (e.id.includes("_template")) continue;
       const cat = name === "resources" ? e.id.split("/")[0] : name;
       const path = urlFor(cat, e.id);
+      const url = urlFor(cat, e.id);
       items.push({
         title: e.data.title || e.id,
         description: e.data.description || "",
         tags: e.data.tags || [],
-        url: path,
-        path,
+        url: withBase(path),
+        path: withBase(path),
         text: stripMd((e as any).body || ""),
       });
     }

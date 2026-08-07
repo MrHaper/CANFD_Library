@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
+import { withBase } from "../lib/base";
 
 const links = [
   { href: "/", label: "首页" },
@@ -9,17 +10,20 @@ const links = [
   { href: "/resources/", label: "资源" },
   { href: "/glossary/", label: "术语" },
 ];
-const currentPath = Astro.url.pathname;
+const baseUrlPath = import.meta.env.BASE_URL.replace(/\/$/, "");
+const currentPath = Astro.url.pathname.startsWith(baseUrlPath)
+  ? Astro.url.pathname.slice(baseUrlPath.length) || "/"
+  : Astro.url.pathname;
 ---
 <header class="site-header" id="site-header">
   <div class="site-header__inner">
-    <a class="site-logo" href="/" data-astro-transition-persist="logo">
+    <a class="site-logo" href={withBase("/")} data-astro-transition-persist="logo">
       <span class="site-logo__mark">F</span>
       <span>CAN FD 知识库</span>
     </a>
     <nav class="site-nav" aria-label="主导航">
       {links.map((l) => (
-        <a href={l.href} aria-current={currentPath === l.href || (l.href !== "/" && currentPath.startsWith(l.href)) ? "page" : undefined}>
+        <a href={withBase(l.href)} aria-current={currentPath === l.href || (l.href !== "/" && currentPath.startsWith(l.href)) ? "page" : undefined}>
           {l.label}
         </a>
       ))}

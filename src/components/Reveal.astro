@@ -16,10 +16,11 @@ const Tag = as as any;
   if (!reduced) {
     document.querySelectorAll<HTMLElement>(".reveal").forEach((el) => {
       const delay = Number(el.getAttribute("data-delay") || 0) / 1000;
+      // 先隐藏再由 JS 驱动动画;JS 未执行时内容保持可见(渐进增强)
       inView(
         el,
         () => {
-          animate(el, { opacity: 1, y: 0 }, { duration: 0.6, delay, easing: [0.22, 1, 0.36, 1] });
+          animate(el, { opacity: [0, 1], y: [18, 0] }, { duration: 0.6, delay, easing: [0.22, 1, 0.36, 1] });
           el.classList.add("visible");
         },
         { amount: 0.15, once: true }

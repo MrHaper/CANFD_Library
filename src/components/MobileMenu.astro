@@ -1,4 +1,6 @@
 ---
+import { withBase } from "../lib/base";
+
 const links = [
   { href: "/", label: "首页" },
   { href: "/design/", label: "设计参考" },
@@ -13,7 +15,7 @@ const links = [
 <nav id="mobile-menu" class="mobile-menu" aria-label="移动端导航">
   {
     links.map((l) => (
-      <a href={l.href}>{l.label}</a>
+      <a href={withBase(l.href)}>{l.label}</a>
     ))
   }
 </nav>
