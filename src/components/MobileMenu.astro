@@ -22,32 +22,48 @@ const links = [
 
 <script>
   import { animate } from "motion";
-  const menu = document.getElementById("mobile-menu")!;
-  const scrim = document.getElementById("menu-scrim")!;
-  const toggle = document.getElementById("menu-toggle");
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  function open() {
-    menu.classList.add("open");
-    scrim.classList.add("open");
-    if (!reduced) {
-      animate(menu, { x: 0 }, { type: "spring", bounce: 0.2, duration: 0.5 });
-      animate(scrim, { opacity: 1 }, { duration: 0.25 });
+  if (!window.__menuBound) {
+    window.__menuBound = true;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function open() {
+      const menu = document.getElementById("mobile-menu");
+      const scrim = document.getElementById("menu-scrim");
+      if (!menu || !scrim) return;
+      menu.classList.add("open");
+      scrim.classList.add("open");
+      if (!reduced) {
+        animate(menu, { x: 0 }, { type: "spring", bounce: 0.2, duration: 0.5 });
+        animate(scrim, { opacity: 1 }, { duration: 0.25 });
+      }
+      document.body.style.overflow = "hidden";
     }
-    document.body.style.overflow = "hidden";
-  }
-  function close() {
-    if (!reduced) {
-      animate(menu, { x: "100%" }, { type: "spring", bounce: 0, duration: 0.35 });
-      animate(scrim, { opacity: 0 }, { duration: 0.2 });
+
+    function close() {
+      const menu = document.getElementById("mobile-menu");
+      const scrim = document.getElementById("menu-scrim");
+      if (!menu || !scrim) return;
+      if (!reduced) {
+        animate(menu, { x: "100%" }, { type: "spring", bounce: 0, duration: 0.35 });
+        animate(scrim, { opacity: 0 }, { duration: 0.2 });
+      }
+      menu.classList.remove("open");
+      scrim.classList.remove("open");
+      document.body.style.overflow = "";
     }
-    menu.classList.remove("open");
-    scrim.classList.remove("open");
-    document.body.style.overflow = "";
+
+    document.addEventListener("click", (e) => {
+      const t = e.target as HTMLElement;
+      if (t.closest("#menu-toggle")) {
+        const menu = document.getElementById("mobile-menu");
+        if (menu && menu.classList.contains("open")) close();
+        else open();
+      }
+      if (t.closest("#menu-scrim")) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
   }
-  toggle?.addEventListener("click", () => (menu.classList.contains("open") ? close() : open()));
-  scrim.addEventListener("click", close);
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") close();
-  });
 </script>

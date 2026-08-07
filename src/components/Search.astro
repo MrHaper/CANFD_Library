@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../lib/base";
 ---
 <div id="search-overlay" class="search-overlay" role="dialog" aria-modal="true" aria-label="站内搜索">
   <div class="search-sheet">
@@ -19,73 +20,87 @@
 <script>
   import { animate } from "motion";
   import { withBase } from "../lib/base";
-  const overlay = document.getElementById("search-overlay")!;
-  const sheet = overlay.querySelector(".search-sheet") as HTMLElement;
-  const input = document.getElementById("search-input") as HTMLInputElement;
-  const results = document.getElementById("search-results")!;
-  const closeBtn = document.getElementById("search-close");
-  const searchBtns = Array.from(document.querySelectorAll<HTMLElement>("[data-search-open]"));
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let index: any[] = [];
 
-  async function loadIndex() {
-    if (index.length) return;
-    try {
-      index = await (await fetch(withBase("/search.json"))).json();
-    } catch {
-      index = [];
-    }
-  }
+  if (!window.__searchBound) {
+    window.__searchBound = true;
+    let index: any[] = [];
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  function open() {
-    overlay.classList.add("open");
-    if (!reduced) {
-      animate(sheet, { y: [-24, 0], opacity: [0, 1] }, { type: "spring", bounce: 0.25, duration: 0.55 });
-      animate(overlay, { opacity: [0, 1] }, { duration: 0.25 });
+    async function loadIndex() {
+      if (index.length) return;
+      try {
+        index = await (await fetch(withBase("/search.json"))).json();
+      } catch {
+        index = [];
+      }
     }
-    loadIndex().then(() => input.focus());
-    document.body.style.overflow = "hidden";
-  }
-  function close() {
-    overlay.classList.remove("open");
-    document.body.style.overflow = "";
-  }
-  searchBtns.forEach((b) => b.addEventListener("click", open));
-  closeBtn?.addEventListener("click", close);
-  overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) close();
-  });
-  document.addEventListener("keydown", (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
-      e.preventDefault();
-      open();
-    }
-    if (e.key === "Escape") close();
-  });
 
-  input.addEventListener("input", () => {
-    const q = input.value.trim().toLowerCase();
-    if (!q) {
-      results.innerHTML = '<div class="search-empty">输入关键词开始搜索</div>';
-      return;
+    function open() {
+      const overlay = document.getElementById("search-overlay");
+      if (!overlay) return;
+      overlay.classList.add("open");
+      if (!reduced) {
+        const sheet = overlay.querySelector(".search-sheet") as HTMLElement;
+        animate(sheet, { y: [-24, 0], opacity: [0, 1] }, { type: "spring", bounce: 0.25, duration: 0.55 });
+        animate(overlay, { opacity: [0, 1] }, { duration: 0.25 });
+      }
+      document.body.style.overflow = "hidden";
+      loadIndex().then(() => {
+        const input = document.getElementById("search-input") as HTMLInputElement | null;
+        input?.focus();
+      });
     }
-    const hits = index
-      .filter((item) => {
-        const hay = `${item.title} ${item.description || ""} ${(item.tags || []).join(" ")} ${item.text || ""}`.toLowerCase();
-        return hay.includes(q);
-      })
-      .slice(0, 24);
-    if (!hits.length) {
-      results.innerHTML = '<div class="search-empty">没有找到相关内容</div>';
-      return;
+
+    function close() {
+      const overlay = document.getElementById("search-overlay");
+      if (overlay) overlay.classList.remove("open");
+      document.body.style.overflow = "";
     }
-    results.innerHTML = hits
-      .map(
-        (h) =>
-          `<a class="search-result" href="${h.url}"><div class="search-result__title">${h.title}</div>` +
-          (h.description ? `<div class="search-result__desc">${h.description}</div>` : "") +
-          `<div class="search-result__path">${h.path}</div></a>`
-      )
-      .join("");
-  });
+
+    function handleSearch(value: string) {
+      const results = document.getElementById("search-results");
+      if (!results) return;
+      const q = value.trim().toLowerCase();
+      if (!q) {
+        results.innerHTML = '<div class="search-empty">输入关键词开始搜索</div>';
+        return;
+      }
+      const hits = index
+        .filter((item) => {
+          const hay = `${item.title} ${item.description || ""} ${(item.tags || []).join(" ")} ${item.text || ""}`.toLowerCase();
+          return hay.includes(q);
+        })
+        .slice(0, 24);
+      if (!hits.length) {
+        results.innerHTML = '<div class="search-empty">没有找到相关内容</div>';
+        return;
+      }
+      results.innerHTML = hits
+        .map(
+          (h) =>
+            `<a class="search-result" href="${h.url}"><div class="search-result__title">${h.title}</div>` +
+            (h.description ? `<div class="search-result__desc">${h.description}</div>` : "") +
+            `<div class="search-result__path">${h.path}</div></a>`
+        )
+        .join("");
+    }
+
+    document.addEventListener("click", (e) => {
+      const t = e.target as HTMLElement;
+      if (t.closest("[data-search-open]")) open();
+      if (t.closest("#search-close")) close();
+      if (t.id === "search-overlay") close();
+    });
+    document.addEventListener("input", (e) => {
+      const el = e.target as HTMLInputElement;
+      if (el && el.id === "search-input") handleSearch(el.value);
+    });
+    document.addEventListener("keydown", (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        open();
+      }
+      if (e.key === "Escape") close();
+    });
+  }
 </script>

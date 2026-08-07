@@ -2,66 +2,83 @@
 ---
 <script>
   import { withBase } from "../lib/base";
-  let loaded = false;
 
-  async function ensureMermaid() {
-    if (loaded || typeof (window as any).mermaid !== "undefined") {
-      loaded = true;
-      return;
-    }
-    await new Promise<void>((resolve, reject) => {
-      const s = document.createElement("script");
-      s.src = withBase("/js/mermaid.min.js");
-      s.onload = () => resolve();
-      s.onerror = () => reject(new Error("mermaid load failed"));
-      document.head.appendChild(s);
-    });
-    loaded = true;
-  }
+  if (!window.__mermaidBound) {
+    window.__mermaidBound = true;
+    let loaded = false;
+    let rendering = false;
 
-  async function renderAll() {
-    const nodes = Array.from(document.querySelectorAll<HTMLPreElement>("pre.mermaid:not([data-rendered])"));
-    if (nodes.length === 0) return;
-    try {
-      await ensureMermaid();
-      const mermaid = (window as any).mermaid;
-      mermaid.initialize({
-        startOnLoad: false,
-        securityLevel: "loose",
-        maxTextSize: 90000,
-        theme: "base",
-        fontFamily:
-          '"PingFang SC","Microsoft YaHei","Noto Sans SC","Helvetica Neue",sans-serif',
-        themeVariables: {
-          fontSize: "15px",
-          primaryColor: getComputedStyle(document.documentElement).getPropertyValue("--accent-soft").trim() || "#eaf1fb",
-          primaryBorderColor: getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#0071e3",
-          primaryTextColor: getComputedStyle(document.documentElement).getPropertyValue("--text").trim() || "#1d1d1f",
-          lineColor: getComputedStyle(document.documentElement).getPropertyValue("--text-tertiary").trim() || "#86868b",
-          clusterBkg: getComputedStyle(document.documentElement).getPropertyValue("--bg-subtle").trim() || "#f5f5f7",
-          clusterBorder: getComputedStyle(document.documentElement).getPropertyValue("--border").trim() || "#d2d2d7",
-          edgeLabelBackground: getComputedStyle(document.documentElement).getPropertyValue("--bg-elevated").trim() || "#ffffff",
-        },
-        flowchart: { htmlLabels: true, curve: "basis", padding: 16 },
-        sequence: { mirrorActors: false, showSequenceNumbers: true },
-        mindmap: { padding: 12 },
-      });
-      for (const node of nodes) {
-        const src = node.textContent || "";
-        try {
-          const { svg } = await mermaid.render("mmd-" + Math.random().toString(36).slice(2), src);
-          node.innerHTML = svg;
-          node.setAttribute("data-rendered", "true");
-        } catch (err) {
-          console.error("mermaid render error:", err);
-        }
+    async function ensureMermaid() {
+      if (loaded || typeof (window as any).mermaid !== "undefined") {
+        loaded = true;
+        return;
       }
-    } catch (err) {
-      console.error(err);
+      await new Promise<void>((resolve, reject) => {
+        const s = document.createElement("script");
+        s.src = withBase("/js/mermaid.min.js");
+        s.onload = () => resolve();
+        s.onerror = () => reject(new Error("mermaid load failed"));
+        document.head.appendChild(s);
+      });
+      loaded = true;
     }
-  }
 
-  document.addEventListener("astro:after-swap", () => renderAll());
-  document.addEventListener("DOMContentLoaded", () => renderAll());
-  if (document.readyState !== "loading") renderAll();
+    async function renderAll() {
+      if (rendering) return;
+      const nodes = Array.from(
+        document.querySelectorAll<HTMLPreElement>("pre.mermaid:not([data-rendered]):not([data-error])")
+      );
+      if (nodes.length === 0) return;
+      rendering = true;
+      try {
+        await ensureMermaid();
+        const mermaid = (window as any).mermaid;
+        mermaid.initialize({
+          startOnLoad: false,
+          securityLevel: "loose",
+          maxTextSize: 90000,
+          theme: "base",
+          fontFamily: '"PingFang SC","Microsoft YaHei","Noto Sans SC","Helvetica Neue",sans-serif',
+          themeVariables: {
+            fontSize: "15px",
+            primaryColor: getComputedStyle(document.documentElement).getPropertyValue("--accent-soft").trim() || "#eaf1fb",
+            primaryBorderColor: getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#0071e3",
+            primaryTextColor: getComputedStyle(document.documentElement).getPropertyValue("--text").trim() || "#1d1d1f",
+            lineColor: getComputedStyle(document.documentElement).getPropertyValue("--text-tertiary").trim() || "#86868b",
+            clusterBkg: getComputedStyle(document.documentElement).getPropertyValue("--bg-subtle").trim() || "#f5f5f7",
+            clusterBorder: getComputedStyle(document.documentElement).getPropertyValue("--border").trim() || "#d2d2d7",
+            edgeLabelBackground: getComputedStyle(document.documentElement).getPropertyValue("--bg-elevated").trim() || "#ffffff",
+          },
+          flowchart: { htmlLabels: true, curve: "basis", padding: 16 },
+          sequence: { mirrorActors: false, showSequenceNumbers: true },
+          mindmap: { padding: 12 },
+        });
+        for (const node of nodes) {
+          const src = node.textContent || "";
+          try {
+            const { svg } = await mermaid.render("mmd-" + Math.random().toString(36).slice(2), src);
+            node.innerHTML = svg;
+            node.setAttribute("data-rendered", "true");
+          } catch (err) {
+            console.error("mermaid render error:", err);
+            node.setAttribute("data-error", "true");
+          }
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        rendering = false;
+      }
+    }
+
+    document.addEventListener("astro:after-swap", () => renderAll());
+    document.addEventListener("astro:page-load", () => renderAll());
+    document.addEventListener("DOMContentLoaded", () => renderAll());
+    if (document.readyState !== "loading") renderAll();
+
+    // 视图过渡不触发事件时,靠 DOM 观察兜底
+    // 视图过渡会替换 <body>,必须观察 documentElement
+    const mo = new MutationObserver(() => renderAll());
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  }
 </script>

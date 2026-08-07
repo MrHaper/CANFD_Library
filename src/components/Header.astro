@@ -48,8 +48,11 @@ const currentPath = Astro.url.pathname.startsWith(baseUrlPath)
 </header>
 
 <script>
-  const header = document.getElementById("site-header");
-  const onScroll = () => header?.classList.toggle("scrolled", window.scrollY > 8);
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+  if (!window.__headerBound) {
+    window.__headerBound = true;
+    const onScroll = () =>
+      document.getElementById("site-header")?.classList.toggle("scrolled", window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
 </script>

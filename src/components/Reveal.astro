@@ -5,35 +5,53 @@ const Tag = as as any;
 <Tag class="reveal" data-delay={delay}><slot /></Tag>
 
 <script>
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reduced) {
-    const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          const el = entry.target as HTMLElement;
-          const delayMs = Number(el.getAttribute("data-delay") || 0);
-          el.animate(
-            [
-              { opacity: 0, transform: "translateY(18px)" },
-              { opacity: 1, transform: "none" },
-            ],
-            {
-              duration: 600,
-              delay: delayMs,
-              easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-              fill: "both",
+  if (!window.__revealBound) {
+    window.__revealBound = true;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let io: IntersectionObserver | null = null;
+
+    function bind(root: Document | Element = document) {
+      if (reduced) {
+        root.querySelectorAll<HTMLElement>(".reveal").forEach((el) => el.classList.add("visible"));
+        return;
+      }
+      if (!io) {
+        io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              const el = entry.target as HTMLElement;
+              const delayMs = Number(el.getAttribute("data-delay") || 0);
+              el.animate(
+                [
+                  { opacity: 0, transform: "translateY(18px)" },
+                  { opacity: 1, transform: "none" },
+                ],
+                {
+                  duration: 600,
+                  delay: delayMs,
+                  easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                  fill: "both",
+                }
+              );
+              el.classList.add("visible");
+              io!.unobserve(el);
             }
-          );
-          el.classList.add("visible");
-          io.unobserve(el);
+          },
+          { threshold: 0.15 }
+        );
+      }
+      root.querySelectorAll<HTMLElement>(".reveal").forEach((el) => {
+        if (!el.dataset.revealObserved) {
+          el.dataset.revealObserved = "1";
+          io!.observe(el);
         }
-      },
-      { threshold: 0.15 }
-    );
-    els.forEach((el) => io.observe(el));
-  } else {
-    document.querySelectorAll<HTMLElement>(".reveal").forEach((el) => el.classList.add("visible"));
+      });
+    }
+
+    bind();
+    // 视图过渡会替换 <body>,必须观察 documentElement
+    const mo = new MutationObserver(() => bind());
+    mo.observe(document.documentElement, { childList: true, subtree: true });
   }
 </script>
